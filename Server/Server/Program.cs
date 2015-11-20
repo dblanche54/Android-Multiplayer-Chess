@@ -12,7 +12,11 @@ namespace Server
     class Program
     {
 
+        // Data types to represent what state a board block could be in
+        // chessmanColour repreents the colour of the piece, or in case of no piece; empty
         public enum chessmanColour { empty, white, black }
+
+        // chesman represents the type of pieces, or if none; empty
         public enum chessman { empty, King, Queen, Rook, Bishop, Knight, Pawn }
 
         // What is in a square
@@ -22,6 +26,7 @@ namespace Server
             public chessman piece; // content of the game piece
         }
 
+        // Basic structure of all the gamedata for each game
         public struct gameObject
         {
             public gameSquare[,] boardGame;
@@ -30,12 +35,16 @@ namespace Server
             public string playerTwo;
         }
 
+        // List of all games that are going on
         public static List<gameObject> gamesInPlay;
 
+        // List of usernames to make sure new connections have unique usernames
         public static List<String> userNames;
         
+        // delegate init.
         public delegate void Del(TcpClient client);
 
+        // Genearte a standard board
         gameSquare[,] generateDefaultBoard()
         {
             return
