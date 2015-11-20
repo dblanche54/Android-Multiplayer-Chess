@@ -1,0 +1,10 @@
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\MP_Chess.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\Mono.Android.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\mscorlib.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\System.Core.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\System.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\System.Xml.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\Xamarin.Insights.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\System.Runtime.Serialization.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\System.ServiceModel.Internals.dll
+D:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\obj\Debug\assemblies\System.Net.Http.dll
