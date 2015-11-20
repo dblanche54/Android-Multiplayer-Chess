@@ -45,7 +45,7 @@ namespace Server
         public delegate void Del(TcpClient client);
 
         // Genearte a standard board
-        gameSquare[,] generateDefaultBoard()
+        public static gameSquare[,] generateDefaultBoard()
         {
             return
                 new gameSquare[8, 8]
@@ -145,9 +145,71 @@ namespace Server
         {
             try
             {
+                // get streams
+                StreamReader reader = new StreamReader(client.GetStream());
+                StreamWriter writer = new StreamWriter(client.GetStream());
+
+                Console.Write("New Delegate created to handle new connection.\n");
+
+                gameObject myGame = new gameObject();
+
+                // Setup where the command data will be stored
+                string[] command;
+
+                // Read in from the socket here
+                string recieve;
+
+                // While logged in, recieve and process data
+                bool loggedIn = true; 
+
+                // Recieve input
+                do {
+                    // Read in from socket
+                    recieve = reader.ReadLine();
+
+                    command = recieve.Split(' ');
+
+                    // Switch based on command recieved
+                    switch (command[0])
+                    {
+                        // Login to the server
+                        case "LOGIN":
+                            
+                            break;
+                        // Start New Game
+                        case "NEW":
+                            myGame.boardGame = generateDefaultBoard();
+                            break;
+                        // Move a chess piece
+                        case "MOVE":
+
+                            break;
+                        // Get new moves that have been made
+                        case "GETMOVE":
+
+                            break;
+                        // logout from the server
+                        case "LOGOUT":
+                            loggedIn = false;
+                            break;
+                        // Get new messages that are in the chatroom
+                        case "GET":
+
+                            break;
+                        // default, any other string sent will be posted to the chatroom
+                        default:
+
+                            break;
+
+                    }
+                } while (loggedIn);
+
+
                 // do the work of a server instance
 
-            } catch (Exception E) { Console.WriteLine("Exception " + E); }
+
+            }
+            catch (Exception E) { Console.WriteLine("Exception " + E); }
             
         }
 
