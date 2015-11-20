@@ -8,7 +8,7 @@ using Android.Widget;
 namespace MP_Chess
 {
 	[Activity (Label = "@string/callHistory")]			
-	public class CallHistoryActivity : Activity
+	public class CallHistoryActivity : ListActivity
 	{
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
