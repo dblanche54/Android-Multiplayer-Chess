@@ -12,19 +12,19 @@ namespace Server
     class Program
     {
 
-        enum chessmanColour { empty, white, black }
-        enum chessman { King, Queen, Rook, Bishop, Knight, Pawn }
+        public enum chessmanColour { empty, white, black }
+        public enum chessman { empty, King, Queen, Rook, Bishop, Knight, Pawn }
 
         // What is in a square
         public struct gameSquare
         {
-            chessmanColour colour; // colour of the piece on the square 
-            chessman piece; // content of the game piece
+            public chessmanColour colour; // colour of the piece on the square 
+            public chessman piece; // content of the game piece
         }
 
         public struct gameObject
         {
-            public gameSquare[] boardGame;
+            public gameSquare[,] boardGame;
             public List<String> chatRoom;
             public string playerOne;
             public string playerTwo;
@@ -35,6 +35,102 @@ namespace Server
         public static List<String> userNames;
         
         public delegate void Del(TcpClient client);
+
+        gameSquare[,] generateDefaultBoard()
+        {
+            return
+                new gameSquare[8, 8]
+                { 
+                    // ROW 1
+                    {
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Rook },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Knight },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Bishop },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.King },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Queen },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Bishop },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Knight },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Rook }
+                    },
+                    // ROW 2
+                    {
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.black, piece = chessman.Pawn }
+                    },
+                    // ROW 3
+                    {
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty }
+                    },
+                    //ROW 4
+                    {
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty }
+                    },
+                    // ROW 5
+                    {
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty }
+                    },
+                    // ROW 6
+                    {
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty },
+                        new gameSquare() { colour = chessmanColour.empty, piece = chessman.empty }
+                    },
+                    // ROW 7
+                    {
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Pawn },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Pawn }
+                    },
+                    // ROW 8
+                    {
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Rook },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Knight },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Bishop },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Queen },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.King },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Bishop },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Knight },
+                        new gameSquare() { colour = chessmanColour.white, piece = chessman.Rook }
+                    }
+                };
+        }
         
         public static void handleNewConnection(TcpClient client)
         {
@@ -46,7 +142,7 @@ namespace Server
             
         }
 
-                static void Main(string[] args)
+        static void Main(string[] args)
         {
             Console.Write("Server Starting Up\n");
 
