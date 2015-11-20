@@ -63,6 +63,9 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060003
 			public const int CallButton = 2131099651;
 			
+			// aapt resource value: 0x7f060004
+			public const int CallHistoryButton = 2131099652;
+			
 			// aapt resource value: 0x7f060001
 			public const int PhoneNumberText = 2131099649;
 			
@@ -119,6 +122,9 @@ namespace MP_Chess
 			
 			// aapt resource value: 0x7f050001
 			public const int app_name = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int callHistory = 2131034114;
 			
 			// aapt resource value: 0x7f050000
 			public const int hello = 2131034112;

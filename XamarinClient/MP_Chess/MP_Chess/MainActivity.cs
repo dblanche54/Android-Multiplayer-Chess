@@ -5,13 +5,15 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.Collections.Generic;
 
 namespace MP_Chess
 {
-	[Activity (Label = "MP Chess", MainLauncher = true, Icon = "@mipmap/icon")]
+	[Activity (Label = "MP Chess", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
 		//int count = 1;
+		static readonly List<string> phoneNumbers = new List<string>();
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -27,6 +29,14 @@ namespace MP_Chess
 
 			// Disable the "Call" button
 			callButton.Enabled = false;
+
+			Button callHistoryButton = FindViewById<Button> (Resource.Id.CallHistoryButton);
+			callHistoryButton.Click += (sender, e) =>
+			{
+				var intent = new Intent(this, typeof(CallHistoryActivity));
+				intent.PutStringArrayListExtra("phone_numbers", phoneNumbers);
+				StartActivity(intent);
+			};
 
 			// Add code to translate number
 			string translatedNumber = string.Empty;
@@ -47,6 +57,8 @@ namespace MP_Chess
 				}
 			};
 
+
+
 			callButton.Click += (object sender, EventArgs e) =>
 			{
 				// On "Call" button click, try to dial phone number.
@@ -60,9 +72,25 @@ namespace MP_Chess
 				});
 				callDialog.SetNegativeButton("Cancel", delegate { });
 
+				callDialog.SetNeutralButton("Call", delegate
+				{
+					// add dialed number to list of called numbers.
+					phoneNumbers.Add(translatedNumber);
+					// enable the Call History button
+					callHistoryButton.Enabled = true;
+					// Create intent to dial phone
+					var callIntent = new Intent(Intent.ActionCall);
+					callIntent.SetData(Android.Net.Uri.Parse("tel:" + translatedNumber));
+					StartActivity(callIntent);
+				});
+
 				// Show the alert dialog to the user and wait for response.
 				callDialog.Show();
 			};
+
+
+
+
 		}
 
 
