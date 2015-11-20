@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="MP_Chess\MP_Chess.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Xamarin_Android_API_23" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MP_Chess\MainActivity.cs">
+    <Files>
+      <File FileName="MP_Chess\MainActivity.cs" Line="21" Column="42" />
+      <File FileName="MP_Chess\PhoneTranslator.cs" Line="41" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MP__Chess AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>
