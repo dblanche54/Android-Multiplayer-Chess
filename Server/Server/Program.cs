@@ -179,6 +179,7 @@ namespace Server
                         // Start New Game
                         case "NEW":
                             myGame.boardGame = generateDefaultBoard();
+                          
                             break;
                         // Move a chess piece
                         case "MOVE":
@@ -193,6 +194,39 @@ namespace Server
                             loggedIn = false;
                             break;
                         // Get new messages that are in the chatroom
+                        case "PRINT":
+                            for (int i = 0; i < 8; i++)
+                            {
+                                for (int j = 0; j < 8; j++)
+                                {
+                                    switch (myGame.boardGame[i, j].piece)
+                                    {
+                                        case chessman.Bishop:
+                                            Console.Write("B ");
+                                            break;
+                                        case chessman.King:
+                                            Console.Write("K ");
+                                            break;
+                                        case chessman.Knight:
+                                            Console.Write("N ");
+                                            break;
+                                        case chessman.Pawn:
+                                            Console.Write("P ");
+                                            break;
+                                        case chessman.Queen:
+                                            Console.Write("Q ");
+                                            break;
+                                        case chessman.Rook:
+                                            Console.Write("R ");
+                                            break;
+                                        default:
+                                            Console.Write("  ");
+                                            break;
+                                    }
+                                }
+                                Console.WriteLine("");
+                            }
+                            break;
                         case "GET":
 
                             break;
@@ -255,6 +289,8 @@ namespace Server
                 connected++;
 
             }
+
+
         }
     }
 }
