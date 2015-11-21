@@ -239,8 +239,18 @@ namespace Server
                         // Join a game (other player needs to be expecting user)
                         // Expected string "JOIN username_of_other_player"
                         case "JOIN":
+                            // set opponent username
                             usernameOpponent = command[1];
-
+                            // search all games for a game that matches the state I'm expecting
+                            foreach (gameObject game in gamesInPlay)
+                            {
+                                // if game I'm looking for 
+                                if (game.playerOne == usernameOpponent && game.playerTwo == username)
+                                {
+                                    // add game to my game
+                                    myGame = game;
+                                }
+                            }
                             break;
                         // Move a chess piece
                         // Expecting string "MOVE x1 y1 x2 y2"
