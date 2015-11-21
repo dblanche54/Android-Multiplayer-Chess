@@ -232,7 +232,9 @@ namespace Server
                         // Expected string "NEW username_of_other_player"
                         case "NEW":
                             myGame.boardGame = generateDefaultBoard();
+                            myGame.playerOne = username;
                             usernameOpponent = command[1];
+                            myGame.playerOne = usernameOpponent;
                             myGame.lastPlayed = new lastMove();
                             isActive = true;
                             break;
