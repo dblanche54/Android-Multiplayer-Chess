@@ -175,7 +175,7 @@ namespace Server
                 string recieve;
 
                 // username of active connection
-                string username;
+                string username = "";
 
                 // Username of person they are playing against
                 string usernameOpponent;
@@ -253,7 +253,10 @@ namespace Server
                             break;
                         // logout from the server
                         case "LOGOUT":
+                            // logout
                             loggedIn = false;
+                            // remove username from list of active users
+                            userNames.Remove(username);
                             break;
                         // Get new messages that are in the chatroom
                         case "PRINT":
