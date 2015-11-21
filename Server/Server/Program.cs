@@ -249,6 +249,7 @@ namespace Server
                                 {
                                     // add game to my game
                                     myGame = game;
+                                    isActive = true;
                                 }
                             }
                             break;
