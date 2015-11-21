@@ -174,8 +174,17 @@ namespace Server
                 // Read in from the socket here
                 string recieve;
 
+                // username of active connection
+                string username;
+
+                // Username of person they are playing against
+                string usernameOpponent;
+
                 // While logged in, recieve and process data
-                bool loggedIn = true; 
+                bool loggedIn = true;
+
+                // Does this user have an active game?
+                bool isActive = false;
 
                 // Recieve input
                 do {
@@ -188,15 +197,53 @@ namespace Server
                     switch (command[0])
                     {
                         // Login to the server
+                        // Expected string "LOGIN username"
                         case "LOGIN":
-                            
+                            if (command.Length == 2) {
+                                username = command[1];
+                                // make sure there are usernames to check
+                                if (userNames.Count > 0)
+                                {
+                                    // search in use usernames for the desired username
+                                    foreach (string user in userNames)
+                                    {
+                                        // if username already in list, it's already in use, thus log them out
+                                        if (user == username)
+                                        {
+                                            loggedIn = false;
+                                            writer.WriteLine("Username already in use, try with another");
+                                            break;
+                                        }
+                                    }
+                                }
+                                if (loggedIn)
+                                {
+                                    // if still logged in (i.e. not been logged out because username in use)
+                                    // add username to the list of usernames in use
+                                    userNames.Add(username);
+                                }
+                            }
+                            else
+                            {
+                                // If command login command isn't what was expected let the player know
+                                writer.WriteLine("Username not provided.");
+                            }
                             break;
                         // Start New Game
+                        // Expected string "NEW username_of_other_player"
                         case "NEW":
                             myGame.boardGame = generateDefaultBoard();
-                          
+                            usernameOpponent = command[1];
+                            isActive = true;
+                            break;
+                        // Join a game (other player needs to be expecting user)
+                        // Expected string "JOIN username_of_other_player"
+                        case "JOIN":
+                            usernameOpponent = command[1];
+
                             break;
                         // Move a chess piece
+                        // Expecting string "MOVE x1 y1 x2 y2"
                         case "MOVE":
 
                             break;
