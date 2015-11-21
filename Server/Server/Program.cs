@@ -19,18 +19,15 @@ namespace Server
         // chesman represents the type of pieces, or if none; empty
         public enum chessman { empty, King, Queen, Rook, Bishop, Knight, Pawn }
 
-        // Used to see which player was last to make a move
-        public enum player { playerOne, playerTwo }
-
         // Used to keep track of what the last move was, so we only need to send
             // this structure, rather than the entire gamestate each round
         public struct lastMove
         {
-            player lastPlayer; // the last player who took the the turn
-            int xOrigin; // the original x coordinate that was moved
-            int yOrigin; // the original y coordinate that was moved
-            int xMoved; // the x coordinate that the player moved to
-            int yMoved; // the y coordinate that the player moved to
+            public string lastPlayer; // the last player who took the the turn
+            public int xOrigin; // the original x coordinate that was moved
+            public int yOrigin; // the original y coordinate that was moved
+            public int xMoved; // the x coordinate that the player moved to
+            public int yMoved; // the y coordinate that the player moved to
         }
 
         // What is in a square
@@ -234,6 +231,7 @@ namespace Server
                         case "NEW":
                             myGame.boardGame = generateDefaultBoard();
                             usernameOpponent = command[1];
+                            myGame.lastPlayed = new lastMove();
                             isActive = true;
                             break;
                         // Join a game (other player needs to be expecting user)
@@ -245,6 +243,20 @@ namespace Server
                         // Move a chess piece
                         // Expecting string "MOVE x1 y1 x2 y2"
                         case "MOVE":
+                            // Add moves to last played structure for other player to use
+                            myGame.lastPlayed.xOrigin = Convert.ToInt32(command[1]);
+                            myGame.lastPlayed.yOrigin = Convert.ToInt32(command[2]);
+                            myGame.lastPlayed.xMoved = Convert.ToInt32(command[3]);
+                            myGame.lastPlayed.yMoved = Convert.ToInt32(command[4]);
+                            // flag that I'm the last player
+                            myGame.lastPlayed.lastPlayer = username;
+                            // update the game state
+                            // move the piece
+                            myGame.boardGame[myGame.lastPlayed.xMoved, myGame.lastPlayed.yMoved]
+                                = myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin];
+                            // clear old square
+                            myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin]
+                                = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
 
                             break;
                         // Get new moves that have been made
