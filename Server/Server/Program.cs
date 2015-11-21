@@ -19,6 +19,20 @@ namespace Server
         // chesman represents the type of pieces, or if none; empty
         public enum chessman { empty, King, Queen, Rook, Bishop, Knight, Pawn }
 
+        // Used to see which player was last to make a move
+        public enum player { playerOne, playerTwo }
+
+        // Used to keep track of what the last move was, so we only need to send
+            // this structure, rather than the entire gamestate each round
+        public struct lastMove
+        {
+            player lastPlayer; // the last player who took the the turn
+            int xOrigin; // the original x coordinate that was moved
+            int yOrigin; // the original y coordinate that was moved
+            int xMoved; // the x coordinate that the player moved to
+            int yMoved; // the y coordinate that the player moved to
+        }
+
         // What is in a square
         public struct gameSquare
         {
@@ -29,10 +43,11 @@ namespace Server
         // Basic structure of all the gamedata for each game
         public struct gameObject
         {
-            public gameSquare[,] boardGame;
-            public List<String> chatRoom;
-            public string playerOne;
-            public string playerTwo;
+            public gameSquare[,] boardGame; // The boardgame state
+            public List<String> chatRoom; // List of string that make up the chatroom
+            public lastMove lastPlayed; // Last move made by a player
+            public string playerOne; // Username of player 1
+            public string playerTwo; // Username of player 2
         }
 
         // List of all games that are going on
