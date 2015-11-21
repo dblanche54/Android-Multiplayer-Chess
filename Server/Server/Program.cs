@@ -175,7 +175,7 @@ namespace Server
                 string username = "";
 
                 // Username of person they are playing against
-                string usernameOpponent;
+                string usernameOpponent = "";
 
                 // While logged in, recieve and process data
                 bool loggedIn = true;
@@ -209,6 +209,7 @@ namespace Server
                                         {
                                             loggedIn = false;
                                             writer.WriteLine("Username already in use, try with another");
+                                            writer.Flush();
                                             break;
                                         }
                                     }
@@ -224,6 +225,7 @@ namespace Server
                             {
                                 // If command login command isn't what was expected let the player know
                                 writer.WriteLine("Username not provided.");
+                                writer.Flush();
                             }
                             break;
                         // Start New Game
@@ -261,7 +263,14 @@ namespace Server
                             break;
                         // Get new moves that have been made
                         case "GETMOVE":
-
+                            if(myGame.lastPlayed.lastPlayer != username)
+                            {
+                                writer.WriteLine("MOVE " + myGame.lastPlayed.xOrigin.ToString() + " "
+                                    + myGame.lastPlayed.yOrigin.ToString() + " "
+                                    + myGame.lastPlayed.xMoved.ToString() + " "
+                                    + myGame.lastPlayed.yMoved.ToString());
+                                writer.Flush();
+                            }
                             break;
                         // logout from the server
                         case "LOGOUT":
@@ -270,7 +279,7 @@ namespace Server
                             // remove username from list of active users
                             userNames.Remove(username);
                             break;
-                        // Get new messages that are in the chatroom
+                        // print gamestate to console. It's really more of a debug option
                         case "PRINT":
                             for (int i = 0; i < 8; i++)
                             {
@@ -304,6 +313,7 @@ namespace Server
                                 Console.WriteLine("");
                             }
                             break;
+                        // Get new messages that are in the chatroom
                         case "GET":
 
                             break;
