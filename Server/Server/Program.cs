@@ -337,11 +337,6 @@ namespace Server
 
                     }
                 } while (loggedIn);
-
-
-                // do the work of a server instance
-
-
             }
             catch (Exception E) { Console.WriteLine("Exception " + E); }
             
