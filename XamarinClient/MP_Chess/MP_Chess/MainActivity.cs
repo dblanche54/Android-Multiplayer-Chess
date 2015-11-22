@@ -6,14 +6,25 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Java.IO;
+using Java.Net;
+
+
+
 
 namespace MP_Chess
 {
 	[Activity (Label = "MP Chess", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		//int count = 1;
-		static readonly List<string> phoneNumbers = new List<string>();
+		
+		protected Socket socket;
+		protected int portNum = 8080;
+		protected String uname;
+		protected String serverAddr;
+
+		ProgressDialog progress;
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -23,78 +34,56 @@ namespace MP_Chess
 			SetContentView (Resource.Layout.Main);
 
 			// Get our UI controls from the loaded layout:
-			EditText phoneNumberText = FindViewById<EditText>(Resource.Id.PhoneNumberText);
-			Button translateButton = FindViewById<Button>(Resource.Id.TranslateButton);
-			Button callButton = FindViewById<Button>(Resource.Id.CallButton);
+			EditText serverText = FindViewById<EditText>(Resource.Id.ServerText);
+			EditText userText = FindViewById<EditText>(Resource.Id.UserText);
 
-			// Disable the "Call" button
-			callButton.Enabled = false;
+			Button connectButton = FindViewById<Button>(Resource.Id.ConnectButton);
 
-			Button callHistoryButton = FindViewById<Button> (Resource.Id.CallHistoryButton);
-			callHistoryButton.Click += (sender, e) =>
+			//Wire up the connnect button
+			connectButton.Click += (object sender, EventArgs e) =>
 			{
-				var intent = new Intent(this, typeof(CallHistoryActivity));
-				intent.PutStringArrayListExtra("phone_numbers", phoneNumbers);
-				StartActivity(intent);
+				serverAddr= serverText.Text;
+				uname = userText.Text;
+				// On "Connect" button click, try to connect to a server.
+				progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true); 
+
+				Task.Factory.StartNew (
+					// tasks allow you to use the lambda syntax to pass work
+					() => {
+						ConProcess();
+					}
+				).ContinueWith(t => {
+					if (progress != null)
+						progress.Hide();
+					if(socket == null){
+						//setError("Couldn't connect");
+						var intent = new Intent(this, typeof(ChessActivity));
+						StartActivity(intent);
+					}else{
+						setError("Connected");
+					}
+
+				}, TaskScheduler.FromCurrentSynchronizationContext()
+
+				);
 			};
-
-			// Add code to translate number
-			string translatedNumber = string.Empty;
-
-			translateButton.Click += (object sender, EventArgs e) =>
-			{
-				// Translate user's alphanumeric phone number to numeric
-				translatedNumber = Core.PhonewordTranslator.ToNumber(phoneNumberText.Text);
-				if (String.IsNullOrWhiteSpace(translatedNumber))
-				{
-					callButton.Text = "Call";
-					callButton.Enabled = false;
-				}
-				else
-				{
-					callButton.Text = "Call " + translatedNumber;
-					callButton.Enabled = true;
-				}
-			};
-
-
-
-			callButton.Click += (object sender, EventArgs e) =>
-			{
-				// On "Call" button click, try to dial phone number.
-				var callDialog = new AlertDialog.Builder(this);
-				callDialog.SetMessage("Call " + translatedNumber + "?");
-				callDialog.SetNeutralButton("Call", delegate {
-					// Create intent to dial phone
-					var callIntent = new Intent(Intent.ActionCall);
-					callIntent.SetData(Android.Net.Uri.Parse("tel:" + translatedNumber));
-					StartActivity(callIntent);
-				});
-				callDialog.SetNegativeButton("Cancel", delegate { });
-
-				callDialog.SetNeutralButton("Call", delegate
-				{
-					// add dialed number to list of called numbers.
-					phoneNumbers.Add(translatedNumber);
-					// enable the Call History button
-					callHistoryButton.Enabled = true;
-					// Create intent to dial phone
-					var callIntent = new Intent(Intent.ActionCall);
-					callIntent.SetData(Android.Net.Uri.Parse("tel:" + translatedNumber));
-					StartActivity(callIntent);
-				});
-
-				// Show the alert dialog to the user and wait for response.
-				callDialog.Show();
-			};
-
-
-
 
 		}
 
+		private void setError(String str){
+			TextView errorText = FindViewById<TextView>(Resource.Id.ErrorText);
+			errorText.Text = str;
+		}
 
+		protected void ConProcess(){
+			try{
 
+				socket = new Socket(serverAddr, portNum);
+
+			}catch(IOException ioe){
+				setError( ioe.ToString());
+			}
+		}
 	}
 }
 

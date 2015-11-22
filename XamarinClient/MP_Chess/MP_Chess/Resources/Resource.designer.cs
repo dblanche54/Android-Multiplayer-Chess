@@ -60,20 +60,32 @@ namespace MP_Chess
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060003
-			public const int CallButton = 2131099651;
+			// aapt resource value: 0x7f060007
+			public const int ConnectButton = 2131099655;
 			
-			// aapt resource value: 0x7f060004
-			public const int CallHistoryButton = 2131099652;
+			// aapt resource value: 0x7f060008
+			public const int ErrorText = 2131099656;
 			
 			// aapt resource value: 0x7f060001
-			public const int PhoneNumberText = 2131099649;
-			
-			// aapt resource value: 0x7f060002
-			public const int TranslateButton = 2131099650;
+			public const int ExitButton = 2131099649;
 			
 			// aapt resource value: 0x7f060000
-			public const int textView1 = 2131099648;
+			public const int HeadText = 2131099648;
+			
+			// aapt resource value: 0x7f060004
+			public const int ServerText = 2131099652;
+			
+			// aapt resource value: 0x7f060006
+			public const int UserText = 2131099654;
+			
+			// aapt resource value: 0x7f060003
+			public const int textView1 = 2131099651;
+			
+			// aapt resource value: 0x7f060002
+			public const int textView2 = 2131099650;
+			
+			// aapt resource value: 0x7f060005
+			public const int textView3 = 2131099653;
 			
 			static Id()
 			{
@@ -89,7 +101,10 @@ namespace MP_Chess
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int Main = 2130968576;
+			public const int Chess = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int Main = 2130968577;
 			
 			static Layout()
 			{
