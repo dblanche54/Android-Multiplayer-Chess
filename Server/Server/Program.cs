@@ -396,7 +396,7 @@ namespace Server
                 // Start new delegate
                 results[connected] = handleConnection[connected].BeginInvoke(client, null, null);
                 
-
+                // count up connected connections
                 connected++;
 
             }
