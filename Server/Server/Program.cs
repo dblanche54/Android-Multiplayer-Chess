@@ -183,6 +183,9 @@ namespace Server
                 // Does this user have an active game?
                 bool isActive = false;
 
+                // Last line of chatroom that has been sent to client
+                int lastLine = 0;
+
                 // Recieve input
                 do {
                     // Read in from socket
@@ -328,11 +331,24 @@ namespace Server
                             break;
                         // Get new messages that are in the chatroom
                         case "GET":
-
+                            for(int i = lastLine; i < myGame.chatRoom.Count; i++)
+                            {
+                                // send all unread messages
+                                writer.WriteLine(myGame.chatRoom[i]);
+                                lastLine++;
+                                writer.Flush();
+                            }
                             break;
                         // default, any other string sent will be posted to the chatroom
                         default:
-
+                            string connectedString = "";
+                            for (int i = 1; i < command.Length; i++)
+                            {
+                                // catnate the command string to allow spaces to reform
+                                connectedString = connectedString + command[i];
+                            }
+                            // add line to chatroom
+                            myGame.chatRoom.Add(username + ": " + connectedString);
                             break;
 
                     }
@@ -351,7 +367,7 @@ namespace Server
             gamesInPlay = new List<gameObject>();
 
             // create server, on port 8180
-            TcpListener server = new TcpListener(8180);
+            TcpListener server = new TcpListener(8080);
 
             // start server
             server.Start();
