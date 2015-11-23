@@ -53,6 +53,11 @@ namespace MP_Chess
 				sockInstance = new SocketSingleton (serverAddr, 8080);
 
 				new ClientThread().Start();
+
+				Intent intent = new Intent(this,typeof(ChessActivity));
+				StartActivity(intent);
+
+
 				/*
 				// On "Connect" button click, try to connect to a server.
 				progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true); 
