@@ -67,9 +67,7 @@ namespace MP_Chess
 					if (progress != null)
 						progress.Hide();
 					if(socket == null){
-						//setError("Couldn't connect");
-						var intent = new Intent(this, typeof(ChessActivity));
-						StartActivity(intent);
+						setError("Couldn't connect");
 					}else{
 						setError("Connected");
 						Intent intent = new Intent(this,typeof(ChessActivity));
