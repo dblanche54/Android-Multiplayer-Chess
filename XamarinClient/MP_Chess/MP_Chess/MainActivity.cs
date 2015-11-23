@@ -36,7 +36,6 @@ namespace MP_Chess
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			sockInstance = new SocketSingleton ();
 
 			// Get our UI controls from the loaded layout:
 			EditText serverText = FindViewById<EditText>(Resource.Id.ServerText);
@@ -51,6 +50,7 @@ namespace MP_Chess
 
 				serverAddr= serverText.Text;
 				uname = userText.Text;
+				sockInstance = new SocketSingleton (serverAddr, 8080);
 
 				new ClientThread().Start();
 				/*
