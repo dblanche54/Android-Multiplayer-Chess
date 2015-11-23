@@ -7,6 +7,7 @@ using Android.Widget;
 using Android.OS;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Threading;
 using Java.IO;
 using Java.Net;
 
@@ -19,10 +20,12 @@ namespace MP_Chess
 	public class MainActivity : Activity
 	{
 		
-		protected Socket socket;
+		public Socket socket;
 		protected int portNum = 8080;
 		protected String uname;
 		protected String serverAddr;
+
+		SocketSingleton sockInstance;
 
 		ProgressDialog progress;
 
@@ -33,6 +36,8 @@ namespace MP_Chess
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
+			sockInstance = new SocketSingleton ();
+
 			// Get our UI controls from the loaded layout:
 			EditText serverText = FindViewById<EditText>(Resource.Id.ServerText);
 			EditText userText = FindViewById<EditText>(Resource.Id.UserText);
@@ -42,8 +47,13 @@ namespace MP_Chess
 			//Wire up the connnect button
 			connectButton.Click += (object sender, EventArgs e) =>
 			{
+				
+
 				serverAddr= serverText.Text;
 				uname = userText.Text;
+
+				new Thread(new ClientThread()).Start();
+				/*
 				// On "Connect" button click, try to connect to a server.
 				progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true); 
 
@@ -65,9 +75,24 @@ namespace MP_Chess
 
 				}, TaskScheduler.FromCurrentSynchronizationContext()
 
-				);
+				);*/
 			};
 
+		}
+
+		protected  void initSingleton(){
+			SocketSingleton.initSingleton ();
+		}
+
+		class ClientThread {
+			public void run(){
+				initSingleton ();
+				Socket socket = SocketSingleton.getInstance ().getSocket ();
+
+				while (true) {
+					//Receive comms
+				}
+			}
 		}
 
 		private void setError(String str){

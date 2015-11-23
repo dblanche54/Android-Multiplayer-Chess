@@ -21,6 +21,8 @@ namespace MP_Chess
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.Chess);
 
+
+
 			// Create your application here
 			Button exitButton = FindViewById<Button>(Resource.Id.ExitButton);
 
