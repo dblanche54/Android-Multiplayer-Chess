@@ -128,6 +128,41 @@ namespace MP_Chess
 			};
 		}
 
+		public string printBoard(gameSquare[,] square){
+			string board = "";
+			for (int i = 0; i < 8; i++)
+			{
+				for (int j = 0; j < 8; j++)
+				{
+					switch (square[i, j].piece)
+					{
+					case chessman.Bishop:
+						board = board + "B ";
+						break;
+					case chessman.King:
+						board = board + "K ";
+						break;
+					case chessman.Knight:
+						board = board + "N ";
+						break;
+					case chessman.Pawn:
+						board = board + "P ";
+						break;
+					case chessman.Queen:
+						board = board + "Q ";
+						break;
+					case chessman.Rook:
+						board = board + "R ";
+						break;
+					default:
+						board = board + "  ";
+						break;
+					}
+				}
+				board = board + "\n";
+			}
+			return board;
+		}
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -137,6 +172,8 @@ namespace MP_Chess
 			// Make a chess board
 			gameSquare[,] chessBoard = generateDefaultBoard ();
 
+			TextView board = FindViewById<TextView> (Resource.Id.ChessBoard);
+			board.Text = printBoard (chessBoard);
 
 			// Create your application here
 			Button exitButton = FindViewById<Button>(Resource.Id.ExitButton);

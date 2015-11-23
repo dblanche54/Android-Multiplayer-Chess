@@ -12,11 +12,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/HeadText" />
     <TextView
-        android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:id="@+id/ChessBoard" />
     <Button
         android:text="Exit"
         android:layout_width="match_parent"
