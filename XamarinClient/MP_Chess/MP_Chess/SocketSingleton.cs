@@ -5,7 +5,7 @@ using Java.Net;
 
 namespace MP_Chess
 {
-	public class SocketSingleton
+	public sealed class SocketSingleton
 	{
 		private static Socket clientSocket;
 		private DataInputStream input;

@@ -52,7 +52,7 @@ namespace MP_Chess
 				serverAddr= serverText.Text;
 				uname = userText.Text;
 
-				new Thread(new ClientThread()).Start();
+				new ClientThread().Start();
 				/*
 				// On "Connect" button click, try to connect to a server.
 				progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true); 
@@ -80,12 +80,30 @@ namespace MP_Chess
 
 		}
 
-		protected  void initSingleton(){
+		protected static void initSingleton(){
 			SocketSingleton.initSingleton ();
 		}
 
-		class ClientThread {
-			public void run(){
+
+
+		public abstract class BaseThread {
+			private Thread _thread;
+
+			protected BaseThread() { 
+				_thread = new Thread(new ThreadStart(this.RunThread)); }
+			
+			public void Start() {
+				_thread.Start ();
+			}
+			public void Join() { _thread.Join();}
+			public bool isActive { get { return _thread.IsAlive; } }
+
+		public abstract void RunThread();
+	}
+
+		public class ClientThread : BaseThread {
+			
+			public override void RunThread(){
 				initSingleton ();
 				Socket socket = SocketSingleton.getInstance ().getSocket ();
 

@@ -2,14 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Xamarin_Android_API_23" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MP_Chess\MainActivity.cs">
     <Files>
-      <File FileName="MP_Chess\MainActivity.cs" Line="84" Column="19" />
-      <File FileName="d:\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\ChessActivity.cs" Line="24" Column="4" />
-      <File FileName="MP_Chess\SocketSingleton.cs" Line="8" Column="30" NotebookId="1" />
+      <File FileName="MP_Chess\MainActivity.cs" Line="80" Column="4" />
+      <File FileName="MP_Chess\SocketSingleton.cs" Line="8" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MP__Chess AndroidDesignerPreferredDevice="Nexus 4" />
 </Properties>
