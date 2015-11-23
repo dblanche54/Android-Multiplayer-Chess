@@ -54,12 +54,8 @@ namespace MP_Chess
 
 				new ClientThread().Start();
 
-				Intent intent = new Intent(this,typeof(ChessActivity));
-				StartActivity(intent);
 
-
-				/*
-				// On "Connect" button click, try to connect to a server.
+								// On "Connect" button click, try to connect to a server.
 				progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true); 
 
 				Task.Factory.StartNew (
@@ -76,11 +72,14 @@ namespace MP_Chess
 						StartActivity(intent);
 					}else{
 						setError("Connected");
+						Intent intent = new Intent(this,typeof(ChessActivity));
+						StartActivity(intent);
+
 					}
 
 				}, TaskScheduler.FromCurrentSynchronizationContext()
 
-				);*/
+				);
 			};
 
 		}
