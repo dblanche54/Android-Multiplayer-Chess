@@ -234,121 +234,144 @@ namespace Server
                         // Start New Game
                         // Expected string "NEW username_of_other_player"
                         case "NEW":
-                            myGame.boardGame = generateDefaultBoard();
-                            myGame.playerOne = username;
-                            usernameOpponent = command[1];
-                            myGame.playerOne = usernameOpponent;
-                            myGame.lastPlayed = new lastMove();
-                            isActive = true;
+                            if (loggedIn)
+                            {
+                                myGame.boardGame = generateDefaultBoard();
+                                myGame.playerOne = username;
+                                usernameOpponent = command[1];
+                                myGame.playerOne = usernameOpponent;
+                                myGame.lastPlayed = new lastMove();
+                                isActive = true;
+                            }
                             break;
                         // Join a game (other player needs to be expecting user)
                         // Expected string "JOIN username_of_other_player"
                         case "JOIN":
-                            // set opponent username
-                            usernameOpponent = command[1];
-                            // search all games for a game that matches the state I'm expecting
-                            foreach (gameObject game in gamesInPlay)
+                            if (loggedIn)
                             {
-                                // if game I'm looking for 
-                                if (game.playerOne == usernameOpponent && game.playerTwo == username)
+                                // set opponent username
+                                usernameOpponent = command[1];
+                                // search all games for a game that matches the state I'm expecting
+                                foreach (gameObject game in gamesInPlay)
                                 {
-                                    // add game to my game
-                                    myGame = game;
-                                    isActive = true;
+                                    // if game I'm looking for 
+                                    if (game.playerOne == usernameOpponent && game.playerTwo == username)
+                                    {
+                                        // add game to my game
+                                        myGame = game;
+                                        isActive = true;
+                                    }
                                 }
                             }
                             break;
                         // Move a chess piece
                         // Expecting string "MOVE x1 y1 x2 y2"
                         case "MOVE":
-                            // Add moves to last played structure for other player to use
-                            myGame.lastPlayed.xOrigin = Convert.ToInt32(command[1]);
-                            myGame.lastPlayed.yOrigin = Convert.ToInt32(command[2]);
-                            myGame.lastPlayed.xMoved = Convert.ToInt32(command[3]);
-                            myGame.lastPlayed.yMoved = Convert.ToInt32(command[4]);
-                            // flag that I'm the last player
-                            myGame.lastPlayed.lastPlayer = username;
-                            // update the game state
-                            // move the piece
-                            myGame.boardGame[myGame.lastPlayed.xMoved, myGame.lastPlayed.yMoved]
-                                = myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin];
-                            // clear old square
-                            myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin]
-                                = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
-
+                            if (loggedIn)
+                            {
+                                // Add moves to last played structure for other player to use
+                                myGame.lastPlayed.xOrigin = Convert.ToInt32(command[1]);
+                                myGame.lastPlayed.yOrigin = Convert.ToInt32(command[2]);
+                                myGame.lastPlayed.xMoved = Convert.ToInt32(command[3]);
+                                myGame.lastPlayed.yMoved = Convert.ToInt32(command[4]);
+                                // flag that I'm the last player
+                                myGame.lastPlayed.lastPlayer = username;
+                                // update the game state
+                                // move the piece
+                                myGame.boardGame[myGame.lastPlayed.xMoved, myGame.lastPlayed.yMoved]
+                                    = myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin];
+                                // clear old square
+                                myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin]
+                                    = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+                            }
                             break;
                         // Get new moves that have been made
                         case "GETMOVE":
-                            if(myGame.lastPlayed.lastPlayer != username)
+                            if (isActive)
                             {
-                                writer.WriteLine("MOVE " + myGame.lastPlayed.xOrigin.ToString() + " "
-                                    + myGame.lastPlayed.yOrigin.ToString() + " "
-                                    + myGame.lastPlayed.xMoved.ToString() + " "
-                                    + myGame.lastPlayed.yMoved.ToString());
-                                writer.Flush();
+                                if (myGame.lastPlayed.lastPlayer != username)
+                                {
+                                    writer.WriteLine("MOVE " + myGame.lastPlayed.xOrigin.ToString() + " "
+                                        + myGame.lastPlayed.yOrigin.ToString() + " "
+                                        + myGame.lastPlayed.xMoved.ToString() + " "
+                                        + myGame.lastPlayed.yMoved.ToString());
+                                    writer.Flush();
+                                }
                             }
                             break;
                         // logout from the server
                         case "LOGOUT":
-                            // logout
-                            loggedIn = false;
-                            // remove username from list of active users
-                            userNames.Remove(username);
+                            if (loggedIn)
+                            {
+                                // logout
+                                loggedIn = false;
+                                // remove username from list of active users
+                                userNames.Remove(username);
+                            }
                             break;
                         // print gamestate to console. It's really more of a debug option
                         case "PRINT":
-                            for (int i = 0; i < 8; i++)
+                            if (isActive)
                             {
-                                for (int j = 0; j < 8; j++)
+                                for (int i = 0; i < 8; i++)
                                 {
-                                    switch (myGame.boardGame[i, j].piece)
+                                    for (int j = 0; j < 8; j++)
                                     {
-                                        case chessman.Bishop:
-                                            Console.Write("B ");
-                                            break;
-                                        case chessman.King:
-                                            Console.Write("K ");
-                                            break;
-                                        case chessman.Knight:
-                                            Console.Write("N ");
-                                            break;
-                                        case chessman.Pawn:
-                                            Console.Write("P ");
-                                            break;
-                                        case chessman.Queen:
-                                            Console.Write("Q ");
-                                            break;
-                                        case chessman.Rook:
-                                            Console.Write("R ");
-                                            break;
-                                        default:
-                                            Console.Write("  ");
-                                            break;
+                                        switch (myGame.boardGame[i, j].piece)
+                                        {
+                                            case chessman.Bishop:
+                                                Console.Write("B ");
+                                                break;
+                                            case chessman.King:
+                                                Console.Write("K ");
+                                                break;
+                                            case chessman.Knight:
+                                                Console.Write("N ");
+                                                break;
+                                            case chessman.Pawn:
+                                                Console.Write("P ");
+                                                break;
+                                            case chessman.Queen:
+                                                Console.Write("Q ");
+                                                break;
+                                            case chessman.Rook:
+                                                Console.Write("R ");
+                                                break;
+                                            default:
+                                                Console.Write("  ");
+                                                break;
+                                        }
                                     }
+                                    Console.WriteLine("");
                                 }
-                                Console.WriteLine("");
                             }
                             break;
                         // Get new messages that are in the chatroom
                         case "GET":
-                            for(int i = lastLine; i < myGame.chatRoom.Count; i++)
+                            if (loggedIn)
                             {
-                                // send all unread messages
-                                writer.WriteLine(myGame.chatRoom[i]);
-                                lastLine++;
-                                writer.Flush();
+                                for (int i = lastLine; i < myGame.chatRoom.Count; i++)
+                                {
+                                    // send all unread messages
+                                    writer.WriteLine(myGame.chatRoom[i]);
+                                    lastLine++;
+                                    writer.Flush();
+                                }
                             }
                             break;
                         // default, any other string sent will be posted to the chatroom
                         default:
-                            string connectedString = "";
-                            for (int i = 1; i < command.Length; i++)
+                            if (isActive)
                             {
-                                // catnate the command string to allow spaces to reform
-                                connectedString = connectedString + command[i];
+                                string connectedString = "";
+                                for (int i = 1; i < command.Length; i++)
+                                {
+                                    // catnate the command string to allow spaces to reform
+                                    connectedString = connectedString + command[i];
+                                }
+                                // add line to chatroom
+                                myGame.chatRoom.Add(username + ": " + connectedString);
                             }
-                            // add line to chatroom
-                            myGame.chatRoom.Add(username + ": " + connectedString);
                             break;
 
                     }
