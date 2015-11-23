@@ -66,8 +66,8 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060008
 			public const int ErrorText = 2131099656;
 			
-			// aapt resource value: 0x7f060001
-			public const int ExitButton = 2131099649;
+			// aapt resource value: 0x7f060002
+			public const int ExitButton = 2131099650;
 			
 			// aapt resource value: 0x7f060000
 			public const int HeadText = 2131099648;
@@ -78,11 +78,11 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060006
 			public const int UserText = 2131099654;
 			
-			// aapt resource value: 0x7f060003
-			public const int textView1 = 2131099651;
+			// aapt resource value: 0x7f060001
+			public const int textView1 = 2131099649;
 			
-			// aapt resource value: 0x7f060002
-			public const int textView2 = 2131099650;
+			// aapt resource value: 0x7f060003
+			public const int textView2 = 2131099651;
 			
 			// aapt resource value: 0x7f060005
 			public const int textView3 = 2131099653;
