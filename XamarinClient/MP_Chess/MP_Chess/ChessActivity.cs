@@ -164,6 +164,53 @@ namespace MP_Chess
 			return board;
 		}
 
+		// login to server
+		public bool login(){
+			return false;
+		}
+
+		// start a new game (i.e. you are player 1)
+		public bool newGame(string otherUser){
+			return false;
+		}
+
+		// join an existing game (i.e. you are player 2)
+		public bool joinGame(string otherUser){
+			return false;
+		}
+
+		// move a piece
+		public bool move(int x1, int y1, int x2, int y2){
+			return false;
+		}
+
+		// get last move made by other player, false is returned if no move yet made
+		public bool getLastMove(gameSquare[,] chessBoard){
+			return false;
+		}
+
+		// logout of the server
+		public bool logout(){
+			return false;
+		}
+
+		// used for debugging on server
+		public bool printOnServer(){
+			return false;
+		}
+
+		// return string of all last chat messages
+		public string getLastChat(){
+			return false;
+		}
+
+		// post to chatroom
+		public bool postToChat(string message){
+			return false;
+		}
+
+
+
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
