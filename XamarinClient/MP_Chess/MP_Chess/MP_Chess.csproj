@@ -53,6 +53,8 @@
     <Compile Include="ChessActivity.cs" />
     <Compile Include="ChessConService.cs" />
     <Compile Include="SocketSingleton.cs" />
+    <Compile Include="ImageAdapter.cs" />
+    <Compile Include="Chessboard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -75,6 +77,19 @@
     <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\Chess.axml" />
+    <AndroidResource Include="Resources\layout\Chessboard.axml" />
+    <AndroidResource Include="Resources\layout\square.axml" />
+    <AndroidResource Include="Resources\drawable\green.png" />
+    <AndroidResource Include="Resources\drawable\grey.png" />
+    <AndroidResource Include="Resources\drawable\sample_0.jpg" />
+    <AndroidResource Include="Resources\drawable\sample_1.jpg" />
+    <AndroidResource Include="Resources\drawable\sample_2.jpg" />
+    <AndroidResource Include="Resources\drawable\sample_3.jpg" />
+    <AndroidResource Include="Resources\drawable\sample_4.jpg" />
+    <AndroidResource Include="Resources\drawable\sample_5.jpg" />
+    <AndroidResource Include="Resources\drawable\sample_6.jpg" />
+    <AndroidResource Include="Resources\drawable\sample_7.jpg" />
+    <AndroidResource Include="Resources\drawable\white.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

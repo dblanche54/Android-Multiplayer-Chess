@@ -13,6 +13,7 @@
       </intent-filter>
     </activity>
     <activity android:label="ChessActivity" android:name="md537ea1ad4879e099c490038d9121d2f33.ChessActivity" />
+    <activity android:label="Chessboard" android:name="md537ea1ad4879e099c490038d9121d2f33.Chessboard" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.companyname.mp_chess.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">

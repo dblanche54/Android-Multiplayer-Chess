@@ -6,6 +6,14 @@ MP_Chess.ChessActivity, MP_Chess;md537ea1ad4879e099c490038d9121d2f33.ChessActivi
 MP_Chess.ChessActivity, MP_Chess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md537ea1ad4879e099c490038d9121d2f33.ChessActivity
 MP_Chess.ChessActivity;md537ea1ad4879e099c490038d9121d2f33.ChessActivity
 mp_chess.ChessActivity;md537ea1ad4879e099c490038d9121d2f33.ChessActivity
+MP_Chess.ImageAdapter, MP_Chess;md537ea1ad4879e099c490038d9121d2f33.ImageAdapter
+MP_Chess.ImageAdapter, MP_Chess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md537ea1ad4879e099c490038d9121d2f33.ImageAdapter
+MP_Chess.ImageAdapter;md537ea1ad4879e099c490038d9121d2f33.ImageAdapter
+mp_chess.ImageAdapter;md537ea1ad4879e099c490038d9121d2f33.ImageAdapter
+MP_Chess.Chessboard, MP_Chess;md537ea1ad4879e099c490038d9121d2f33.Chessboard
+MP_Chess.Chessboard, MP_Chess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md537ea1ad4879e099c490038d9121d2f33.Chessboard
+MP_Chess.Chessboard;md537ea1ad4879e099c490038d9121d2f33.Chessboard
+mp_chess.Chessboard;md537ea1ad4879e099c490038d9121d2f33.Chessboard
 Xamarin.InsightsCore.BackgroundManager, Xamarin.Insights;md55aa83cb61847c4249bb0dd44fd0a56e6.BackgroundManager
 Xamarin.InsightsCore.BackgroundManager, Xamarin.Insights, Version=1.10.0.0, Culture=neutral, PublicKeyToken=null;md55aa83cb61847c4249bb0dd44fd0a56e6.BackgroundManager
 Xamarin.InsightsCore.BackgroundManager;md55aa83cb61847c4249bb0dd44fd0a56e6.BackgroundManager
