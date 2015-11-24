@@ -236,10 +236,13 @@ namespace MP_Chess
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.Chess);
 
+			TextView board = FindViewById<TextView> (Resource.Id.ChessBoard);
+
 			// Make a chess board
 			gameSquare[,] chessBoard = generateDefaultBoard ();
 
-			TextView board = FindViewById<TextView> (Resource.Id.ChessBoard);
+			this.move (chessBoard, 1, 1, 5, 5);
+
 			board.Text = printBoard (chessBoard);
 
 			// Create your application here
