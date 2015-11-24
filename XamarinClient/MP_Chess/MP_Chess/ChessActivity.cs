@@ -17,6 +17,12 @@ namespace MP_Chess
 	public class ChessActivity : Activity
 	{
 
+		// put what my username is here
+		public string username;
+
+		// put what opponent username is here
+		public string opponent;
+
 		// Data types to represent what state a board block could be in
 		// chessmanColour repreents the colour of the piece, or in case of no piece; empty
 		public enum chessmanColour { empty, white, black }
@@ -166,46 +172,59 @@ namespace MP_Chess
 
 		// login to server
 		public bool login(){
+			string toSend = "LOGIN " + username;
 			return false;
 		}
 
 		// start a new game (i.e. you are player 1)
-		public bool newGame(string otherUser){
+		public bool newGame(){
+			string toSend = "NEW " + opponent;
 			return false;
 		}
 
 		// join an existing game (i.e. you are player 2)
-		public bool joinGame(string otherUser){
+		public bool joinGame(){
+			string toSend = "JOIN " + opponent;
 			return false;
 		}
 
 		// move a piece
-		public bool move(int x1, int y1, int x2, int y2){
+		public bool move(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
+			string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
+			chessBoard [x2, y2] = chessBoard [x1, y1];
+			chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
 			return false;
 		}
 
 		// get last move made by other player, false is returned if no move yet made
 		public bool getLastMove(gameSquare[,] chessBoard){
+			string toSend = "GETMOVE";
+			//recieve from socket
 			return false;
 		}
 
 		// logout of the server
 		public bool logout(){
+			string toSend = "LOGOUT";
 			return false;
 		}
 
 		// used for debugging on server
 		public bool printOnServer(){
+			string toSend = "PRINT";
 			return false;
 		}
 
 		// return string of all last chat messages
 		public string getLastChat(){
-			return false;
+			string toSend = "GET";
+			// then recieve from socket
+			return "";
 		}
 
 		// post to chatroom
 		public bool postToChat(string message){
+			string toSend = message;
 			return false;
 		}
 
