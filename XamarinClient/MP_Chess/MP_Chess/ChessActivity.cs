@@ -190,6 +190,7 @@ namespace MP_Chess
 
 		// move a piece
 		public bool move(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
+			// currently assuming the move is legal
 			string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
 			chessBoard [x2, y2] = chessBoard [x1, y1];
 			chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
