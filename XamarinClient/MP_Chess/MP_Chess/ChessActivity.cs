@@ -25,7 +25,11 @@ namespace MP_Chess
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
-			ChessActions actions = new ChessActions (SocketSingleton.getInstance (), username, opponent);
+			username = "Daniel";
+			opponent = "Paul";
+			ChessActions actions = new ChessActions (username, opponent);
+			actions.login ();
+			actions.newGame ();
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.Chess);
 
@@ -37,6 +41,8 @@ namespace MP_Chess
 			actions.move (chessBoard, 1, 1, 5, 5);
 
 			board.Text = actions.printBoard (chessBoard);
+
+			actions.printOnServer ();
 
 			// Create your application here
 			Button exitButton = FindViewById<Button>(Resource.Id.ExitButton);

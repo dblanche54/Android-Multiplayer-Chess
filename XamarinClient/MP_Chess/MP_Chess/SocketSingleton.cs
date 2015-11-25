@@ -3,11 +3,16 @@
 using Java.IO;
 using Java.Net;
 
+using System.Net;
+using System.Net.Sockets;
+using System.IO;
+
+
 namespace MP_Chess
 {
 	public sealed class SocketSingleton
 	{
-		private static Socket clientSocket;
+		private static Java.Net.Socket clientSocket;
 		private DataInputStream input;
 		private DataOutputStream output;
 		private static SocketSingleton instance;
@@ -15,11 +20,15 @@ namespace MP_Chess
 		public static int SERVER_PORT;
 		public static String SERVER_IP;
 
-		static PrintWriter outWriter;
+		public static TcpClient connection;
 
-		public SocketSingleton ()
-		{
+		public static StreamWriter outWriter;
+
+		public static StreamReader outReader;
+
+		public SocketSingleton(){
 		}
+
 
 		public SocketSingleton(String serverAddr, int serverPort){
 			if (serverAddr != null && serverPort != 0) {
@@ -37,17 +46,19 @@ namespace MP_Chess
 		public static void initSingleton(){
 			if (instance == null) {
 				instance = new SocketSingleton ();
-
+				connection = new TcpClient (SERVER_IP, SERVER_PORT);
+				outWriter = new StreamWriter(connection.GetStream());
+				outReader = new StreamReader(connection.GetStream());
 				try{
-					clientSocket = new Socket(SERVER_IP,SERVER_PORT);
-				}catch(IOException e){
+					clientSocket = new Java.Net.Socket(SERVER_IP,SERVER_PORT);
+				}catch(System.IO.IOException e){
 					//Print log?
 					System.Console.WriteLine(e.ToString());
 				}
 			}
 		}
 
-		public Socket getSocket(){
+		public Java.Net.Socket getSocket(){
 			return clientSocket;
 		}
 
@@ -60,13 +71,18 @@ namespace MP_Chess
 		public void startSocket(){
 			try{
 				if(SERVER_IP != null && SERVER_PORT > 0)
-					clientSocket = new Socket(SERVER_IP,SERVER_PORT);
-			}catch(IOException e){
+					clientSocket = new Java.Net.Socket(SERVER_IP,SERVER_PORT);
+				outWriter = new StreamWriter(connection.GetStream());
+			}catch(Exception e){
 			}
 		}
 
-		public PrintWriter getOut(){
+		public StreamWriter getOut(){
 			return outWriter;
+		}
+
+		public StreamReader getIn(){
+			return outReader;
 		}
 	}
 }

@@ -162,18 +162,27 @@ namespace MP_Chess
 		// login to server
 		public bool login(){
 			string toSend = "LOGIN " + username;
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
+
 			return false;
 		}
 
 		// start a new game (i.e. you are player 1)
 		public bool newGame(){
 			string toSend = "NEW " + opponent;
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
+
 			return false;
 		}
 
 		// join an existing game (i.e. you are player 2)
 		public bool joinGame(){
 			string toSend = "JOIN " + opponent;
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
+
 			return false;
 		}
 
@@ -183,31 +192,40 @@ namespace MP_Chess
 			string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
 			chessBoard [x2, y2] = chessBoard [x1, y1];
 			chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
 			return false;
 		}
 
 		// get last move made by other player, false is returned if no move yet made
 		public bool getLastMove(gameSquare[,] chessBoard){
 			string toSend = "GETMOVE";
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
 			//recieve from socket
 			return false;
 		}
 
-		// logout of the server
 		public bool logout(){
 			string toSend = "LOGOUT";
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
 			return false;
 		}
 
 		// used for debugging on server
 		public bool printOnServer(){
 			string toSend = "PRINT";
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
 			return false;
 		}
 
 		// return string of all last chat messages
 		public string getLastChat(){
 			string toSend = "GET";
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
 			// then recieve from socket
 			return "";
 		}
@@ -215,16 +233,18 @@ namespace MP_Chess
 		// post to chatroom
 		public bool postToChat(string message){
 			string toSend = message;
+			socket.getOut ().WriteLine (toSend);
+			socket.getOut ().Flush ();
 			return false;
 		}
 
 
 
-		public ChessActions (SocketSingleton ssing, string uname, string uopp)
+		public ChessActions (string uname, string uopp)
 		{
 			username = uname;
 			opponent = uopp;
-			socket = ssing;
+			socket = SocketSingleton.getInstance();
 		}
 	}
 }

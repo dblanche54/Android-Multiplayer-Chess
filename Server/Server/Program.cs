@@ -267,7 +267,7 @@ namespace Server
                         // Move a chess piece
                         // Expecting string "MOVE x1 y1 x2 y2"
                         case "MOVE":
-                            if (loggedIn)
+                            if (isActive)
                             {
                                 // Add moves to last played structure for other player to use
                                 myGame.lastPlayed.xOrigin = Convert.ToInt32(command[1]);
