@@ -51,6 +51,20 @@ namespace MP_Chess
 			return clientSocket;
 		}
 
+		public bool isConnected(){
+			if (clientSocket != null)
+				return true;
+			return false;
+		}
+
+		public void startSocket(){
+			try{
+				if(SERVER_IP != null && SERVER_PORT > 0)
+					clientSocket = new Socket(SERVER_IP,SERVER_PORT);
+			}catch(IOException e){
+			}
+		}
+
 		public PrintWriter getOut(){
 			return outWriter;
 		}

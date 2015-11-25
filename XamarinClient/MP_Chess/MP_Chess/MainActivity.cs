@@ -25,7 +25,7 @@ namespace MP_Chess
 		protected String uname;
 		protected String serverAddr;
 
-		SocketSingleton sockInstance;
+		public static SocketSingleton sockInstance;
 
 		ProgressDialog progress;
 
@@ -41,6 +41,14 @@ namespace MP_Chess
 			EditText serverText = FindViewById<EditText>(Resource.Id.ServerText);
 			EditText userText = FindViewById<EditText>(Resource.Id.UserText);
 
+			Button gridButton = FindViewById<Button>(Resource.Id.GridButton);
+
+			//Wire up the connnect button
+			gridButton.Click += (object sender, EventArgs e) =>
+			{
+				Intent intent = new Intent(this,typeof(Chessboard));
+				StartActivity(intent);
+			};
 			Button connectButton = FindViewById<Button>(Resource.Id.ConnectButton);
 
 			//Wire up the connnect button
@@ -66,7 +74,7 @@ namespace MP_Chess
 				).ContinueWith(t => {
 					if (progress != null)
 						progress.Hide();
-					if(socket == null){
+					if(!sockInstance.isConnected()){
 						setError("Couldn't connect");
 					}else{
 						setError("Connected");
@@ -107,7 +115,8 @@ namespace MP_Chess
 			
 			public override void RunThread(){
 				initSingleton ();
-				Socket socket = SocketSingleton.getInstance ().getSocket ();
+				//Socket socket = SocketSingleton.getInstance ().getSocket ();
+				//Socket socket = sockInstance.getSocket();
 
 				while (true) {
 					//Receive comms
