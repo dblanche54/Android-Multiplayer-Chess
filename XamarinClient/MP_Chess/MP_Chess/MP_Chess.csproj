@@ -55,6 +55,7 @@
     <Compile Include="SocketSingleton.cs" />
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="Chessboard.cs" />
+    <Compile Include="ChessActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
