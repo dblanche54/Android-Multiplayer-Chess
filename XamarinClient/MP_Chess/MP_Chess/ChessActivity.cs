@@ -174,6 +174,7 @@ namespace MP_Chess
 			//Wire up the connnect button
 			exitButton.Click += (object sender, EventArgs e) =>
 			{
+				actions.logout();
 				Intent intent = new Intent(Intent.ActionMain);
 				intent.AddCategory(Intent.CategoryHome);
 				intent.SetFlags(ActivityFlags.NewTask);
