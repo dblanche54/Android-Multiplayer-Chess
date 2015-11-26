@@ -159,6 +159,9 @@ namespace MP_Chess
 			return board;
 		}
 
+
+
+
 		// login to server
 		public bool login(){
 			string toSend = "LOGIN " + username;
@@ -238,7 +241,8 @@ namespace MP_Chess
 			socket.getOut ().Flush ();
 			string recieve;
 			recieve = socket.getIn ().ReadLine ();
-			string recieveSplit = recieve.Split (' ');
+			string[] recieveSplit;
+			recieveSplit = recieve.Split (' ');
 			if (recieveSplit [0] == "MOVE") {
 				int x1 = Convert.ToInt32 (recieveSplit [1]);
 				int y1 = Convert.ToInt32 (recieveSplit [2]);
