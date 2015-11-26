@@ -17,6 +17,37 @@
         android:layout_height="wrap_content"
         android:id="@+id/ChessBoard"
         android:textAlignment="center" />
+    <TableLayout
+        android:minWidth="100px"
+        android:minHeight="100px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableLayout1">
+        <TableRow
+            android:id="@+id/tableRow1">
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow2">
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow3">
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow4">
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow5">
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow6">
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow7">
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow8">
+        </TableRow>
+    </TableLayout>
     <Button
         android:text="Exit"
         android:layout_width="match_parent"
