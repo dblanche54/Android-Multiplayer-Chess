@@ -136,7 +136,7 @@ namespace MP_Chess
 					}
 					//table[i,j].Text = chessboard [i, j].piece.ToString ();
 					if (chessboard [i, j].colour == ChessActions.chessmanColour.black) {
-						table [i, j].SetTextColor(Android.Graphics.Color.LimeGreen);
+						table [i, j].SetTextColor(Android.Graphics.Color.Cyan);
 					} else if (chessboard [i, j].colour == ChessActions.chessmanColour.white) {
 						table [i, j].SetTextColor(Android.Graphics.Color.White);
 					}
