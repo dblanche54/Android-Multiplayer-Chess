@@ -236,7 +236,20 @@ namespace MP_Chess
 			string toSend = "GETMOVE";
 			socket.getOut ().WriteLine (toSend);
 			socket.getOut ().Flush ();
-			//recieve from socket
+			string recieve;
+			recieve = socket.getIn ().ReadLine ();
+			string recieveSplit = recieve.Split (' ');
+			if (recieveSplit [0] == "MOVE") {
+				int x1 = Convert.ToInt32 (recieveSplit [1]);
+				int y1 = Convert.ToInt32 (recieveSplit [2]);
+				int x2 = Convert.ToInt32 (recieveSplit [3]);
+				int y2 = Convert.ToInt32 (recieveSplit [4]);
+				// the move made by player 2
+				chessBoard [x2, y2] = chessBoard [x1, y1];
+				chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+			} else {
+				return false;
+			}
 			return false;
 		}
 

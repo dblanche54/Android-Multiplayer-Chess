@@ -296,6 +296,10 @@ namespace Server
                                         + myGame.lastPlayed.xMoved.ToString() + " "
                                         + myGame.lastPlayed.yMoved.ToString());
                                     writer.Flush();
+                                } else
+                                {
+                                    writer.WriteLine("NOMOVE");
+                                    writer.Flush();
                                 }
                             }
                             break;
