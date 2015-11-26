@@ -189,12 +189,46 @@ namespace MP_Chess
 		// move a piece
 		public bool move(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
 			// currently assuming the move is legal
-			string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
-			chessBoard [x2, y2] = chessBoard [x1, y1];
-			chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
-			return false;
+
+			switch (chessBoard [x1, y1].piece)
+			{
+				case chessman.empty:
+					return false;
+					break;
+				case chessman.Pawn:
+					if (chessBoard [x2, y2].piece != chessman.empty) {
+						if (Math.Abs (x1 - x1) == 1 && Math.Abs (y1 - y2) == 1) {
+						// valid, do nothing to stop it
+						}
+					} else if ((y2 != y1 + 1 || y2 != y1 - 1) && x1 != x2) {
+						// not vaild move
+						return false;
+					}
+					break;
+				case chessman.Rook:
+					if (!(x1 == x2 || y1 == y2)) {
+						return false;
+					}
+					break;
+				case chessman.Queen:
+					if (x1 == x1 || y1 == y2) {
+							
+					}
+					break;
+				default:
+
+					break;
+			}
+
+				string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
+				chessBoard [x2, y2] = chessBoard [x1, y1];
+				chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
+				return true;
+
+
+
 		}
 
 		// get last move made by other player, false is returned if no move yet made
