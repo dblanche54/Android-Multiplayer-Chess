@@ -18,10 +18,10 @@ namespace MP_Chess
 	{
 
 		// put what my username is here
-		public string username;
+		public static string username;
 
 		// put what opponent username is here
-		public string opponent;
+		public static string opponent;
 
 		public ChessActions actions;
 
