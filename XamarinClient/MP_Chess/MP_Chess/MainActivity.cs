@@ -97,7 +97,7 @@ namespace MP_Chess
 		protected void ConProcess(){
 			try{
 
-				socket = new Socket(serverAddr, portNum);
+				//socket = new Socket(serverAddr, portNum);
 
 			}catch(IOException ioe){
 				setError( ioe.ToString());
