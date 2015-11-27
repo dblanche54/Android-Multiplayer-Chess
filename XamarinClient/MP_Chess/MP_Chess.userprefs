@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="MP_Chess\MP_Chess.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Xamarin_Android_API_23" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="MP_Chess\ChessActivity.cs">
     <Files>
       <File FileName="MP_Chess\MainActivity.cs" Line="94" Column="19" />
-      <File FileName="MP_Chess\SocketSingleton.cs" Line="76" Column="24" />
-      <File FileName="MP_Chess\ChessActivity.cs" Line="67" Column="6" />
+      <File FileName="MP_Chess\SocketSingleton.cs" Line="49" Column="1" />
+      <File FileName="MP_Chess\ChessActivity.cs" Line="142" Column="7" />
       <File FileName="MP_Chess\Chessboard.cs" Line="25" Column="47" />
-      <File FileName="MP_Chess\ChessActions.cs" Line="184" Column="30" />
+      <File FileName="MP_Chess\ChessActions.cs" Line="169" Column="1" />
+      <File FileName="e:\Daniel\Documents\CMPT436\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\ImageAdapter.cs" Line="62" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

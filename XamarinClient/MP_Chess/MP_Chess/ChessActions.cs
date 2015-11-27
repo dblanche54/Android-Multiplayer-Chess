@@ -4,7 +4,7 @@ namespace MP_Chess
 {
 	public class ChessActions
 	{
-		public SocketSingleton socket;
+		public static SocketSingleton socket;
 
 		// put what my username is here
 		public string username;
@@ -295,7 +295,6 @@ namespace MP_Chess
 		{
 			username = uname;
 			opponent = uopp;
-			socket = SocketSingleton.getInstance();
 		}
 	}
 }

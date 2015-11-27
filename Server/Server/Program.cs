@@ -201,6 +201,7 @@ namespace Server
                         case "LOGIN":
                             if (command.Length == 2) {
                                 username = command[1];
+                                Console.WriteLine("Logging in " + username);
                                 // make sure there are usernames to check
                                 if (userNames.Count > 0)
                                 {
@@ -307,10 +308,15 @@ namespace Server
                         case "LOGOUT":
                             if (loggedIn)
                             {
+                                Console.WriteLine("Logging out " + username);
+
                                 // logout
                                 loggedIn = false;
                                 // remove username from list of active users
                                 userNames.Remove(username);
+                            } else
+                            {
+                                loggedIn = false;
                             }
                             break;
                         // print gamestate to console. It's really more of a debug option
@@ -380,9 +386,10 @@ namespace Server
 
                     }
                 } while (loggedIn);
+
             }
             catch (Exception E) { Console.WriteLine("Exception " + E); }
-            
+
         }
 
         static void Main(string[] args)

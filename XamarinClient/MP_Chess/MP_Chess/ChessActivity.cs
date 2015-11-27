@@ -23,6 +23,7 @@ namespace MP_Chess
 		// put what opponent username is here
 		public string opponent;
 
+		public ChessActions actions;
 
 		public void printToTable(ChessActions.gameSquare[,] chessboard)
 		{
@@ -150,7 +151,7 @@ namespace MP_Chess
 		{
 			username = "Daniel";
 			opponent = "Paul";
-			ChessActions actions = new ChessActions (username, opponent);
+			actions = new ChessActions (username, opponent);
 			actions.login ();
 			actions.newGame ();
 			base.OnCreate (savedInstanceState);
