@@ -465,16 +465,35 @@
                 android:id="@+id/ChessSquare77" />
         </TableRow>
     </TableLayout>
-    <Button
-        android:text="Exit"
+    <TableLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ExitButton" />
-    <Button
-        android:text="Grid Chess"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/GridButton" />
+        android:id="@+id/tableLayout2">
+        <TableRow
+            android:id="@+id/tableRow9">
+            <EditText
+                android:layout_column="1"
+                android:id="@+id/editText1" />
+            <TextView
+                android:text="-&gt;"
+                android:padding="3dip"
+                android:id="@+id/arrow" />
+            <EditText
+                android:layout_column="3"
+                android:id="@+id/editText2" />
+            <Button
+                android:text="Move"
+                android:id="@+id/button1" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow10">
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow11">
+        </TableRow>
+    </TableLayout>
     <GridLayout
         android:minWidth="25px"
         android:minHeight="25px"
@@ -483,4 +502,9 @@
         android:id="@+id/gridLayout1"
         android:rowCount="8"
         android:columnCount="8" />
+    <Button
+        android:text="Exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ExitButton" />
 </LinearLayout>

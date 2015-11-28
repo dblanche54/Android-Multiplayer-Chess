@@ -288,17 +288,17 @@ namespace MP_Chess
 			// aapt resource value: 0x7f06005b
 			public const int ChessSquare77 = 2131099739;
 			
+			// aapt resource value: 0x7f06006c
+			public const int ConnectButton = 2131099756;
+			
+			// aapt resource value: 0x7f06006d
+			public const int ErrorText = 2131099757;
+			
 			// aapt resource value: 0x7f060065
-			public const int ConnectButton = 2131099749;
+			public const int ExitButton = 2131099749;
 			
-			// aapt resource value: 0x7f060066
-			public const int ErrorText = 2131099750;
-			
-			// aapt resource value: 0x7f06005c
-			public const int ExitButton = 2131099740;
-			
-			// aapt resource value: 0x7f06005d
-			public const int GridButton = 2131099741;
+			// aapt resource value: 0x7f06006e
+			public const int GridButton = 2131099758;
 			
 			// aapt resource value: 0x7f060000
 			public const int HeadText = 2131099648;
@@ -351,35 +351,56 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060053
 			public const int NumberDown7 = 2131099731;
 			
-			// aapt resource value: 0x7f060062
-			public const int ServerText = 2131099746;
+			// aapt resource value: 0x7f060069
+			public const int ServerText = 2131099753;
 			
-			// aapt resource value: 0x7f060064
-			public const int UserText = 2131099748;
+			// aapt resource value: 0x7f06006b
+			public const int UserText = 2131099755;
 			
 			// aapt resource value: 0x7f06005f
-			public const int chessboard = 2131099743;
+			public const int arrow = 2131099743;
+			
+			// aapt resource value: 0x7f060061
+			public const int button1 = 2131099745;
+			
+			// aapt resource value: 0x7f060066
+			public const int chessboard = 2131099750;
 			
 			// aapt resource value: 0x7f06005e
-			public const int gridLayout1 = 2131099742;
+			public const int editText1 = 2131099742;
 			
-			// aapt resource value: 0x7f060069
-			public const int piece = 2131099753;
+			// aapt resource value: 0x7f060060
+			public const int editText2 = 2131099744;
 			
-			// aapt resource value: 0x7f060067
-			public const int square = 2131099751;
+			// aapt resource value: 0x7f060064
+			public const int gridLayout1 = 2131099748;
 			
-			// aapt resource value: 0x7f060068
-			public const int square_background = 2131099752;
+			// aapt resource value: 0x7f060071
+			public const int piece = 2131099761;
+			
+			// aapt resource value: 0x7f06006f
+			public const int square = 2131099759;
+			
+			// aapt resource value: 0x7f060070
+			public const int square_background = 2131099760;
 			
 			// aapt resource value: 0x7f060001
 			public const int tableLayout1 = 2131099649;
+			
+			// aapt resource value: 0x7f06005c
+			public const int tableLayout2 = 2131099740;
 			
 			// aapt resource value: 0x7f060002
 			public const int tableRow0 = 2131099650;
 			
 			// aapt resource value: 0x7f06000c
 			public const int tableRow1 = 2131099660;
+			
+			// aapt resource value: 0x7f060062
+			public const int tableRow10 = 2131099746;
+			
+			// aapt resource value: 0x7f060063
+			public const int tableRow11 = 2131099747;
 			
 			// aapt resource value: 0x7f060016
 			public const int tableRow2 = 2131099670;
@@ -402,14 +423,17 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060052
 			public const int tableRow8 = 2131099730;
 			
-			// aapt resource value: 0x7f060061
-			public const int textView1 = 2131099745;
+			// aapt resource value: 0x7f06005d
+			public const int tableRow9 = 2131099741;
 			
-			// aapt resource value: 0x7f060060
-			public const int textView2 = 2131099744;
+			// aapt resource value: 0x7f060068
+			public const int textView1 = 2131099752;
 			
-			// aapt resource value: 0x7f060063
-			public const int textView3 = 2131099747;
+			// aapt resource value: 0x7f060067
+			public const int textView2 = 2131099751;
+			
+			// aapt resource value: 0x7f06006a
+			public const int textView3 = 2131099754;
 			
 			static Id()
 			{

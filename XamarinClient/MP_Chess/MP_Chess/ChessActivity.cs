@@ -182,15 +182,6 @@ namespace MP_Chess
 				StartActivity(intent);
 				Finish();
 			};
-
-			Button gridButton = FindViewById<Button>(Resource.Id.GridButton);
-
-			//Wire up the connnect button
-			gridButton.Click += (object sender, EventArgs e) =>
-			{
-				Intent intent = new Intent(this,typeof(Chessboard));
-				StartActivity(intent);
-			};
 		}
 	}
 }
