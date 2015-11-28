@@ -244,6 +244,7 @@ namespace Server
                                 myGame.playerOne = username;
                                 usernameOpponent = command[1];
                                 myGame.playerTwo = usernameOpponent;
+                                myGame.lastPlayed[0].recievedMove = true;
                                 isActive = true;
                                 gamesInPlay.Add(myGame);
                             }
@@ -308,7 +309,13 @@ namespace Server
                                         + myGame.lastPlayed[0].xMoved.ToString() + " "
                                         + myGame.lastPlayed[0].yMoved.ToString());
                                     writer.Flush();
-                                } else
+                                    Console.WriteLine("SENT " + myGame.lastPlayed[0].xOrigin.ToString() + " "
+    + myGame.lastPlayed[0].yOrigin.ToString() + " "
+    + myGame.lastPlayed[0].xMoved.ToString() + " "
+    + myGame.lastPlayed[0].yMoved.ToString());
+
+                                }
+                                else
                                 {
                                     writer.WriteLine("NOMOVE");
                                     writer.Flush();
@@ -445,7 +452,6 @@ namespace Server
                 connected++;
 
             }
-
 
         }
     }

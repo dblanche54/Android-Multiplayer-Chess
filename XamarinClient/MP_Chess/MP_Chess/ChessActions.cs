@@ -251,6 +251,7 @@ namespace MP_Chess
 				// the move made by player 2
 				chessBoard [x2, y2] = chessBoard [x1, y1];
 				chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+				return true;
 			} else {
 				return false;
 			}

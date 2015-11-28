@@ -11,6 +11,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+using System.Threading;
+using System.Timers;
+
 namespace MP_Chess
 {
 	[Activity (Label = "ChessActivity")]			
@@ -22,6 +25,9 @@ namespace MP_Chess
 
 		// put what opponent username is here
 		public static string opponent;
+
+		// is it my turn?
+		public bool myTurn;
 
 		//What type of connection are we making (new or join)
 		public static bool newGame;
@@ -149,6 +155,17 @@ namespace MP_Chess
 
 		}
 
+		public void getUpdates(ChessActions actions, ChessActions.gameSquare[,] chessBoard, TextView whoTurn){
+				if (actions.getLastMove (chessBoard)) {
+					myTurn = true;
+					if(myTurn)
+						whoTurn.Text = username + "'s Turn";
+					else 
+						whoTurn.Text = opponent + "'s Turn";
+
+					printToTable(chessBoard);
+			}
+		}
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -156,11 +173,14 @@ namespace MP_Chess
 			actions.login ();
 			if (newGame) {
 				actions.newGame ();
+				myTurn = true;
 			} else {
 				actions.joinGame ();
+				myTurn = false;
 			}
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.Chess);
+
 
 	//		TextView board = FindViewById<TextView> (Resource.Id.ChessBoard);
 
@@ -173,28 +193,34 @@ namespace MP_Chess
 			actions.printOnServer ();
 
 			Button moveButton = FindViewById<Button> (Resource.Id.MoveButton);
-			Button refresh = FindViewById<Button> (Resource.Id.refresh);
 
 			EditText fromMove = FindViewById<EditText> (Resource.Id.MoveFrom);
 			EditText toMove = FindViewById<EditText> (Resource.Id.MoveTo);
+
+			TextView headText = FindViewById<TextView> (Resource.Id.HeadText);
+			headText.Text = "Playing against " + opponent + ".";
+			TextView whoTurn = FindViewById<TextView> (Resource.Id.whoTurn);
+
+			if (newGame == true) {
+				whoTurn.Text = username + "'s Turn";
+			} else {
+				whoTurn.Text = opponent + "'s Turn";
+			}
 
 			string MoveFrom;
 			string MoveTo;
 
 			moveButton.Click += (object sender, EventArgs e) => 
 			{
-				MoveFrom = fromMove.Text;
-				MoveTo = toMove.Text;
-				actions.move(chessBoard, MoveFrom[1] - '0', MoveFrom[0]-'A', MoveTo[1] - '0', MoveTo[0]-'A');
-				printToTable(chessBoard);
-				actions.printOnServer();
-			};
-
-			refresh.Click += (object sender, EventArgs e) => 
-			{
-				actions.getLastMove(chessBoard);
-				printToTable(chessBoard);
-
+				if(myTurn){
+					MoveFrom = fromMove.Text;
+					MoveTo = toMove.Text;
+					actions.move(chessBoard, MoveFrom[1] - '0', MoveFrom[0]-'A', MoveTo[1] - '0', MoveTo[0]-'A');
+					printToTable(chessBoard);
+					actions.printOnServer();
+					whoTurn.Text = opponent + "'s Turn";
+					myTurn = false;
+				}
 			};
 
 			// Create your application here
@@ -210,6 +236,15 @@ namespace MP_Chess
 				StartActivity(intent);
 				Finish();
 			};
+
+			// get updates
+				System.Threading.ThreadPool.QueueUserWorkItem(delegate {
+				//getUpdates (actions, chessBoard, whoTurn);
+				while(true){
+					RunOnUiThread(()=>getUpdates(actions, chessBoard, whoTurn));
+					System.Threading.Thread.Sleep (1000);
+				}
+				}, null);
 		}
 	}
 }
