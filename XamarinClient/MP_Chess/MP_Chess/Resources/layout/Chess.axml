@@ -475,17 +475,19 @@
             android:id="@+id/tableRow9">
             <EditText
                 android:layout_column="1"
-                android:id="@+id/editText1" />
+                android:id="@+id/MoveFrom"
+                android:text="A1" />
             <TextView
                 android:text="-&gt;"
                 android:padding="3dip"
                 android:id="@+id/arrow" />
             <EditText
                 android:layout_column="3"
-                android:id="@+id/editText2" />
+                android:id="@+id/MoveTo"
+                android:text="B1" />
             <Button
                 android:text="Move"
-                android:id="@+id/button1" />
+                android:id="@+id/MoveButton" />
         </TableRow>
         <TableRow
             android:id="@+id/tableRow10">

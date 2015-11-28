@@ -303,6 +303,15 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060000
 			public const int HeadText = 2131099648;
 			
+			// aapt resource value: 0x7f060061
+			public const int MoveButton = 2131099745;
+			
+			// aapt resource value: 0x7f06005e
+			public const int MoveFrom = 2131099742;
+			
+			// aapt resource value: 0x7f060060
+			public const int MoveTo = 2131099744;
+			
 			// aapt resource value: 0x7f060004
 			public const int NumberAcross0 = 2131099652;
 			
@@ -360,17 +369,8 @@ namespace MP_Chess
 			// aapt resource value: 0x7f06005f
 			public const int arrow = 2131099743;
 			
-			// aapt resource value: 0x7f060061
-			public const int button1 = 2131099745;
-			
 			// aapt resource value: 0x7f060066
 			public const int chessboard = 2131099750;
-			
-			// aapt resource value: 0x7f06005e
-			public const int editText1 = 2131099742;
-			
-			// aapt resource value: 0x7f060060
-			public const int editText2 = 2131099744;
 			
 			// aapt resource value: 0x7f060064
 			public const int gridLayout1 = 2131099748;

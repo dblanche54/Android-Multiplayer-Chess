@@ -1,8 +1,8 @@
 ﻿<Properties StartupItem="MP_Chess\MP_Chess.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.11fe9b02" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="MP_Chess\ChessActions.cs">
     <Files>
-      <File FileName="MP_Chess\ChessActions.cs" Line="294" Column="49" />
+      <File FileName="MP_Chess\ChessActions.cs" Line="26" Column="39" />
       <File FileName="MP_Chess\ChessActivity.cs" Line="185" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>

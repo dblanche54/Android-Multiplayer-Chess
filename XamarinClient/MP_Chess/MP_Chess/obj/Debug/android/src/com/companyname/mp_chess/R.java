@@ -95,6 +95,9 @@ public final class R {
         public static final int ExitButton=0x7f060065;
         public static final int GridButton=0x7f06006e;
         public static final int HeadText=0x7f060000;
+        public static final int MoveButton=0x7f060061;
+        public static final int MoveFrom=0x7f06005e;
+        public static final int MoveTo=0x7f060060;
         public static final int NumberAcross0=0x7f060004;
         public static final int NumberAcross1=0x7f060005;
         public static final int NumberAcross2=0x7f060006;
@@ -114,10 +117,7 @@ public final class R {
         public static final int ServerText=0x7f060069;
         public static final int UserText=0x7f06006b;
         public static final int arrow=0x7f06005f;
-        public static final int button1=0x7f060061;
         public static final int chessboard=0x7f060066;
-        public static final int editText1=0x7f06005e;
-        public static final int editText2=0x7f060060;
         public static final int gridLayout1=0x7f060064;
         public static final int piece=0x7f060071;
         public static final int square=0x7f06006f;

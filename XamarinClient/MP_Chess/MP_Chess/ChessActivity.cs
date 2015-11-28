@@ -169,6 +169,23 @@ namespace MP_Chess
 
 			actions.printOnServer ();
 
+			Button moveButton = FindViewById<Button> (Resource.Id.MoveButton);
+
+			EditText fromMove = FindViewById<EditText> (Resource.Id.MoveFrom);
+			EditText toMove = FindViewById<EditText> (Resource.Id.MoveTo);
+
+			string MoveFrom;
+			string MoveTo;
+
+			moveButton.Click += (object sender, EventArgs e) => 
+			{
+				MoveFrom = fromMove.Text;
+				MoveTo = toMove.Text;
+				actions.move(chessBoard, MoveFrom[1] - '0', MoveFrom[0]-'A', MoveTo[1] - '0', MoveTo[0]-'A');
+				printToTable(chessBoard);
+				actions.printOnServer();
+			};
+
 			// Create your application here
 			Button exitButton = FindViewById<Button>(Resource.Id.ExitButton);
 
