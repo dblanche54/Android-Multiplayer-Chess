@@ -154,7 +154,11 @@ namespace MP_Chess
 		{
 			actions = new ChessActions (username, opponent);
 			actions.login ();
-			actions.newGame ();
+			if (newGame) {
+				actions.newGame ();
+			} else {
+				actions.joinGame ();
+			}
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.Chess);
 
@@ -169,6 +173,7 @@ namespace MP_Chess
 			actions.printOnServer ();
 
 			Button moveButton = FindViewById<Button> (Resource.Id.MoveButton);
+			Button refresh = FindViewById<Button> (Resource.Id.refresh);
 
 			EditText fromMove = FindViewById<EditText> (Resource.Id.MoveFrom);
 			EditText toMove = FindViewById<EditText> (Resource.Id.MoveTo);
@@ -183,6 +188,13 @@ namespace MP_Chess
 				actions.move(chessBoard, MoveFrom[1] - '0', MoveFrom[0]-'A', MoveTo[1] - '0', MoveTo[0]-'A');
 				printToTable(chessBoard);
 				actions.printOnServer();
+			};
+
+			refresh.Click += (object sender, EventArgs e) => 
+			{
+				actions.getLastMove(chessBoard);
+				printToTable(chessBoard);
+
 			};
 
 			// Create your application here

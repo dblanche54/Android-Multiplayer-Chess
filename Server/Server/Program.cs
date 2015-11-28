@@ -164,6 +164,7 @@ namespace Server
                 Console.Write("New Delegate created to handle new connection.\n");
 
                 gameObject myGame = new gameObject();
+               // myGame.lastPlayed = new lastMove();
 
                 // Setup where the command data will be stored
                 string[] command;
@@ -240,9 +241,9 @@ namespace Server
                                 myGame.boardGame = generateDefaultBoard();
                                 myGame.playerOne = username;
                                 usernameOpponent = command[1];
-                                myGame.playerOne = usernameOpponent;
-                                myGame.lastPlayed = new lastMove();
+                                myGame.playerTwo = usernameOpponent;
                                 isActive = true;
+                                gamesInPlay.Add(myGame);
                             }
                             break;
                         // Join a game (other player needs to be expecting user)
@@ -250,17 +251,21 @@ namespace Server
                         case "JOIN":
                             if (loggedIn)
                             {
+                                Console.WriteLine("ISFINDING");
                                 // set opponent username
                                 usernameOpponent = command[1];
                                 // search all games for a game that matches the state I'm expecting
                                 foreach (gameObject game in gamesInPlay)
                                 {
                                     // if game I'm looking for 
+                                    Console.WriteLine("P1: " + game.playerOne + " P2: " + game.playerTwo);
                                     if (game.playerOne == usernameOpponent && game.playerTwo == username)
                                     {
                                         // add game to my game
                                         myGame = game;
                                         isActive = true;
+                                        Console.WriteLine("ISJOINED");
+                                        break;
                                     }
                                 }
                             }
@@ -270,6 +275,7 @@ namespace Server
                         case "MOVE":
                             if (isActive)
                             {
+                                myGame.lastPlayed = new lastMove();
                                 // Add moves to last played structure for other player to use
                                 myGame.lastPlayed.xOrigin = Convert.ToInt32(command[1]);
                                 myGame.lastPlayed.yOrigin = Convert.ToInt32(command[2]);
@@ -284,6 +290,12 @@ namespace Server
                                 // clear old square
                                 myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin]
                                     = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+
+                                Console.WriteLine("MOVE " + myGame.lastPlayed.xOrigin.ToString() + " "
++ myGame.lastPlayed.yOrigin.ToString() + " "
++ myGame.lastPlayed.xMoved.ToString() + " "
++ myGame.lastPlayed.yMoved.ToString());
+
                             }
                             break;
                         // Get new moves that have been made
@@ -296,6 +308,12 @@ namespace Server
                                         + myGame.lastPlayed.yOrigin.ToString() + " "
                                         + myGame.lastPlayed.xMoved.ToString() + " "
                                         + myGame.lastPlayed.yMoved.ToString());
+                                    Console.WriteLine("MOVE " + myGame.lastPlayed.xOrigin.ToString() + " "
+    + myGame.lastPlayed.yOrigin.ToString() + " "
+    + myGame.lastPlayed.xMoved.ToString() + " "
+    + myGame.lastPlayed.yMoved.ToString());
+                                    Console.WriteLine("NAME: " + myGame.lastPlayed.lastPlayer);
+
                                     writer.Flush();
                                 } else
                                 {
