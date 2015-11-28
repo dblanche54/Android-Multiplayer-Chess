@@ -29,6 +29,45 @@ namespace MP_Chess
 
 		ProgressDialog progress;
 
+		void onConnecToServer(){
+			EditText serverText = FindViewById<EditText>(Resource.Id.ServerText);
+			EditText userText = FindViewById<EditText>(Resource.Id.UserText);
+			EditText oppText = FindViewById<EditText> (Resource.Id.OpponentText);
+
+			serverAddr= serverText.Text;
+			uname = userText.Text;
+
+			sockInstance = new SocketSingleton (serverAddr, 8080);
+			SocketSingleton.initSingleton ();
+
+			// On "Connect" button click, try to connect to a server.
+			progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true); 
+
+			Task.Factory.StartNew (
+				// tasks allow you to use the lambda syntax to pass work
+				() => {
+					ConProcess();
+				}
+			).ContinueWith(t => {
+				if (progress != null)
+					progress.Hide();
+				if(!sockInstance.isConnected()){
+					setError("Couldn't connect");
+				}else{
+					setError("Connected");
+					Intent intent = new Intent(this,typeof(ChessActivity));
+					ChessActions.socket = sockInstance;
+					ChessActivity.username = userText.Text;
+					ChessActivity.opponent = oppText.Text;
+					StartActivity(intent);
+
+				}
+
+			}, TaskScheduler.FromCurrentSynchronizationContext()
+
+			);
+		}
+
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -38,54 +77,31 @@ namespace MP_Chess
 
 
 			// Get our UI controls from the loaded layout:
-			EditText serverText = FindViewById<EditText>(Resource.Id.ServerText);
-			EditText userText = FindViewById<EditText>(Resource.Id.UserText);
 
-			Button gridButton = FindViewById<Button>(Resource.Id.GridButton);
 
 			//Wire up the connnect button
-			gridButton.Click += (object sender, EventArgs e) =>
+			/*gridButton.Click += (object sender, EventArgs e) =>
 			{
 				Intent intent = new Intent(this,typeof(Chessboard));
 				StartActivity(intent);
-			};
+			};*/
 			Button connectButton = FindViewById<Button>(Resource.Id.ConnectButton);
+
+			Button joinGameButton = FindViewById<Button>(Resource.Id.JoinGame);
 
 			//Wire up the connnect button
 			connectButton.Click += (object sender, EventArgs e) =>
 			{
-
-				serverAddr= serverText.Text;
-				uname = userText.Text;
-
-				sockInstance = new SocketSingleton (serverAddr, 8080);
-				SocketSingleton.initSingleton ();
-
-								// On "Connect" button click, try to connect to a server.
-				progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true); 
-
-				Task.Factory.StartNew (
-					// tasks allow you to use the lambda syntax to pass work
-					() => {
-						ConProcess();
-					}
-				).ContinueWith(t => {
-					if (progress != null)
-						progress.Hide();
-					if(!sockInstance.isConnected()){
-						setError("Couldn't connect");
-					}else{
-						setError("Connected");
-						Intent intent = new Intent(this,typeof(ChessActivity));
-						ChessActions.socket = sockInstance;
-						StartActivity(intent);
-
-					}
-
-				}, TaskScheduler.FromCurrentSynchronizationContext()
-
-				);
+				onConnecToServer();
+				ChessActivity.newGame = true;
 			};
+
+			joinGameButton.Click += (object sender, EventArgs e) =>
+			{
+				onConnecToServer();
+				ChessActivity.newGame = false;
+			};
+
 
 		}
 

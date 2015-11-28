@@ -23,6 +23,9 @@ namespace MP_Chess
 		// put what opponent username is here
 		public static string opponent;
 
+		//What type of connection are we making (new or join)
+		public static bool newGame;
+
 		public ChessActions actions;
 
 		public void printToTable(ChessActions.gameSquare[,] chessboard)
@@ -149,8 +152,6 @@ namespace MP_Chess
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
-			username = "Daniel";
-			opponent = "Paul";
 			actions = new ChessActions (username, opponent);
 			actions.login ();
 			actions.newGame ();
@@ -161,8 +162,6 @@ namespace MP_Chess
 
 			// Make a chess board
 			ChessActions.gameSquare[,] chessBoard = actions.generateDefaultBoard ();
-
-			actions.move (chessBoard, 1, 1, 5, 5);
 
 			printToTable (chessBoard);
 			//board.Text = actions.printBoard (chessBoard);

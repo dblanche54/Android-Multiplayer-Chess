@@ -288,20 +288,20 @@ namespace MP_Chess
 			// aapt resource value: 0x7f06005b
 			public const int ChessSquare77 = 2131099739;
 			
-			// aapt resource value: 0x7f06006c
-			public const int ConnectButton = 2131099756;
+			// aapt resource value: 0x7f06006e
+			public const int ConnectButton = 2131099758;
 			
-			// aapt resource value: 0x7f06006d
-			public const int ErrorText = 2131099757;
+			// aapt resource value: 0x7f06006f
+			public const int ErrorText = 2131099759;
 			
 			// aapt resource value: 0x7f060065
 			public const int ExitButton = 2131099749;
 			
-			// aapt resource value: 0x7f06006e
-			public const int GridButton = 2131099758;
-			
 			// aapt resource value: 0x7f060000
 			public const int HeadText = 2131099648;
+			
+			// aapt resource value: 0x7f060070
+			public const int JoinGame = 2131099760;
 			
 			// aapt resource value: 0x7f060061
 			public const int MoveButton = 2131099745;
@@ -360,6 +360,9 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060053
 			public const int NumberDown7 = 2131099731;
 			
+			// aapt resource value: 0x7f06006d
+			public const int OpponentText = 2131099757;
+			
 			// aapt resource value: 0x7f060069
 			public const int ServerText = 2131099753;
 			
@@ -375,14 +378,14 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060064
 			public const int gridLayout1 = 2131099748;
 			
+			// aapt resource value: 0x7f060073
+			public const int piece = 2131099763;
+			
 			// aapt resource value: 0x7f060071
-			public const int piece = 2131099761;
+			public const int square = 2131099761;
 			
-			// aapt resource value: 0x7f06006f
-			public const int square = 2131099759;
-			
-			// aapt resource value: 0x7f060070
-			public const int square_background = 2131099760;
+			// aapt resource value: 0x7f060072
+			public const int square_background = 2131099762;
 			
 			// aapt resource value: 0x7f060001
 			public const int tableLayout1 = 2131099649;
@@ -434,6 +437,9 @@ namespace MP_Chess
 			
 			// aapt resource value: 0x7f06006a
 			public const int textView3 = 2131099754;
+			
+			// aapt resource value: 0x7f06006c
+			public const int textView4 = 2131099756;
 			
 			static Id()
 			{

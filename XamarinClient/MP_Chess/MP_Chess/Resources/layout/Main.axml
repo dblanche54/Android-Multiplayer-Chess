@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ServerText"
-        android:text="localhost" />
+        android:text="192.168.0.21" />
     <TextView
         android:text="Enter Username:"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -36,8 +36,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/UserText"
         android:text="username" />
+    <TextView
+        android:text="Enter Opponent's Username:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/OpponentText"
+        android:text="opponent" />
     <Button
-        android:text="Connect"
+        android:text="New Game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ConnectButton" />
@@ -48,8 +59,8 @@
         android:id="@+id/ErrorText"
         android:textColor="#ffd50000" />
     <Button
-        android:text="Grid"
+        android:text="Join Game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/GridButton" />
+        android:id="@+id/JoinGame" />
 </LinearLayout>
