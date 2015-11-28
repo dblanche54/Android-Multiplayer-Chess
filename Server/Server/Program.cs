@@ -309,11 +309,6 @@ namespace Server
                                         + myGame.lastPlayed[0].xMoved.ToString() + " "
                                         + myGame.lastPlayed[0].yMoved.ToString());
                                     writer.Flush();
-                                    Console.WriteLine("SENT " + myGame.lastPlayed[0].xOrigin.ToString() + " "
-    + myGame.lastPlayed[0].yOrigin.ToString() + " "
-    + myGame.lastPlayed[0].xMoved.ToString() + " "
-    + myGame.lastPlayed[0].yMoved.ToString());
-
                                 }
                                 else
                                 {
