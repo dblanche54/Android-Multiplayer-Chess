@@ -42,7 +42,7 @@ namespace Server
         {
             public gameSquare[,] boardGame; // The boardgame state
             public List<String> chatRoom; // List of string that make up the chatroom
-            public lastMove lastPlayed; // Last move made by a player
+            public lastMove[] lastPlayed; // Last move made by a player
             public string playerOne; // Username of player 1
             public string playerTwo; // Username of player 2
         }
@@ -164,7 +164,7 @@ namespace Server
                 Console.Write("New Delegate created to handle new connection.\n");
 
                 gameObject myGame = new gameObject();
-               // myGame.lastPlayed = new lastMove();
+                myGame.lastPlayed = new lastMove[1];
 
                 // Setup where the command data will be stored
                 string[] command;
@@ -275,26 +275,25 @@ namespace Server
                         case "MOVE":
                             if (isActive)
                             {
-                                myGame.lastPlayed = new lastMove();
                                 // Add moves to last played structure for other player to use
-                                myGame.lastPlayed.xOrigin = Convert.ToInt32(command[1]);
-                                myGame.lastPlayed.yOrigin = Convert.ToInt32(command[2]);
-                                myGame.lastPlayed.xMoved = Convert.ToInt32(command[3]);
-                                myGame.lastPlayed.yMoved = Convert.ToInt32(command[4]);
+                                myGame.lastPlayed[0].xOrigin = Convert.ToInt32(command[1]);
+                                myGame.lastPlayed[0].yOrigin = Convert.ToInt32(command[2]);
+                                myGame.lastPlayed[0].xMoved = Convert.ToInt32(command[3]);
+                                myGame.lastPlayed[0].yMoved = Convert.ToInt32(command[4]);
                                 // flag that I'm the last player
-                                myGame.lastPlayed.lastPlayer = username;
+                                myGame.lastPlayed[0].lastPlayer = username;
                                 // update the game state
                                 // move the piece
-                                myGame.boardGame[myGame.lastPlayed.xMoved, myGame.lastPlayed.yMoved]
-                                    = myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin];
+                                myGame.boardGame[myGame.lastPlayed[0].xMoved, myGame.lastPlayed[0].yMoved]
+                                    = myGame.boardGame[myGame.lastPlayed[0].xOrigin, myGame.lastPlayed[0].yOrigin];
                                 // clear old square
-                                myGame.boardGame[myGame.lastPlayed.xOrigin, myGame.lastPlayed.yOrigin]
+                                myGame.boardGame[myGame.lastPlayed[0].xOrigin, myGame.lastPlayed[0].yOrigin]
                                     = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
 
-                                Console.WriteLine("MOVE " + myGame.lastPlayed.xOrigin.ToString() + " "
-+ myGame.lastPlayed.yOrigin.ToString() + " "
-+ myGame.lastPlayed.xMoved.ToString() + " "
-+ myGame.lastPlayed.yMoved.ToString());
+                                Console.WriteLine("MOVE " + myGame.lastPlayed[0].xOrigin.ToString() + " "
++ myGame.lastPlayed[0].yOrigin.ToString() + " "
++ myGame.lastPlayed[0].xMoved.ToString() + " "
++ myGame.lastPlayed[0].yMoved.ToString());
 
                             }
                             break;
@@ -302,17 +301,17 @@ namespace Server
                         case "GETMOVE":
                             if (isActive)
                             {
-                                if (myGame.lastPlayed.lastPlayer != username)
+                                if (myGame.lastPlayed[0].lastPlayer != username)
                                 {
-                                    writer.WriteLine("MOVE " + myGame.lastPlayed.xOrigin.ToString() + " "
-                                        + myGame.lastPlayed.yOrigin.ToString() + " "
-                                        + myGame.lastPlayed.xMoved.ToString() + " "
-                                        + myGame.lastPlayed.yMoved.ToString());
-                                    Console.WriteLine("MOVE " + myGame.lastPlayed.xOrigin.ToString() + " "
-    + myGame.lastPlayed.yOrigin.ToString() + " "
-    + myGame.lastPlayed.xMoved.ToString() + " "
-    + myGame.lastPlayed.yMoved.ToString());
-                                    Console.WriteLine("NAME: " + myGame.lastPlayed.lastPlayer);
+                                    writer.WriteLine("MOVE " + myGame.lastPlayed[0].xOrigin.ToString() + " "
+                                        + myGame.lastPlayed[0].yOrigin.ToString() + " "
+                                        + myGame.lastPlayed[0].xMoved.ToString() + " "
+                                        + myGame.lastPlayed[0].yMoved.ToString());
+                                    Console.WriteLine("MOVE " + myGame.lastPlayed[0].xOrigin.ToString() + " "
+    + myGame.lastPlayed[0].yOrigin.ToString() + " "
+    + myGame.lastPlayed[0].xMoved.ToString() + " "
+    + myGame.lastPlayed[0].yMoved.ToString());
+                                    Console.WriteLine("NAME: " + myGame.lastPlayed[0].lastPlayer);
 
                                     writer.Flush();
                                 } else
