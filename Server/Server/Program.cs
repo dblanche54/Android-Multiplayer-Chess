@@ -28,6 +28,8 @@ namespace Server
             public int yOrigin; // the original y coordinate that was moved
             public int xMoved; // the x coordinate that the player moved to
             public int yMoved; // the y coordinate that the player moved to
+            public bool recievedMove; // Has the other player recieved the move yet
+                // (Make sure that the state of the game stays the same)
         }
 
         // What is in a square
@@ -282,6 +284,8 @@ namespace Server
                                 myGame.lastPlayed[0].yMoved = Convert.ToInt32(command[4]);
                                 // flag that I'm the last player
                                 myGame.lastPlayed[0].lastPlayer = username;
+                                // flag the state as readable by other player
+                                myGame.lastPlayed[0].recievedMove = false;
                                 // update the game state
                                 // move the piece
                                 myGame.boardGame[myGame.lastPlayed[0].xMoved, myGame.lastPlayed[0].yMoved]
@@ -289,30 +293,20 @@ namespace Server
                                 // clear old square
                                 myGame.boardGame[myGame.lastPlayed[0].xOrigin, myGame.lastPlayed[0].yOrigin]
                                     = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
-
-                                Console.WriteLine("MOVE " + myGame.lastPlayed[0].xOrigin.ToString() + " "
-+ myGame.lastPlayed[0].yOrigin.ToString() + " "
-+ myGame.lastPlayed[0].xMoved.ToString() + " "
-+ myGame.lastPlayed[0].yMoved.ToString());
-
                             }
                             break;
                         // Get new moves that have been made
                         case "GETMOVE":
                             if (isActive)
                             {
-                                if (myGame.lastPlayed[0].lastPlayer != username)
+                                if (myGame.lastPlayed[0].lastPlayer != username && !myGame.lastPlayed[0].recievedMove)
                                 {
+                                    // flag the state as unreadable by the player
+                                    myGame.lastPlayed[0].recievedMove = true;
                                     writer.WriteLine("MOVE " + myGame.lastPlayed[0].xOrigin.ToString() + " "
                                         + myGame.lastPlayed[0].yOrigin.ToString() + " "
                                         + myGame.lastPlayed[0].xMoved.ToString() + " "
                                         + myGame.lastPlayed[0].yMoved.ToString());
-                                    Console.WriteLine("MOVE " + myGame.lastPlayed[0].xOrigin.ToString() + " "
-    + myGame.lastPlayed[0].yOrigin.ToString() + " "
-    + myGame.lastPlayed[0].xMoved.ToString() + " "
-    + myGame.lastPlayed[0].yMoved.ToString());
-                                    Console.WriteLine("NAME: " + myGame.lastPlayed[0].lastPlayer);
-
                                     writer.Flush();
                                 } else
                                 {
