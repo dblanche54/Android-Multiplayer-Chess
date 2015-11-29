@@ -496,10 +496,6 @@
         </TableRow>
         <TableRow
             android:id="@+id/tableRow10">
-            <Button
-                android:text="Get Updates"
-                android:layout_column="4"
-                android:id="@+id/refresh" />
         </TableRow>
         <TableRow
             android:id="@+id/tableRow11">
