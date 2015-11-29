@@ -19,6 +19,9 @@ namespace MP_Chess
 		// chesman represents the type of pieces, or if none; empty
 		public enum chessman { empty, King, Queen, Rook, Bishop, Knight, Pawn }
 
+		// Am I the white piece?
+		public static bool isWhite;
+
 		// What is in a square
 		public struct gameSquare
 		{
@@ -222,13 +225,20 @@ namespace MP_Chess
 
 					break;
 			} */
-
+			// check parameters are legal
+			if (x1 >= 0 && x1 <= 7
+				&& x2 >= 0 && x2 <= 7
+				&& y1 >= 0 && y1 <= 7
+				&& y2 >= 0 && y2 <= 7) {
 				string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
 				chessBoard [x2, y2] = chessBoard [x1, y1];
 				chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
 				socket.getOut ().WriteLine (toSend);
 				socket.getOut ().Flush ();
 				return true;
+			} else {
+				return false;
+			}
 
 
 
