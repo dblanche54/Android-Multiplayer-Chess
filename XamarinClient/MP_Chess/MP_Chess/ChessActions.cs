@@ -229,13 +229,19 @@ namespace MP_Chess
 			if (x1 >= 0 && x1 <= 7
 				&& x2 >= 0 && x2 <= 7
 				&& y1 >= 0 && y1 <= 7
-				&& y2 >= 0 && y2 <= 7) {
-				string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
-				chessBoard [x2, y2] = chessBoard [x1, y1];
-				chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
-				socket.getOut ().WriteLine (toSend);
-				socket.getOut ().Flush ();
-				return true;
+				&& y2 >= 0 && y2 <= 7)
+			{
+				// make sure it's your piece to move
+				if ((chessBoard [x1, y1].colour == chessmanColour.white && isWhite) || chessBoard [x1, y1].colour == chessmanColour.black && !isWhite) {
+					string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
+					chessBoard [x2, y2] = chessBoard [x1, y1];
+					chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+					socket.getOut ().WriteLine (toSend);
+					socket.getOut ().Flush ();
+					return true;
+				} else {
+					return false;
+				}
 			} else {
 				return false;
 			}

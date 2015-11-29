@@ -178,6 +178,9 @@ namespace MP_Chess
 				actions.joinGame ();
 				myTurn = false;
 			}
+			// if you are creating the game, you are white player
+			ChessActions.isWhite = newGame;
+
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.Chess);
 
