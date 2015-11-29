@@ -215,11 +215,21 @@ namespace MP_Chess
 				if(myTurn){
 					MoveFrom = fromMove.Text;
 					MoveTo = toMove.Text;
-					actions.move(chessBoard, MoveFrom[1] - '0', MoveFrom[0]-'A', MoveTo[1] - '0', MoveTo[0]-'A');
-					printToTable(chessBoard);
-					actions.printOnServer();
-					whoTurn.Text = opponent + "'s Turn";
-					myTurn = false;
+					if(MoveFrom[1] >= 0 || MoveFrom[1] <= 7
+						|| MoveTo[1] >= 0 || MoveTo[1] <= 7
+						|| MoveFrom[0] >= 'A' || MoveFrom[0] <= 'H'
+						|| MoveTo[0] >= 'A' || MoveTo[0] <= 'H')
+					{
+						actions.move(chessBoard, MoveFrom[1] - '0', MoveFrom[0]-'A', MoveTo[1] - '0', MoveTo[0]-'A');
+						printToTable(chessBoard);
+						actions.printOnServer();
+						whoTurn.Text = opponent + "'s Turn";
+						myTurn = false;
+					} else 
+					{
+						fromMove.Text = "A1";
+						toMove.Text = "A2";
+					}
 				}
 			};
 
