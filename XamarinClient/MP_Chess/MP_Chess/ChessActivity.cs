@@ -44,111 +44,132 @@ namespace MP_Chess
 				}
 			}*/
 
-			TextView[,] table = new TextView[8, 8];
+			ImageView[,] table = new ImageView[8, 8];
 
-			table[0,0] = FindViewById<TextView> (Resource.Id.ChessSquare00);
-			table[0,1] = FindViewById<TextView> (Resource.Id.ChessSquare01);
-			table[0,2] = FindViewById<TextView> (Resource.Id.ChessSquare02);
-			table[0,3] = FindViewById<TextView> (Resource.Id.ChessSquare03);
-			table[0,4] = FindViewById<TextView> (Resource.Id.ChessSquare04);
-			table[0,5] = FindViewById<TextView> (Resource.Id.ChessSquare05);
-			table[0,6] = FindViewById<TextView> (Resource.Id.ChessSquare06);
-			table[0,7] = FindViewById<TextView> (Resource.Id.ChessSquare07);
+			table[0,0] = FindViewById<ImageView> (Resource.Id.ChessSquare00);
+			table[0,1] = FindViewById<ImageView> (Resource.Id.ChessSquare01);
+			table[0,2] = FindViewById<ImageView> (Resource.Id.ChessSquare02);
+			table[0,3] = FindViewById<ImageView> (Resource.Id.ChessSquare03);
+			table[0,4] = FindViewById<ImageView> (Resource.Id.ChessSquare04);
+			table[0,5] = FindViewById<ImageView> (Resource.Id.ChessSquare05);
+			table[0,6] = FindViewById<ImageView> (Resource.Id.ChessSquare06);
+			table[0,7] = FindViewById<ImageView> (Resource.Id.ChessSquare07);
 
-			table[1,0] = FindViewById<TextView> (Resource.Id.ChessSquare10);
-			table[1,1] = FindViewById<TextView> (Resource.Id.ChessSquare11);
-			table[1,2] = FindViewById<TextView> (Resource.Id.ChessSquare12);
-			table[1,3] = FindViewById<TextView> (Resource.Id.ChessSquare13);
-			table[1,4] = FindViewById<TextView> (Resource.Id.ChessSquare14);
-			table[1,5] = FindViewById<TextView> (Resource.Id.ChessSquare15);
-			table[1,6] = FindViewById<TextView> (Resource.Id.ChessSquare16);
-			table[1,7] = FindViewById<TextView> (Resource.Id.ChessSquare17);
+			table[1,0] = FindViewById<ImageView> (Resource.Id.ChessSquare10);
+			table[1,1] = FindViewById<ImageView> (Resource.Id.ChessSquare11);
+			table[1,2] = FindViewById<ImageView> (Resource.Id.ChessSquare12);
+			table[1,3] = FindViewById<ImageView> (Resource.Id.ChessSquare13);
+			table[1,4] = FindViewById<ImageView> (Resource.Id.ChessSquare14);
+			table[1,5] = FindViewById<ImageView> (Resource.Id.ChessSquare15);
+			table[1,6] = FindViewById<ImageView> (Resource.Id.ChessSquare16);
+			table[1,7] = FindViewById<ImageView> (Resource.Id.ChessSquare17);
 
-			table[2,0] = FindViewById<TextView> (Resource.Id.ChessSquare20);
-			table[2,1] = FindViewById<TextView> (Resource.Id.ChessSquare21);
-			table[2,2] = FindViewById<TextView> (Resource.Id.ChessSquare22);
-			table[2,3] = FindViewById<TextView> (Resource.Id.ChessSquare23);
-			table[2,4] = FindViewById<TextView> (Resource.Id.ChessSquare24);
-			table[2,5] = FindViewById<TextView> (Resource.Id.ChessSquare25);
-			table[2,6] = FindViewById<TextView> (Resource.Id.ChessSquare26);
-			table[2,7] = FindViewById<TextView> (Resource.Id.ChessSquare27);
+			table[2,0] = FindViewById<ImageView> (Resource.Id.ChessSquare20);
+			table[2,1] = FindViewById<ImageView> (Resource.Id.ChessSquare21);
+			table[2,2] = FindViewById<ImageView> (Resource.Id.ChessSquare22);
+			table[2,3] = FindViewById<ImageView> (Resource.Id.ChessSquare23);
+			table[2,4] = FindViewById<ImageView> (Resource.Id.ChessSquare24);
+			table[2,5] = FindViewById<ImageView> (Resource.Id.ChessSquare25);
+			table[2,6] = FindViewById<ImageView> (Resource.Id.ChessSquare26);
+			table[2,7] = FindViewById<ImageView> (Resource.Id.ChessSquare27);
 
-			table[3,0] = FindViewById<TextView> (Resource.Id.ChessSquare30);
-			table[3,1] = FindViewById<TextView> (Resource.Id.ChessSquare31);
-			table[3,2] = FindViewById<TextView> (Resource.Id.ChessSquare32);
-			table[3,3] = FindViewById<TextView> (Resource.Id.ChessSquare33);
-			table[3,4] = FindViewById<TextView> (Resource.Id.ChessSquare34);
-			table[3,5] = FindViewById<TextView> (Resource.Id.ChessSquare35);
-			table[3,6] = FindViewById<TextView> (Resource.Id.ChessSquare36);
-			table[3,7] = FindViewById<TextView> (Resource.Id.ChessSquare37);
+			table[3,0] = FindViewById<ImageView> (Resource.Id.ChessSquare30);
+			table[3,1] = FindViewById<ImageView> (Resource.Id.ChessSquare31);
+			table[3,2] = FindViewById<ImageView> (Resource.Id.ChessSquare32);
+			table[3,3] = FindViewById<ImageView> (Resource.Id.ChessSquare33);
+			table[3,4] = FindViewById<ImageView> (Resource.Id.ChessSquare34);
+			table[3,5] = FindViewById<ImageView> (Resource.Id.ChessSquare35);
+			table[3,6] = FindViewById<ImageView> (Resource.Id.ChessSquare36);
+			table[3,7] = FindViewById<ImageView> (Resource.Id.ChessSquare37);
 
-			table[4,0] = FindViewById<TextView> (Resource.Id.ChessSquare40);
-			table[4,1] = FindViewById<TextView> (Resource.Id.ChessSquare41);
-			table[4,2] = FindViewById<TextView> (Resource.Id.ChessSquare42);
-			table[4,3] = FindViewById<TextView> (Resource.Id.ChessSquare43);
-			table[4,4] = FindViewById<TextView> (Resource.Id.ChessSquare44);
-			table[4,5] = FindViewById<TextView> (Resource.Id.ChessSquare45);
-			table[4,6] = FindViewById<TextView> (Resource.Id.ChessSquare46);
-			table[4,7] = FindViewById<TextView> (Resource.Id.ChessSquare47);
+			table[4,0] = FindViewById<ImageView> (Resource.Id.ChessSquare40);
+			table[4,1] = FindViewById<ImageView> (Resource.Id.ChessSquare41);
+			table[4,2] = FindViewById<ImageView> (Resource.Id.ChessSquare42);
+			table[4,3] = FindViewById<ImageView> (Resource.Id.ChessSquare43);
+			table[4,4] = FindViewById<ImageView> (Resource.Id.ChessSquare44);
+			table[4,5] = FindViewById<ImageView> (Resource.Id.ChessSquare45);
+			table[4,6] = FindViewById<ImageView> (Resource.Id.ChessSquare46);
+			table[4,7] = FindViewById<ImageView> (Resource.Id.ChessSquare47);
 
-			table[5,0] = FindViewById<TextView> (Resource.Id.ChessSquare50);
-			table[5,1] = FindViewById<TextView> (Resource.Id.ChessSquare51);
-			table[5,2] = FindViewById<TextView> (Resource.Id.ChessSquare52);
-			table[5,3] = FindViewById<TextView> (Resource.Id.ChessSquare53);
-			table[5,4] = FindViewById<TextView> (Resource.Id.ChessSquare54);
-			table[5,5] = FindViewById<TextView> (Resource.Id.ChessSquare55);
-			table[5,6] = FindViewById<TextView> (Resource.Id.ChessSquare56);
-			table[5,7] = FindViewById<TextView> (Resource.Id.ChessSquare57);
+			table[5,0] = FindViewById<ImageView> (Resource.Id.ChessSquare50);
+			table[5,1] = FindViewById<ImageView> (Resource.Id.ChessSquare51);
+			table[5,2] = FindViewById<ImageView> (Resource.Id.ChessSquare52);
+			table[5,3] = FindViewById<ImageView> (Resource.Id.ChessSquare53);
+			table[5,4] = FindViewById<ImageView> (Resource.Id.ChessSquare54);
+			table[5,5] = FindViewById<ImageView> (Resource.Id.ChessSquare55);
+			table[5,6] = FindViewById<ImageView> (Resource.Id.ChessSquare56);
+			table[5,7] = FindViewById<ImageView> (Resource.Id.ChessSquare57);
 
-			table[6,0] = FindViewById<TextView> (Resource.Id.ChessSquare60);
-			table[6,1] = FindViewById<TextView> (Resource.Id.ChessSquare61);
-			table[6,2] = FindViewById<TextView> (Resource.Id.ChessSquare62);
-			table[6,3] = FindViewById<TextView> (Resource.Id.ChessSquare63);
-			table[6,4] = FindViewById<TextView> (Resource.Id.ChessSquare64);
-			table[6,5] = FindViewById<TextView> (Resource.Id.ChessSquare65);
-			table[6,6] = FindViewById<TextView> (Resource.Id.ChessSquare66);
-			table[6,7] = FindViewById<TextView> (Resource.Id.ChessSquare67);
+			table[6,0] = FindViewById<ImageView> (Resource.Id.ChessSquare60);
+			table[6,1] = FindViewById<ImageView> (Resource.Id.ChessSquare61);
+			table[6,2] = FindViewById<ImageView> (Resource.Id.ChessSquare62);
+			table[6,3] = FindViewById<ImageView> (Resource.Id.ChessSquare63);
+			table[6,4] = FindViewById<ImageView> (Resource.Id.ChessSquare64);
+			table[6,5] = FindViewById<ImageView> (Resource.Id.ChessSquare65);
+			table[6,6] = FindViewById<ImageView> (Resource.Id.ChessSquare66);
+			table[6,7] = FindViewById<ImageView> (Resource.Id.ChessSquare67);
 
-			table[7,0] = FindViewById<TextView> (Resource.Id.ChessSquare70);
-			table[7,1] = FindViewById<TextView> (Resource.Id.ChessSquare71);
-			table[7,2] = FindViewById<TextView> (Resource.Id.ChessSquare72);
-			table[7,3] = FindViewById<TextView> (Resource.Id.ChessSquare73);
-			table[7,4] = FindViewById<TextView> (Resource.Id.ChessSquare74);
-			table[7,5] = FindViewById<TextView> (Resource.Id.ChessSquare75);
-			table[7,6] = FindViewById<TextView> (Resource.Id.ChessSquare76);
-			table[7,7] = FindViewById<TextView> (Resource.Id.ChessSquare77);
+			table[7,0] = FindViewById<ImageView> (Resource.Id.ChessSquare70);
+			table[7,1] = FindViewById<ImageView> (Resource.Id.ChessSquare71);
+			table[7,2] = FindViewById<ImageView> (Resource.Id.ChessSquare72);
+			table[7,3] = FindViewById<ImageView> (Resource.Id.ChessSquare73);
+			table[7,4] = FindViewById<ImageView> (Resource.Id.ChessSquare74);
+			table[7,5] = FindViewById<ImageView> (Resource.Id.ChessSquare75);
+			table[7,6] = FindViewById<ImageView> (Resource.Id.ChessSquare76);
+			table[7,7] = FindViewById<ImageView> (Resource.Id.ChessSquare77);
 
 			for (int i = 0; i < 8; i++) {
 				for (int j = 0; j < 8; j++) {
 					switch (chessboard [i, j].piece)
 					{
 					case ChessActions.chessman.Bishop:
-						table[i,j].Text = "B ";
+						if (chessboard [i, j].colour == ChessActions.chessmanColour.black) {
+							table [i, j].SetImageResource (Resource.Drawable.BlackBishop);
+						} else if (chessboard [i, j].colour == ChessActions.chessmanColour.white) {
+							table [i, j].SetImageResource (Resource.Drawable.WhiteBishop);
+						}
+
 						break;
 					case ChessActions.chessman.King:
-						table[i,j].Text = "K ";
+						if (chessboard [i, j].colour == ChessActions.chessmanColour.black) {
+							table [i, j].SetImageResource (Resource.Drawable.BlackKing);
+						} else if (chessboard [i, j].colour == ChessActions.chessmanColour.white) {
+							table [i, j].SetImageResource (Resource.Drawable.WhiteKing);
+						}
+
 						break;
 					case ChessActions.chessman.Knight:
-						table[i,j].Text = "N ";
+						if (chessboard [i, j].colour == ChessActions.chessmanColour.black) {
+							table [i, j].SetImageResource (Resource.Drawable.BlackKnight);
+						} else if (chessboard [i, j].colour == ChessActions.chessmanColour.white) {
+							table [i, j].SetImageResource (Resource.Drawable.WhiteKnight);
+						}
 						break;
 					case ChessActions.chessman.Pawn:
-						table[i,j].Text = "P ";
+						if (chessboard [i, j].colour == ChessActions.chessmanColour.black) {
+							table [i, j].SetImageResource (Resource.Drawable.BlackPawn);
+						} else if (chessboard [i, j].colour == ChessActions.chessmanColour.white) {
+							table [i, j].SetImageResource (Resource.Drawable.WhitePawn);
+						}
 						break;
 					case ChessActions.chessman.Queen:
-						table[i,j].Text = "Q ";
+						if (chessboard [i, j].colour == ChessActions.chessmanColour.black) {
+							table [i, j].SetImageResource (Resource.Drawable.BlackQueen);
+						} else if (chessboard [i, j].colour == ChessActions.chessmanColour.white) {
+							table [i, j].SetImageResource (Resource.Drawable.WhiteQueen);
+						}
 						break;
 					case ChessActions.chessman.Rook:
-						table[i,j].Text = "R ";
+						if (chessboard [i, j].colour == ChessActions.chessmanColour.black) {
+							table [i, j].SetImageResource (Resource.Drawable.BlackRook);
+						} else if (chessboard [i, j].colour == ChessActions.chessmanColour.white) {
+							table [i, j].SetImageResource (Resource.Drawable.WhiteRook);
+						}
+
 						break;
 					default:
-						table[i,j].Text = "  ";
+						table [i, j].SetImageResource (Resource.Drawable.blank);
 						break;
-					}
-					//table[i,j].Text = chessboard [i, j].piece.ToString ();
-					if (chessboard [i, j].colour == ChessActions.chessmanColour.black) {
-						table [i, j].SetTextColor(Android.Graphics.Color.Cyan);
-					} else if (chessboard [i, j].colour == ChessActions.chessmanColour.white) {
-						table [i, j].SetTextColor(Android.Graphics.Color.White);
 					}
 				}
 			}

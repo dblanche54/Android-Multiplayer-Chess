@@ -91,6 +91,20 @@
     <AndroidResource Include="Resources\drawable\sample_6.jpg" />
     <AndroidResource Include="Resources\drawable\sample_7.jpg" />
     <AndroidResource Include="Resources\drawable\white.png" />
+    <AndroidResource Include="Resources\drawable\arrow.png" />
+    <AndroidResource Include="Resources\drawable\BlackBishop.png" />
+    <AndroidResource Include="Resources\drawable\BlackKing.png" />
+    <AndroidResource Include="Resources\drawable\BlackKnight.png" />
+    <AndroidResource Include="Resources\drawable\BlackPawn.png" />
+    <AndroidResource Include="Resources\drawable\BlackQueen.png" />
+    <AndroidResource Include="Resources\drawable\BlackRook.png" />
+    <AndroidResource Include="Resources\drawable\WhiteBishop.png" />
+    <AndroidResource Include="Resources\drawable\WhiteKing.png" />
+    <AndroidResource Include="Resources\drawable\WhiteKnight.png" />
+    <AndroidResource Include="Resources\drawable\WhitePawn.png" />
+    <AndroidResource Include="Resources\drawable\WhiteQueen.png" />
+    <AndroidResource Include="Resources\drawable\WhiteRook.png" />
+    <AndroidResource Include="Resources\drawable\blank.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
