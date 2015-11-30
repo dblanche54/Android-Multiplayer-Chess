@@ -56,6 +56,7 @@
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="Chessboard.cs" />
     <Compile Include="ChessActions.cs" />
+    <Compile Include="ChatActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -34,6 +34,8 @@ namespace MP_Chess
 
 		public ChessActions actions;
 
+		public ChatActions chat;
+
 		public void printToTable(ChessActions.gameSquare[,] chessboard)
 		{
 			/*for (int i = 0; i < 8; i++)
@@ -188,9 +190,16 @@ namespace MP_Chess
 			}
 		}
 
+		public void getMsg(ChatActions chat, TextView txt){
+			
+			txt.Append( chat.GetMsg ());
+		}
+
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			actions = new ChessActions (username, opponent);
+			chat = new ChatActions ();
+
 			actions.login ();
 			if (newGame) {
 				actions.newGame ();
@@ -216,6 +225,9 @@ namespace MP_Chess
 
 			actions.printOnServer ();
 
+			TextView txt = FindViewById<TextView> (Resource.Id.ChatDisplay);
+
+
 			Button moveButton = FindViewById<Button> (Resource.Id.MoveButton);
 
 			EditText fromMove = FindViewById<EditText> (Resource.Id.MoveFrom);
@@ -224,6 +236,15 @@ namespace MP_Chess
 			TextView headText = FindViewById<TextView> (Resource.Id.HeadText);
 			headText.Text = "Playing against " + opponent + ".";
 			TextView whoTurn = FindViewById<TextView> (Resource.Id.whoTurn);
+
+			EditText msgText = FindViewById<EditText> (Resource.Id.MsgText);
+			Button sendButton = FindViewById<Button> (Resource.Id.SendButton);
+			sendButton.Click += (object sender, EventArgs e) => {
+				chat.SendMsg (msgText.Text);
+				//Send string to chat
+
+				msgText.Text = "";
+			};
 
 			if (newGame == true) {
 				whoTurn.Text = username + "'s Turn";
@@ -274,9 +295,18 @@ namespace MP_Chess
 				//getUpdates (actions, chessBoard, whoTurn);
 				while(true){
 					RunOnUiThread(()=>getUpdates(actions, chessBoard, whoTurn));
+					RunOnUiThread(()=>getMsg(chat, txt));
 					System.Threading.Thread.Sleep (1000);
 				}
 				}, null);
+			/**
+			System.Threading.ThreadPool.QueueUserWorkItem(delegate {
+				//getUpdates (actions, chessBoard, whoTurn);
+				while(true){
+					RunOnUiThread(()=>getMsg(chat));
+					System.Threading.Thread.Sleep (1000);
+				}
+			}, null);*/
 		}
 	}
 }
