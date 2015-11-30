@@ -246,6 +246,7 @@ namespace Server
                                 myGame.playerTwo = usernameOpponent;
                                 myGame.lastPlayed[0].recievedMove = true;
                                 isActive = true;
+                                myGame.chatRoom = new List<string>();
                                 gamesInPlay.Add(myGame);
                             }
                             break;
@@ -371,23 +372,29 @@ namespace Server
                             break;
                         // Get new messages that are in the chatroom
                         case "GET":
-                            if (loggedIn)
+                            if (isActive)
                             {
-                                for (int i = lastLine; i < myGame.chatRoom.Count; i++)
+                                if (lastLine < myGame.chatRoom.Count)
                                 {
                                     // send all unread messages
-                                    writer.WriteLine(myGame.chatRoom[i]);
+                                    writer.WriteLine(myGame.chatRoom[lastLine]);
                                     lastLine++;
                                     writer.Flush();
                                 }
+                                else
+                                {
+                                    writer.WriteLine("");
+                                    writer.Flush();
+                              }
                             }
+
                             break;
                         // default, any other string sent will be posted to the chatroom
                         default:
                             if (isActive)
                             {
                                 string connectedString = "";
-                                for (int i = 1; i < command.Length; i++)
+                                for (int i = 0; i < command.Length; i++)
                                 {
                                     // catnate the command string to allow spaces to reform
                                     connectedString = connectedString + command[i];
