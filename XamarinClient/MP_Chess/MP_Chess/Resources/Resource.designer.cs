@@ -138,8 +138,8 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060004
 			public const int Blank0 = 2131099652;
 			
-			// aapt resource value: 0x7f060067
-			public const int ChatDisplay = 2131099751;
+			// aapt resource value: 0x7f060064
+			public const int ChatDisplay = 2131099748;
 			
 			// aapt resource value: 0x7f06000f
 			public const int ChessSquare00 = 2131099663;
@@ -333,32 +333,32 @@ namespace MP_Chess
 			// aapt resource value: 0x7f06005c
 			public const int ChessSquare77 = 2131099740;
 			
-			// aapt resource value: 0x7f060072
-			public const int ConnectButton = 2131099762;
+			// aapt resource value: 0x7f06006e
+			public const int ConnectButton = 2131099758;
 			
-			// aapt resource value: 0x7f060073
-			public const int ErrorText = 2131099763;
+			// aapt resource value: 0x7f06006f
+			public const int ErrorText = 2131099759;
 			
-			// aapt resource value: 0x7f060066
-			public const int ExitButton = 2131099750;
+			// aapt resource value: 0x7f060063
+			public const int ExitButton = 2131099747;
 			
 			// aapt resource value: 0x7f060000
 			public const int HeadText = 2131099648;
 			
-			// aapt resource value: 0x7f060074
-			public const int JoinGame = 2131099764;
-			
-			// aapt resource value: 0x7f060062
-			public const int MoveButton = 2131099746;
-			
-			// aapt resource value: 0x7f06005f
-			public const int MoveFrom = 2131099743;
+			// aapt resource value: 0x7f060070
+			public const int JoinGame = 2131099760;
 			
 			// aapt resource value: 0x7f060061
-			public const int MoveTo = 2131099745;
+			public const int MoveButton = 2131099745;
 			
-			// aapt resource value: 0x7f060068
-			public const int MsgText = 2131099752;
+			// aapt resource value: 0x7f06005e
+			public const int MoveFrom = 2131099742;
+			
+			// aapt resource value: 0x7f060060
+			public const int MoveTo = 2131099744;
+			
+			// aapt resource value: 0x7f060065
+			public const int MsgText = 2131099749;
 			
 			// aapt resource value: 0x7f060005
 			public const int NumberAcross0 = 2131099653;
@@ -408,53 +408,44 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060054
 			public const int NumberDown7 = 2131099732;
 			
-			// aapt resource value: 0x7f060071
-			public const int OpponentText = 2131099761;
+			// aapt resource value: 0x7f06006d
+			public const int OpponentText = 2131099757;
+			
+			// aapt resource value: 0x7f060066
+			public const int SendButton = 2131099750;
 			
 			// aapt resource value: 0x7f060069
-			public const int SendButton = 2131099753;
+			public const int ServerText = 2131099753;
 			
-			// aapt resource value: 0x7f06006d
-			public const int ServerText = 2131099757;
+			// aapt resource value: 0x7f06006b
+			public const int UserText = 2131099755;
 			
-			// aapt resource value: 0x7f06006f
-			public const int UserText = 2131099759;
+			// aapt resource value: 0x7f060067
+			public const int chessboard = 2131099751;
 			
-			// aapt resource value: 0x7f060060
-			public const int arrow = 2131099744;
+			// aapt resource value: 0x7f060062
+			public const int gridLayout1 = 2131099746;
 			
-			// aapt resource value: 0x7f06006a
-			public const int chessboard = 2131099754;
+			// aapt resource value: 0x7f06005d
+			public const int linearLayout1 = 2131099741;
 			
-			// aapt resource value: 0x7f060065
-			public const int gridLayout1 = 2131099749;
+			// aapt resource value: 0x7f060073
+			public const int piece = 2131099763;
 			
-			// aapt resource value: 0x7f060077
-			public const int piece = 2131099767;
+			// aapt resource value: 0x7f060071
+			public const int square = 2131099761;
 			
-			// aapt resource value: 0x7f060075
-			public const int square = 2131099765;
-			
-			// aapt resource value: 0x7f060076
-			public const int square_background = 2131099766;
+			// aapt resource value: 0x7f060072
+			public const int square_background = 2131099762;
 			
 			// aapt resource value: 0x7f060002
 			public const int tableLayout1 = 2131099650;
-			
-			// aapt resource value: 0x7f06005d
-			public const int tableLayout2 = 2131099741;
 			
 			// aapt resource value: 0x7f060003
 			public const int tableRow0 = 2131099651;
 			
 			// aapt resource value: 0x7f06000d
 			public const int tableRow1 = 2131099661;
-			
-			// aapt resource value: 0x7f060063
-			public const int tableRow10 = 2131099747;
-			
-			// aapt resource value: 0x7f060064
-			public const int tableRow11 = 2131099748;
 			
 			// aapt resource value: 0x7f060017
 			public const int tableRow2 = 2131099671;
@@ -477,20 +468,17 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060053
 			public const int tableRow8 = 2131099731;
 			
-			// aapt resource value: 0x7f06005e
-			public const int tableRow9 = 2131099742;
+			// aapt resource value: 0x7f06005f
+			public const int textView1 = 2131099743;
+			
+			// aapt resource value: 0x7f060068
+			public const int textView2 = 2131099752;
+			
+			// aapt resource value: 0x7f06006a
+			public const int textView3 = 2131099754;
 			
 			// aapt resource value: 0x7f06006c
-			public const int textView1 = 2131099756;
-			
-			// aapt resource value: 0x7f06006b
-			public const int textView2 = 2131099755;
-			
-			// aapt resource value: 0x7f06006e
-			public const int textView3 = 2131099758;
-			
-			// aapt resource value: 0x7f060070
-			public const int textView4 = 2131099760;
+			public const int textView4 = 2131099756;
 			
 			// aapt resource value: 0x7f060001
 			public const int whoTurn = 2131099649;
