@@ -397,7 +397,7 @@ namespace Server
                                 for (int i = 0; i < command.Length; i++)
                                 {
                                     // catnate the command string to allow spaces to reform
-                                    connectedString = connectedString + command[i];
+                                    connectedString = connectedString + " " + command[i];
                                 }
                                 // add line to chatroom
                                 myGame.chatRoom.Add(username + ": " + connectedString);
