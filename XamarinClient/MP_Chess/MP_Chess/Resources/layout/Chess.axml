@@ -79,45 +79,45 @@
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare00" />
+                        android:id="@+id/A0" />
                     <ImageView
                         android:layout_column="2"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare01" />
+                        android:id="@+id/B0" />
                     <ImageView
                         android:layout_column="3"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare02" />
+                        android:id="@+id/C0" />
                     <ImageView
                         android:layout_column="4"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare03" />
+                        android:id="@+id/D0" />
                     <ImageView
                         android:layout_column="5"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare04" />
+                        android:id="@+id/E0" />
                     <ImageView
                         android:layout_column="6"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare05" />
+                        android:id="@+id/F0" />
                     <ImageView
                         android:layout_column="7"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare06" />
+                        android:id="@+id/G0" />
                     <ImageView
                         android:layout_column="8"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare07" />
+                        android:id="@+id/H0" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow2">
@@ -129,46 +129,46 @@
                         android:layout_column="1"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare10" />
+                        android:id="@+id/A1" />
                     <ImageView
                         android:layout_column="2"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare11" />
+                        android:id="@+id/B1" />
                     <ImageView
                         android:layout_column="3"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare12" />
+                        android:id="@+id/C1" />
                     <ImageView
                         android:layout_column="4"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare13" />
+                        android:id="@+id/D1" />
                     <ImageView
                         android:layout_column="5"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare14" />
+                        android:id="@+id/E1" />
                     <ImageView
                         android:layout_column="6"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare15" />
+                        android:id="@+id/F1" />
                     <ImageView
                         android:layout_column="7"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare16" />
+                        android:id="@+id/G1" />
                     <ImageView
                         android:layout_column="8"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare17" />
+                        android:id="@+id/H1" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow3">
@@ -181,45 +181,45 @@
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare20" />
+                        android:id="@+id/A2" />
                     <ImageView
                         android:layout_column="2"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare21" />
+                        android:id="@+id/B2" />
                     <ImageView
                         android:layout_column="3"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare22" />
+                        android:id="@+id/C2" />
                     <ImageView
                         android:layout_column="4"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare23" />
+                        android:id="@+id/D2" />
                     <ImageView
                         android:layout_column="5"
                         android:background="@android:color/darker_gray"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare24" />
+                        android:id="@+id/E2" />
                     <ImageView
                         android:layout_column="6"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare25" />
+                        android:id="@+id/F2" />
                     <ImageView
                         android:layout_column="7"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare26" />
+                        android:id="@+id/G2" />
                     <ImageView
                         android:layout_column="8"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare27" />
+                        android:id="@+id/H2" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow4">
@@ -231,46 +231,46 @@
                         android:layout_column="1"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare30" />
+                        android:id="@+id/A3" />
                     <ImageView
                         android:layout_column="2"
                         android:background="@android:color/darker_gray"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare31" />
+                        android:id="@+id/B3" />
                     <ImageView
                         android:layout_column="3"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare32" />
+                        android:id="@+id/C3" />
                     <ImageView
                         android:layout_column="4"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare33" />
+                        android:id="@+id/D3" />
                     <ImageView
                         android:layout_column="5"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare34" />
+                        android:id="@+id/E3" />
                     <ImageView
                         android:layout_column="6"
                         android:background="@android:color/darker_gray"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare35" />
+                        android:id="@+id/F3" />
                     <ImageView
                         android:layout_column="7"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare36" />
+                        android:id="@+id/G3" />
                     <ImageView
                         android:layout_column="8"
                         android:background="@android:color/darker_gray"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare37" />
+                        android:id="@+id/H3" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow5">
@@ -283,45 +283,45 @@
                         android:background="@android:color/darker_gray"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare40" />
+                        android:id="@+id/A4" />
                     <ImageView
                         android:layout_column="2"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare41" />
+                        android:id="@+id/B4" />
                     <ImageView
                         android:layout_column="3"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare42" />
+                        android:id="@+id/C4" />
                     <ImageView
                         android:layout_column="4"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare43" />
+                        android:id="@+id/D4" />
                     <ImageView
                         android:layout_column="5"
                         android:background="@android:color/darker_gray"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare44" />
+                        android:id="@+id/E4" />
                     <ImageView
                         android:layout_column="6"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare45" />
+                        android:id="@+id/F4" />
                     <ImageView
                         android:layout_column="7"
                         android:background="@android:color/darker_gray"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare46" />
+                        android:id="@+id/G4" />
                     <ImageView
                         android:layout_column="8"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare47" />
+                        android:id="@+id/H4" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow6">
@@ -333,46 +333,46 @@
                         android:layout_column="1"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare50" />
+                        android:id="@+id/A5" />
                     <ImageView
                         android:layout_column="2"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare51" />
+                        android:id="@+id/B5" />
                     <ImageView
                         android:layout_column="3"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare52" />
+                        android:id="@+id/C5" />
                     <ImageView
                         android:layout_column="4"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare53" />
+                        android:id="@+id/D5" />
                     <ImageView
                         android:layout_column="5"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare54" />
+                        android:id="@+id/E5" />
                     <ImageView
                         android:layout_column="6"
                         android:background="@android:color/darker_gray"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare55" />
+                        android:id="@+id/F5" />
                     <ImageView
                         android:layout_column="7"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare56" />
+                        android:id="@+id/G5" />
                     <ImageView
                         android:layout_column="8"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare57" />
+                        android:id="@+id/H5" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow7">
@@ -385,45 +385,45 @@
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare60" />
+                        android:id="@+id/A6" />
                     <ImageView
                         android:layout_column="2"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare61" />
+                        android:id="@+id/B6" />
                     <ImageView
                         android:layout_column="3"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare62" />
+                        android:id="@+id/C6" />
                     <ImageView
                         android:layout_column="4"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare63" />
+                        android:id="@+id/D6" />
                     <ImageView
                         android:layout_column="5"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare64" />
+                        android:id="@+id/E6" />
                     <ImageView
                         android:layout_column="6"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare65" />
+                        android:id="@+id/F6" />
                     <ImageView
                         android:layout_column="7"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare66" />
+                        android:id="@+id/G6" />
                     <ImageView
                         android:layout_column="8"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare67" />
+                        android:id="@+id/H6" />
                 </TableRow>
                 <TableRow
                     android:id="@+id/tableRow8">
@@ -435,46 +435,46 @@
                         android:layout_column="1"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare70" />
+                        android:id="@+id/A7" />
                     <ImageView
                         android:layout_column="2"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare71" />
+                        android:id="@+id/B7" />
                     <ImageView
                         android:layout_column="3"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare72" />
+                        android:id="@+id/C7" />
                     <ImageView
                         android:layout_column="4"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare73" />
+                        android:id="@+id/D7" />
                     <ImageView
                         android:layout_column="5"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare74" />
+                        android:id="@+id/E7" />
                     <ImageView
                         android:layout_column="6"
                         android:text=""
                         android:background="@android:color/darker_gray"
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare75" />
+                        android:id="@+id/F7" />
                     <ImageView
                         android:layout_column="7"
                         android:text=""
                         android:padding="3dip"
-                        android:id="@+id/ChessSquare76" />
+                        android:id="@+id/G7" />
                     <ImageView
                         android:layout_column="8"
                         android:text=""
                         android:padding="3dip"
                         android:background="@android:color/darker_gray"
-                        android:id="@+id/ChessSquare77" />
+                        android:id="@+id/H7" />
                 </TableRow>
             </TableLayout>
             <LinearLayout
@@ -515,6 +515,22 @@
                 android:id="@+id/gridLayout1"
                 android:rowCount="8"
                 android:columnCount="8" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/SendBlock">
+                <EditText
+                    android:layout_width="289.5dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/MsgText"
+                    android:background="#ffaaafb2" />
+                <Button
+                    android:text="Send"
+                    android:layout_width="92.5dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/SendButton" />
+            </LinearLayout>
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
@@ -522,16 +538,6 @@
                 android:scrollbars="vertical"
                 android:id="@+id/ChatDisplay"
                 android:background="#ff443b3b" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/MsgText"
-                android:background="#ffaaafb2" />
-            <Button
-                android:text="Send"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/SendButton" />
             <Button
                 android:text="Exit"
                 android:layout_width="match_parent"

@@ -135,218 +135,221 @@ namespace MP_Chess
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f06000f
+			public const int A0 = 2131099663;
+			
+			// aapt resource value: 0x7f060019
+			public const int A1 = 2131099673;
+			
+			// aapt resource value: 0x7f060023
+			public const int A2 = 2131099683;
+			
+			// aapt resource value: 0x7f06002d
+			public const int A3 = 2131099693;
+			
+			// aapt resource value: 0x7f060037
+			public const int A4 = 2131099703;
+			
+			// aapt resource value: 0x7f060041
+			public const int A5 = 2131099713;
+			
+			// aapt resource value: 0x7f06004b
+			public const int A6 = 2131099723;
+			
+			// aapt resource value: 0x7f060055
+			public const int A7 = 2131099733;
+			
+			// aapt resource value: 0x7f060010
+			public const int B0 = 2131099664;
+			
+			// aapt resource value: 0x7f06001a
+			public const int B1 = 2131099674;
+			
+			// aapt resource value: 0x7f060024
+			public const int B2 = 2131099684;
+			
+			// aapt resource value: 0x7f06002e
+			public const int B3 = 2131099694;
+			
+			// aapt resource value: 0x7f060038
+			public const int B4 = 2131099704;
+			
+			// aapt resource value: 0x7f060042
+			public const int B5 = 2131099714;
+			
+			// aapt resource value: 0x7f06004c
+			public const int B6 = 2131099724;
+			
+			// aapt resource value: 0x7f060056
+			public const int B7 = 2131099734;
+			
 			// aapt resource value: 0x7f060004
 			public const int Blank0 = 2131099652;
 			
-			// aapt resource value: 0x7f060064
-			public const int ChatDisplay = 2131099748;
-			
-			// aapt resource value: 0x7f06000f
-			public const int ChessSquare00 = 2131099663;
-			
-			// aapt resource value: 0x7f060010
-			public const int ChessSquare01 = 2131099664;
-			
 			// aapt resource value: 0x7f060011
-			public const int ChessSquare02 = 2131099665;
-			
-			// aapt resource value: 0x7f060012
-			public const int ChessSquare03 = 2131099666;
-			
-			// aapt resource value: 0x7f060013
-			public const int ChessSquare04 = 2131099667;
-			
-			// aapt resource value: 0x7f060014
-			public const int ChessSquare05 = 2131099668;
-			
-			// aapt resource value: 0x7f060015
-			public const int ChessSquare06 = 2131099669;
-			
-			// aapt resource value: 0x7f060016
-			public const int ChessSquare07 = 2131099670;
-			
-			// aapt resource value: 0x7f060019
-			public const int ChessSquare10 = 2131099673;
-			
-			// aapt resource value: 0x7f06001a
-			public const int ChessSquare11 = 2131099674;
+			public const int C0 = 2131099665;
 			
 			// aapt resource value: 0x7f06001b
-			public const int ChessSquare12 = 2131099675;
-			
-			// aapt resource value: 0x7f06001c
-			public const int ChessSquare13 = 2131099676;
-			
-			// aapt resource value: 0x7f06001d
-			public const int ChessSquare14 = 2131099677;
-			
-			// aapt resource value: 0x7f06001e
-			public const int ChessSquare15 = 2131099678;
-			
-			// aapt resource value: 0x7f06001f
-			public const int ChessSquare16 = 2131099679;
-			
-			// aapt resource value: 0x7f060020
-			public const int ChessSquare17 = 2131099680;
-			
-			// aapt resource value: 0x7f060023
-			public const int ChessSquare20 = 2131099683;
-			
-			// aapt resource value: 0x7f060024
-			public const int ChessSquare21 = 2131099684;
+			public const int C1 = 2131099675;
 			
 			// aapt resource value: 0x7f060025
-			public const int ChessSquare22 = 2131099685;
-			
-			// aapt resource value: 0x7f060026
-			public const int ChessSquare23 = 2131099686;
-			
-			// aapt resource value: 0x7f060027
-			public const int ChessSquare24 = 2131099687;
-			
-			// aapt resource value: 0x7f060028
-			public const int ChessSquare25 = 2131099688;
-			
-			// aapt resource value: 0x7f060029
-			public const int ChessSquare26 = 2131099689;
-			
-			// aapt resource value: 0x7f06002a
-			public const int ChessSquare27 = 2131099690;
-			
-			// aapt resource value: 0x7f06002d
-			public const int ChessSquare30 = 2131099693;
-			
-			// aapt resource value: 0x7f06002e
-			public const int ChessSquare31 = 2131099694;
+			public const int C2 = 2131099685;
 			
 			// aapt resource value: 0x7f06002f
-			public const int ChessSquare32 = 2131099695;
-			
-			// aapt resource value: 0x7f060030
-			public const int ChessSquare33 = 2131099696;
-			
-			// aapt resource value: 0x7f060031
-			public const int ChessSquare34 = 2131099697;
-			
-			// aapt resource value: 0x7f060032
-			public const int ChessSquare35 = 2131099698;
-			
-			// aapt resource value: 0x7f060033
-			public const int ChessSquare36 = 2131099699;
-			
-			// aapt resource value: 0x7f060034
-			public const int ChessSquare37 = 2131099700;
-			
-			// aapt resource value: 0x7f060037
-			public const int ChessSquare40 = 2131099703;
-			
-			// aapt resource value: 0x7f060038
-			public const int ChessSquare41 = 2131099704;
+			public const int C3 = 2131099695;
 			
 			// aapt resource value: 0x7f060039
-			public const int ChessSquare42 = 2131099705;
-			
-			// aapt resource value: 0x7f06003a
-			public const int ChessSquare43 = 2131099706;
-			
-			// aapt resource value: 0x7f06003b
-			public const int ChessSquare44 = 2131099707;
-			
-			// aapt resource value: 0x7f06003c
-			public const int ChessSquare45 = 2131099708;
-			
-			// aapt resource value: 0x7f06003d
-			public const int ChessSquare46 = 2131099709;
-			
-			// aapt resource value: 0x7f06003e
-			public const int ChessSquare47 = 2131099710;
-			
-			// aapt resource value: 0x7f060041
-			public const int ChessSquare50 = 2131099713;
-			
-			// aapt resource value: 0x7f060042
-			public const int ChessSquare51 = 2131099714;
+			public const int C4 = 2131099705;
 			
 			// aapt resource value: 0x7f060043
-			public const int ChessSquare52 = 2131099715;
-			
-			// aapt resource value: 0x7f060044
-			public const int ChessSquare53 = 2131099716;
-			
-			// aapt resource value: 0x7f060045
-			public const int ChessSquare54 = 2131099717;
-			
-			// aapt resource value: 0x7f060046
-			public const int ChessSquare55 = 2131099718;
-			
-			// aapt resource value: 0x7f060047
-			public const int ChessSquare56 = 2131099719;
-			
-			// aapt resource value: 0x7f060048
-			public const int ChessSquare57 = 2131099720;
-			
-			// aapt resource value: 0x7f06004b
-			public const int ChessSquare60 = 2131099723;
-			
-			// aapt resource value: 0x7f06004c
-			public const int ChessSquare61 = 2131099724;
+			public const int C5 = 2131099715;
 			
 			// aapt resource value: 0x7f06004d
-			public const int ChessSquare62 = 2131099725;
-			
-			// aapt resource value: 0x7f06004e
-			public const int ChessSquare63 = 2131099726;
-			
-			// aapt resource value: 0x7f06004f
-			public const int ChessSquare64 = 2131099727;
-			
-			// aapt resource value: 0x7f060050
-			public const int ChessSquare65 = 2131099728;
-			
-			// aapt resource value: 0x7f060051
-			public const int ChessSquare66 = 2131099729;
-			
-			// aapt resource value: 0x7f060052
-			public const int ChessSquare67 = 2131099730;
-			
-			// aapt resource value: 0x7f060055
-			public const int ChessSquare70 = 2131099733;
-			
-			// aapt resource value: 0x7f060056
-			public const int ChessSquare71 = 2131099734;
+			public const int C6 = 2131099725;
 			
 			// aapt resource value: 0x7f060057
-			public const int ChessSquare72 = 2131099735;
+			public const int C7 = 2131099735;
 			
-			// aapt resource value: 0x7f060058
-			public const int ChessSquare73 = 2131099736;
-			
-			// aapt resource value: 0x7f060059
-			public const int ChessSquare74 = 2131099737;
-			
-			// aapt resource value: 0x7f06005a
-			public const int ChessSquare75 = 2131099738;
-			
-			// aapt resource value: 0x7f06005b
-			public const int ChessSquare76 = 2131099739;
-			
-			// aapt resource value: 0x7f06005c
-			public const int ChessSquare77 = 2131099740;
-			
-			// aapt resource value: 0x7f06006e
-			public const int ConnectButton = 2131099758;
+			// aapt resource value: 0x7f060066
+			public const int ChatDisplay = 2131099750;
 			
 			// aapt resource value: 0x7f06006f
-			public const int ErrorText = 2131099759;
+			public const int ConnectButton = 2131099759;
 			
-			// aapt resource value: 0x7f060063
-			public const int ExitButton = 2131099747;
+			// aapt resource value: 0x7f060012
+			public const int D0 = 2131099666;
+			
+			// aapt resource value: 0x7f06001c
+			public const int D1 = 2131099676;
+			
+			// aapt resource value: 0x7f060026
+			public const int D2 = 2131099686;
+			
+			// aapt resource value: 0x7f060030
+			public const int D3 = 2131099696;
+			
+			// aapt resource value: 0x7f06003a
+			public const int D4 = 2131099706;
+			
+			// aapt resource value: 0x7f060044
+			public const int D5 = 2131099716;
+			
+			// aapt resource value: 0x7f06004e
+			public const int D6 = 2131099726;
+			
+			// aapt resource value: 0x7f060058
+			public const int D7 = 2131099736;
+			
+			// aapt resource value: 0x7f060013
+			public const int E0 = 2131099667;
+			
+			// aapt resource value: 0x7f06001d
+			public const int E1 = 2131099677;
+			
+			// aapt resource value: 0x7f060027
+			public const int E2 = 2131099687;
+			
+			// aapt resource value: 0x7f060031
+			public const int E3 = 2131099697;
+			
+			// aapt resource value: 0x7f06003b
+			public const int E4 = 2131099707;
+			
+			// aapt resource value: 0x7f060045
+			public const int E5 = 2131099717;
+			
+			// aapt resource value: 0x7f06004f
+			public const int E6 = 2131099727;
+			
+			// aapt resource value: 0x7f060059
+			public const int E7 = 2131099737;
+			
+			// aapt resource value: 0x7f060070
+			public const int ErrorText = 2131099760;
+			
+			// aapt resource value: 0x7f060067
+			public const int ExitButton = 2131099751;
+			
+			// aapt resource value: 0x7f060014
+			public const int F0 = 2131099668;
+			
+			// aapt resource value: 0x7f06001e
+			public const int F1 = 2131099678;
+			
+			// aapt resource value: 0x7f060028
+			public const int F2 = 2131099688;
+			
+			// aapt resource value: 0x7f060032
+			public const int F3 = 2131099698;
+			
+			// aapt resource value: 0x7f06003c
+			public const int F4 = 2131099708;
+			
+			// aapt resource value: 0x7f060046
+			public const int F5 = 2131099718;
+			
+			// aapt resource value: 0x7f060050
+			public const int F6 = 2131099728;
+			
+			// aapt resource value: 0x7f06005a
+			public const int F7 = 2131099738;
+			
+			// aapt resource value: 0x7f060015
+			public const int G0 = 2131099669;
+			
+			// aapt resource value: 0x7f06001f
+			public const int G1 = 2131099679;
+			
+			// aapt resource value: 0x7f060029
+			public const int G2 = 2131099689;
+			
+			// aapt resource value: 0x7f060033
+			public const int G3 = 2131099699;
+			
+			// aapt resource value: 0x7f06003d
+			public const int G4 = 2131099709;
+			
+			// aapt resource value: 0x7f060047
+			public const int G5 = 2131099719;
+			
+			// aapt resource value: 0x7f060051
+			public const int G6 = 2131099729;
+			
+			// aapt resource value: 0x7f06005b
+			public const int G7 = 2131099739;
+			
+			// aapt resource value: 0x7f060016
+			public const int H0 = 2131099670;
+			
+			// aapt resource value: 0x7f060020
+			public const int H1 = 2131099680;
+			
+			// aapt resource value: 0x7f06002a
+			public const int H2 = 2131099690;
+			
+			// aapt resource value: 0x7f060034
+			public const int H3 = 2131099700;
+			
+			// aapt resource value: 0x7f06003e
+			public const int H4 = 2131099710;
+			
+			// aapt resource value: 0x7f060048
+			public const int H5 = 2131099720;
+			
+			// aapt resource value: 0x7f060052
+			public const int H6 = 2131099730;
+			
+			// aapt resource value: 0x7f06005c
+			public const int H7 = 2131099740;
 			
 			// aapt resource value: 0x7f060000
 			public const int HeadText = 2131099648;
 			
-			// aapt resource value: 0x7f060070
-			public const int JoinGame = 2131099760;
+			// aapt resource value: 0x7f060071
+			public const int JoinGame = 2131099761;
+			
+			// aapt resource value: 0x7f06005d
+			public const int MoveBlock = 2131099741;
 			
 			// aapt resource value: 0x7f060061
 			public const int MoveButton = 2131099745;
@@ -357,8 +360,8 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060060
 			public const int MoveTo = 2131099744;
 			
-			// aapt resource value: 0x7f060065
-			public const int MsgText = 2131099749;
+			// aapt resource value: 0x7f060064
+			public const int MsgText = 2131099748;
 			
 			// aapt resource value: 0x7f060005
 			public const int NumberAcross0 = 2131099653;
@@ -408,35 +411,35 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060054
 			public const int NumberDown7 = 2131099732;
 			
-			// aapt resource value: 0x7f06006d
-			public const int OpponentText = 2131099757;
+			// aapt resource value: 0x7f06006e
+			public const int OpponentText = 2131099758;
 			
-			// aapt resource value: 0x7f060066
-			public const int SendButton = 2131099750;
+			// aapt resource value: 0x7f060063
+			public const int SendBlock = 2131099747;
 			
-			// aapt resource value: 0x7f060069
-			public const int ServerText = 2131099753;
+			// aapt resource value: 0x7f060065
+			public const int SendButton = 2131099749;
 			
-			// aapt resource value: 0x7f06006b
-			public const int UserText = 2131099755;
+			// aapt resource value: 0x7f06006a
+			public const int ServerText = 2131099754;
 			
-			// aapt resource value: 0x7f060067
-			public const int chessboard = 2131099751;
+			// aapt resource value: 0x7f06006c
+			public const int UserText = 2131099756;
+			
+			// aapt resource value: 0x7f060068
+			public const int chessboard = 2131099752;
 			
 			// aapt resource value: 0x7f060062
 			public const int gridLayout1 = 2131099746;
 			
-			// aapt resource value: 0x7f06005d
-			public const int linearLayout1 = 2131099741;
-			
-			// aapt resource value: 0x7f060073
-			public const int piece = 2131099763;
-			
-			// aapt resource value: 0x7f060071
-			public const int square = 2131099761;
+			// aapt resource value: 0x7f060074
+			public const int piece = 2131099764;
 			
 			// aapt resource value: 0x7f060072
-			public const int square_background = 2131099762;
+			public const int square = 2131099762;
+			
+			// aapt resource value: 0x7f060073
+			public const int square_background = 2131099763;
 			
 			// aapt resource value: 0x7f060002
 			public const int tableLayout1 = 2131099650;
@@ -471,14 +474,14 @@ namespace MP_Chess
 			// aapt resource value: 0x7f06005f
 			public const int textView1 = 2131099743;
 			
-			// aapt resource value: 0x7f060068
-			public const int textView2 = 2131099752;
+			// aapt resource value: 0x7f060069
+			public const int textView2 = 2131099753;
 			
-			// aapt resource value: 0x7f06006a
-			public const int textView3 = 2131099754;
+			// aapt resource value: 0x7f06006b
+			public const int textView3 = 2131099755;
 			
-			// aapt resource value: 0x7f06006c
-			public const int textView4 = 2131099756;
+			// aapt resource value: 0x7f06006d
+			public const int textView4 = 2131099757;
 			
 			// aapt resource value: 0x7f060001
 			public const int whoTurn = 2131099649;

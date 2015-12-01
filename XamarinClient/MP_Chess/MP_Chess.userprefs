@@ -1,11 +1,10 @@
 ﻿<Properties StartupItem="MP_Chess\MP_Chess.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.c08085c05f97b21" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.04157df42d4b7726" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MP_Chess\ChessActivity.cs">
     <Files>
-      <File FileName="MP_Chess\ChessActions.cs" Line="253" Column="2" />
-      <File FileName="MP_Chess\ChessActivity.cs" Line="194" Column="4" />
+      <File FileName="MP_Chess\ChessActions.cs" Line="1" Column="1" />
+      <File FileName="MP_Chess\ChessActivity.cs" Line="269" Column="7" />
       <File FileName="MP_Chess\MainActivity.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\TIS\Documents\GitHub\CMPT436Project\XamarinClient\MP_Chess\MP_Chess\ChatActions.cs" Line="28" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
