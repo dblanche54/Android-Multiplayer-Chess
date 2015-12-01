@@ -40,7 +40,10 @@ Thumbs.db
 *.dotCover
 
 #files the kill us
-XamarinClient/MP_Chess/MP_Chess/obj/Debug/MP_Chess.csproj.FileListAbsolute.txt
-XamarinClient/MP_Chess/MP_Chess/obj/Debug/resolved_assemblies.txt 
-XamarinClient/MP_Chess/MP_Chess/obj/Debug/sdks.cache 
-XamarinClient/MP_Chess/MP_Chess/obj/Debug/libraryprojectimports.cache 
+#XamarinClient/MP_Chess/MP_Chess/obj/Debug/MP_Chess.csproj.FileListAbsolute.txt
+#XamarinClient/MP_Chess/MP_Chess/obj/Debug/resolved_assemblies.txt 
+#XamarinClient/MP_Chess/MP_Chess/obj/Debug/sdks.cache 
+#XamarinClient/MP_Chess/MP_Chess/obj/Debug/libraryprojectimports.cache 
+XamarinClient/MP_Chess/MP_Chess/obj/Debug/*
+XamarinClient/MP_Chess/*.userprefs
+

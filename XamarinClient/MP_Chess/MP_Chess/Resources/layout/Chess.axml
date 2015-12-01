@@ -481,13 +481,13 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/linearLayout1"
+                android:id="@+id/MoveBlock"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal">
                 <EditText
                     android:id="@+id/MoveFrom"
                     android:text="A1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="106.5dp"
                     android:layout_height="match_parent" />
                 <TextView
                     android:text="-&gt;"
@@ -499,7 +499,7 @@
                 <EditText
                     android:id="@+id/MoveTo"
                     android:text="B1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="117.0dp"
                     android:layout_height="match_parent" />
                 <Button
                     android:text="Move"
@@ -515,26 +515,28 @@
                 android:id="@+id/gridLayout1"
                 android:rowCount="8"
                 android:columnCount="8" />
-            <Button
-                android:text="Exit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ExitButton" />
             <TextView
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="102.5dp"
                 android:scrollbars="vertical"
-                android:id="@+id/ChatDisplay" />
+                android:id="@+id/ChatDisplay"
+                android:background="#ff443b3b" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/MsgText" />
+                android:id="@+id/MsgText"
+                android:background="#ffaaafb2" />
             <Button
                 android:text="Send"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/SendButton" />
+            <Button
+                android:text="Exit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ExitButton" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

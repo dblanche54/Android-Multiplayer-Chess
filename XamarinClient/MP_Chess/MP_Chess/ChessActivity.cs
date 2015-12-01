@@ -195,6 +195,42 @@ namespace MP_Chess
 			txt.Append( chat.GetMsg ());
 		}
 
+		EditText moveFrom,moveTo;
+		int flipper = 0;
+
+		public void MyOnTouch(object sender, View.TouchEventArgs touchEventArgs){
+			
+			switch (touchEventArgs.Event.Action & MotionEventActions.Mask )
+			{
+			case MotionEventActions.Down:
+				View v = (View)sender;
+				string s = Resources.GetResourceEntryName (v.Id);
+				if (flipper == 0) {
+					moveFrom.Text = s;
+					flipper++;
+				} else {
+					moveTo.Text = s;
+					flipper--;
+				}
+				break;
+			case MotionEventActions.Move:
+				// Handle both the Down and Move actions.
+				//message = "Touch Begins";
+				break;
+			case MotionEventActions.Up:
+				//message = "Touch Ends";
+				break;
+
+			default:
+				//message = string.Empty;
+				break;
+			}
+		}
+
+		public void AddListeners(){
+			
+		}
+
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			actions = new ChessActions (username, opponent);
@@ -215,6 +251,16 @@ namespace MP_Chess
 			SetContentView (Resource.Layout.Chess);
 
 
+			/**
+
+			chatDisplay.SetOnTouchListener(new View.IOnTouchListener(){
+				public  Boolean OnTouchEvent(MotionEvent ev){
+					this.Parent.requestedi
+					return (onTouchEvent)ev;
+				}
+			}
+			*/
+
 	//		TextView board = FindViewById<TextView> (Resource.Id.ChessBoard);
 
 			// Make a chess board
@@ -224,6 +270,26 @@ namespace MP_Chess
 			//board.Text = actions.printBoard (chessBoard);
 
 			actions.printOnServer ();
+
+			/**
+			 * 
+			 * Test of updating Move from on touch. Right now only the left most
+			 * white pawn will update the move from EditText.
+			 * 
+			 * Will have to looop through all elements of table and and MyOnTouch
+			 * 
+			 * Might have to  change IDs to something like A0 through H7 to simplify
+			 * filling in the MoveTo and From boxes
+			 */
+			moveFrom = FindViewById<EditText> (Resource.Id.MoveFrom);
+			moveTo = FindViewById<EditText> (Resource.Id.MoveTo);
+
+			ImageView pawn60 = FindViewById<ImageView> (Resource.Id.ChessSquare60);
+			pawn60.Touch += MyOnTouch;
+			ImageView a5 = FindViewById<ImageView> (Resource.Id.ChessSquare50);
+			a5.Touch += MyOnTouch;
+
+
 
 			TextView txt = FindViewById<TextView> (Resource.Id.ChatDisplay);
 
