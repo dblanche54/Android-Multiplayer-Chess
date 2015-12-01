@@ -192,6 +192,78 @@ namespace MP_Chess
 			return false;
 		}
 
+		// Is a Pawn move legal?
+		public bool pawnLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
+			if (chessBoard [x1, y1].colour == chessmanColour.white) {
+				if (chessBoard [x2, y2].piece == chessman.empty) {
+					if (x1 == x2 - 1 && y1 == y2)
+						return true;
+					
+				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard[x2, y2].colour == chessmanColour.black) {
+					if (x1 == x2 - 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
+						return true;
+					
+				}
+			} else if (chessBoard [x1, y1].colour == chessmanColour.black) {
+				if (chessBoard [x2, y2].piece == chessman.empty) {
+					if (x1 == x2 + 1 && y1 == y2)
+						return true;
+					
+				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard[x2, y2].colour == chessmanColour.white) {
+					if (x1 == x2 + 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
+						return true;
+					
+				}
+			}
+			
+			return false;
+		}
+
+		// is a king move legal?
+		public bool kingLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2){
+			if (chessBoard[x2,y2].piece == chessman.empty) {
+				if (x1 == x2) {
+					if (y1 == y2 + 1 || y1 == y2 - 1)
+						return true;
+					
+				} else if (y1 == y2) {
+					if (x1 == x2 + 1 || x1 == x2 - 1)
+						return true;
+					
+				} else {
+					if (x1 == x2 + 1 || x1 == x2 - 1) {
+						if (y1 == y2 + 1 || y1 == y2 - 1)
+							return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		// is rook move legal?
+		public bool rookLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2) {
+
+			return false;
+		}
+
+		// is queen move legal?
+		public bool queenLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2) {
+
+			return false;
+		}
+
+		// is Bishop move legal?
+		public bool bishopLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2) {
+
+			return false;
+		}
+
+		// is Knight move legal?
+		public bool knightLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2) {
+
+			return false;
+		}
+
 		// move a piece
 		public bool move(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
 			// currently assuming the move is legal
