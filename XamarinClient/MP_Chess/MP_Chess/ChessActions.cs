@@ -246,11 +246,13 @@ namespace MP_Chess
 						if (chessBoard [x1, i].piece != chessman.empty)
 							return false;
 					}
+					return true;
 				} else {
 					for (int i = y1; i < y2; i--) {
 						if (chessBoard [x1, i].piece != chessman.empty)
 							return false;
 					}
+					return true;
 				}
 			} else if (y1 == y2) {
 				if (x2 > x1) {
