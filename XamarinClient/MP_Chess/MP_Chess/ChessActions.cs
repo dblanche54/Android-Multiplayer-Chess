@@ -196,21 +196,21 @@ namespace MP_Chess
 		public bool pawnLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
 			if (chessBoard [x1, y1].colour == chessmanColour.white) {
 				if (chessBoard [x2, y2].piece == chessman.empty) {
-					if (x1 == x2 - 1 && y1 == y2)
+					if (x1 == x2 + 1 && y1 == y2)
 						return true;
 					
 				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard[x2, y2].colour == chessmanColour.black) {
-					if (x1 == x2 - 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
+					if (x1 == x2 + 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
 						return true;
 					
 				}
 			} else if (chessBoard [x1, y1].colour == chessmanColour.black) {
 				if (chessBoard [x2, y2].piece == chessman.empty) {
-					if (x1 == x2 + 1 && y1 == y2)
+					if (x1 == x2 - 1 && y1 == y2)
 						return true;
 					
 				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard[x2, y2].colour == chessmanColour.white) {
-					if (x1 == x2 + 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
+					if (x1 == x2 - 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
 						return true;
 					
 				}
@@ -220,83 +220,124 @@ namespace MP_Chess
 		}
 
 		// is a king move legal?
-		public bool kingLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2){
-			if (chessBoard[x2,y2].piece == chessman.empty) {
-				if (x1 == x2) {
+		public bool kingLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
+			if (x1 == x2) {
+				if (y1 == y2 + 1 || y1 == y2 - 1)
+					return true;
+				
+			} else if (y1 == y2) {
+				if (x1 == x2 + 1 || x1 == x2 - 1)
+					return true;
+				
+			} else {
+				if (x1 == x2 + 1 || x1 == x2 - 1) {
 					if (y1 == y2 + 1 || y1 == y2 - 1)
 						return true;
-					
-				} else if (y1 == y2) {
-					if (x1 == x2 + 1 || x1 == x2 - 1)
-						return true;
-					
-				} else {
-					if (x1 == x2 + 1 || x1 == x2 - 1) {
-						if (y1 == y2 + 1 || y1 == y2 - 1)
-							return true;
-					}
 				}
 			}
 			return false;
 		}
 
 		// is rook move legal?
-		public bool rookLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2) {
-
+		public bool rookLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
+			if (x1 == x2) {
+				if (y2 > y1) {
+					for (int i = y1; i < y2; i++) {
+						if (chessBoard [x1, i].piece != chessman.empty)
+							return false;
+					}
+				} else {
+					for (int i = y1; i < y2; i--) {
+						if (chessBoard [x1, i].piece != chessman.empty)
+							return false;
+					}
+				}
+			} else if (y1 == y2) {
+				if (x2 > x1) {
+					for (int i = x1; i < x2; i++) {
+						if (chessBoard [i, y1].piece != chessman.empty) {
+							return false;
+						}
+					}
+					return true;
+				} else {
+					for (int i = x1; i < x2; i--) {
+						if (chessBoard [i, y1].piece != chessman.empty) {
+							return false;
+						}
+					}
+					return true;
+				}
+			}
 			return false;
 		}
 
 		// is queen move legal?
-		public bool queenLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2) {
-
-			return false;
+		public bool queenLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
+			// queen is a combination of these moves being legal
+			return bishopLegal(chessBoard, x1, y1, x2, y2) || rookLegal(chessBoard, x1, y1, x2, y2);
 		}
 
 		// is Bishop move legal?
-		public bool bishopLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2) {
-
+		public bool bishopLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
+			if (Math.Abs (x1 - x2) == Math.Abs (y1 - y2)) {
+				if (x1 < x2) {
+					if (y1 < y2) {
+						for (int i = x1; i < x2; i++) {
+							for (int j = y1; j < y2; j++) {
+								if (chessBoard [i, j].piece != chessman.empty)
+									return false;
+							}
+						}
+						return true;
+					} else if (y2 < y1) {
+						for (int i = x1; i < x2; i++) {
+							for (int j = y1; j < y2; j--) {
+								if (chessBoard [i, j].piece != chessman.empty)
+									return false;
+							}
+						}
+						return true;
+					}
+				} else if (x2 < x1) {
+					if (y1 < y2) {
+						for (int i = x1; i < x2; i--) {
+							for (int j = y1; j < y2; j++) {
+								if (chessBoard [i, j].piece != chessman.empty)
+									return false;
+							}
+						}
+						return true;
+					} else if (y2 < y1) {
+						for (int i = x1; i < x2; i--) {
+							for (int j = y1; j < y2; j--) {
+								if (chessBoard [i, j].piece != chessman.empty)
+									return false;
+							}
+						}
+						return true;
+					}
+				}
+			}
 			return false;
 		}
 
 		// is Knight move legal?
-		public bool knightLegal(gameSquare[,] chessBoard, int x1, int x2, int y1, int y2) {
-
+		public bool knightLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
+			if (x1 == x2 - 1 || x1 == x2 + 1) {
+				if (y1 == y2 - 2 || y1 == y2 + 2) {
+					return true;
+				}
+			} else if (y1 == y2 - 1 || y1 == y2 + 1) {
+				if (x1 == x2 - 2 || x1 == x2 + 2) {
+					return true;
+				}
+			}
 			return false;
 		}
 
 		// move a piece
 		public bool move(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
-			// currently assuming the move is legal
-			/*
-			switch (chessBoard [x1, y1].piece)
-			{
-				case chessman.empty:
-					return false;
-					break;
-				case chessman.Pawn:
-					if (chessBoard [x2, y2].piece != chessman.empty) {
-						if (Math.Abs (x1 - x1) == 1 && Math.Abs (y1 - y2) == 1) {
-						// valid, do nothing to stop it
-						}
-					} else if ((y2 != y1 + 1 || y2 != y1 - 1) && x1 != x2) {
-						// not vaild move
-						return false;
-					}
-					break;
-				case chessman.Rook:
-					if (!(x1 == x2 || y1 == y2)) {
-						return false;
-					}
-					break;
-				case chessman.Queen:
-					if (x1 == x1 || y1 == y2) {
-							
-					}
-					break;
-				default:
-
-					break;
-			} */
 			// check parameters are legal
 			if (x1 >= 0 && x1 <= 7
 				&& x2 >= 0 && x2 <= 7
@@ -305,12 +346,41 @@ namespace MP_Chess
 			{
 				// make sure it's your piece to move
 				if ((chessBoard [x1, y1].colour == chessmanColour.white && isWhite) || chessBoard [x1, y1].colour == chessmanColour.black && !isWhite) {
-					string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
-					chessBoard [x2, y2] = chessBoard [x1, y1];
-					chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
-					socket.getOut ().WriteLine (toSend);
-					socket.getOut ().Flush ();
-					return true;
+					// check if the move is legal
+					bool isLegal = false;
+					switch (chessBoard [x1, y1].piece) {
+					case chessman.Bishop:
+						isLegal = bishopLegal (chessBoard, x1, y1, x2, y2);
+						break;
+					case chessman.King:
+						isLegal = kingLegal (chessBoard, x1, y1, x2, y2);
+						break;
+					case chessman.Knight:
+						isLegal = knightLegal (chessBoard, x1, y1, x2, y2);
+						break;
+					case chessman.Pawn:
+						isLegal = pawnLegal (chessBoard, x1, y1, x2, y2);
+						break;
+					case chessman.Queen:
+						isLegal = queenLegal (chessBoard, x1, y1, x2, y2);
+						break;
+					case chessman.Rook:
+						isLegal = rookLegal (chessBoard, x1, y1, x2, y2);
+						break;
+					}
+					Android.Widget.Toast.MakeText(Android.App.Application.Context, isLegal.ToString(),
+						Android.Widget.ToastLength.Long).Show();
+					
+					if (isLegal) {
+						string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
+						chessBoard [x2, y2] = chessBoard [x1, y1];
+						chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+						socket.getOut ().WriteLine (toSend);
+						socket.getOut ().Flush ();
+						return true;
+					} else {
+						return false;
+					}
 				} else {
 					return false;
 				}
