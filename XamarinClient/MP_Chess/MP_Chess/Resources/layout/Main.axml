@@ -48,7 +48,7 @@
         android:id="@+id/OpponentText"
         android:text="opponent" />
     <Button
-        android:text="New Game"
+        android:text="Connect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ConnectButton" />
@@ -58,9 +58,4 @@
         android:layout_height="wrap_content"
         android:id="@+id/ErrorText"
         android:textColor="#ffd50000" />
-    <Button
-        android:text="Join Game"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/JoinGame" />
 </LinearLayout>

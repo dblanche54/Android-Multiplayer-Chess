@@ -29,7 +29,7 @@ namespace Server
             public int xMoved; // the x coordinate that the player moved to
             public int yMoved; // the y coordinate that the player moved to
             public bool recievedMove; // Has the other player recieved the move yet
-                // (Make sure that the state of the game stays the same)
+                                      // (Make sure that the state of the game stays the same)
         }
 
         // What is in a square
@@ -47,6 +47,7 @@ namespace Server
             public lastMove[] lastPlayed; // Last move made by a player
             public string playerOne; // Username of player 1
             public string playerTwo; // Username of player 2
+            public bool isJoined;
         }
 
         // List of all games that are going on
@@ -202,7 +203,8 @@ namespace Server
                         // Login to the server
                         // Expected string "LOGIN username"
                         case "LOGIN":
-                            if (command.Length == 2) {
+                            if (command.Length == 2)
+                            {
                                 username = command[1];
                                 Console.WriteLine("Logging in " + username);
                                 // make sure there are usernames to check
@@ -215,7 +217,7 @@ namespace Server
                                         if (user == username)
                                         {
                                             loggedIn = false;
-                                            writer.WriteLine("Username already in use, try with another");
+                                            writer.WriteLine("FALSE");
                                             writer.Flush();
                                             break;
                                         }
@@ -226,12 +228,20 @@ namespace Server
                                     // if still logged in (i.e. not been logged out because username in use)
                                     // add username to the list of usernames in use
                                     userNames.Add(username);
+                                    writer.WriteLine("TRUE");
+                                    writer.Flush();
+
+                                }
+                                else
+                                {
+                                    writer.WriteLine("FALSE");
+                                    writer.Flush();
                                 }
                             }
                             else
                             {
                                 // If command login command isn't what was expected let the player know
-                                writer.WriteLine("Username not provided.");
+                                writer.WriteLine("FALSE");
                                 writer.Flush();
                             }
                             break;
@@ -240,14 +250,38 @@ namespace Server
                         case "NEW":
                             if (loggedIn)
                             {
-                                myGame.boardGame = generateDefaultBoard();
-                                myGame.playerOne = username;
+                                bool foundOtherGame = false;
                                 usernameOpponent = command[1];
-                                myGame.playerTwo = usernameOpponent;
-                                myGame.lastPlayed[0].recievedMove = true;
-                                isActive = true;
-                                myGame.chatRoom = new List<string>();
-                                gamesInPlay.Add(myGame);
+                                // search all games for a game that matches the state I'm expecting
+                                foreach (gameObject game in gamesInPlay)
+                                {
+                                    // if game I'm looking for 
+                                    if (game.playerOne == usernameOpponent && game.playerTwo == username)
+                                    {
+                                        writer.WriteLine("EXIST");
+                                        writer.Flush();
+                                        foundOtherGame = true;
+                                        break;
+                                    }
+                                }
+                                if (!foundOtherGame)
+                                {
+                                    myGame.boardGame = generateDefaultBoard();
+                                    myGame.playerOne = username;
+                                    usernameOpponent = command[1];
+                                    myGame.playerTwo = usernameOpponent;
+                                    myGame.lastPlayed[0].recievedMove = true;
+                                    isActive = true;
+                                    myGame.chatRoom = new List<string>();
+                                    gamesInPlay.Add(myGame);
+                                    writer.WriteLine("TRUE");
+                                    writer.Flush();
+                                }
+                            }
+                            else
+                            {
+                                writer.WriteLine("FALSE");
+                                writer.Flush();
                             }
                             break;
                         // Join a game (other player needs to be expecting user)
@@ -255,6 +289,7 @@ namespace Server
                         case "JOIN":
                             if (loggedIn)
                             {
+                                bool found = false;
                                 Console.WriteLine("ISFINDING");
                                 // set opponent username
                                 usernameOpponent = command[1];
@@ -263,14 +298,28 @@ namespace Server
                                 {
                                     // if game I'm looking for 
                                     Console.WriteLine("P1: " + game.playerOne + " P2: " + game.playerTwo);
-                                    if (game.playerOne == usernameOpponent && game.playerTwo == username)
+                                    if (game.playerOne == usernameOpponent && game.playerTwo == username && game.isJoined == false)
                                     {
+                                        found = true;
+
                                         // add game to my game
                                         myGame = game;
+                                        gamesInPlay.ToArray()[gamesInPlay.IndexOf(game)].isJoined = true;
                                         isActive = true;
                                         Console.WriteLine("ISJOINED");
+                                        writer.WriteLine("TRUE");
+                                        writer.Flush();
                                         break;
+                                    } else if (game.isJoined == true)
+                                    {
+                                        writer.WriteLine("FALSE");
+                                        writer.Flush();
                                     }
+                                }
+                                if (!found)
+                                {
+                                    writer.WriteLine("FALSE");
+                                    writer.Flush();
                                 }
                             }
                             break;

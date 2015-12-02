@@ -19,7 +19,7 @@ namespace MP_Chess
 	[Activity (Label = "MP Chess", MainLauncher = true, Icon = "@drawable/icon")]
 	public class MainActivity : Activity
 	{
-		
+
 		public Socket socket;
 		protected int portNum = 8080;
 		protected String uname;
@@ -59,8 +59,27 @@ namespace MP_Chess
 					ChessActions.socket = sockInstance;
 					ChessActivity.username = userText.Text;
 					ChessActivity.opponent = oppText.Text;
-					StartActivity(intent);
+					ChessActivity.actions = new ChessActions (ChessActivity.username, ChessActivity.opponent);
 
+					ChessActivity.actions.login ();
+					string read = SocketSingleton.getInstance().getIn().ReadLine();
+					if (read == "TRUE"){
+						if (ChessActivity.actions.joinGame()) {
+							ChessActivity.myTurn = false;
+							ChessActivity.newGame = false;
+							StartActivity(intent);
+						} else {
+							if(ChessActivity.actions.newGame ()) {
+								ChessActivity.myTurn = true;
+								ChessActivity.newGame = true;
+								StartActivity(intent);
+							}
+							else
+								setError("Username already in use");
+						}
+					} else {
+						setError("Could not use username to login");
+					}
 				}
 
 			}, TaskScheduler.FromCurrentSynchronizationContext()
@@ -87,21 +106,12 @@ namespace MP_Chess
 			};*/
 			Button connectButton = FindViewById<Button>(Resource.Id.ConnectButton);
 
-			Button joinGameButton = FindViewById<Button>(Resource.Id.JoinGame);
-
 			//Wire up the connnect button
 			connectButton.Click += (object sender, EventArgs e) =>
 			{
 				onConnecToServer();
-				ChessActivity.newGame = true;
-			};
 
-			joinGameButton.Click += (object sender, EventArgs e) =>
-			{
-				onConnecToServer();
-				ChessActivity.newGame = false;
 			};
-
 
 		}
 

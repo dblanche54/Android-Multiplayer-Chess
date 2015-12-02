@@ -7,10 +7,10 @@ namespace MP_Chess
 		public static SocketSingleton socket;
 
 		// put what my username is here
-		public string username;
+		public static string username;
 
 		// put what opponent username is here
-		public string opponent;
+		public static string opponent;
 
 		// Data types to represent what state a board block could be in
 		// chessmanColour repreents the colour of the piece, or in case of no piece; empty
@@ -179,7 +179,9 @@ namespace MP_Chess
 			string toSend = "NEW " + opponent;
 			socket.getOut ().WriteLine (toSend);
 			socket.getOut ().Flush ();
-
+			string recieve = socket.getIn ().ReadLine();
+			if (recieve == "TRUE")
+				return true;
 			return false;
 		}
 
@@ -188,7 +190,9 @@ namespace MP_Chess
 			string toSend = "JOIN " + opponent;
 			socket.getOut ().WriteLine (toSend);
 			socket.getOut ().Flush ();
-
+			string recieve = socket.getIn().ReadLine();
+			if (recieve == "TRUE")
+				return true;
 			return false;
 		}
 
@@ -198,24 +202,24 @@ namespace MP_Chess
 				if (chessBoard [x2, y2].piece == chessman.empty) {
 					if (x1 == x2 + 1 && y1 == y2)
 						return true;
-					
+
 				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard[x2, y2].colour == chessmanColour.black) {
 					if (x1 == x2 + 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
 						return true;
-					
+
 				}
 			} else if (chessBoard [x1, y1].colour == chessmanColour.black) {
 				if (chessBoard [x2, y2].piece == chessman.empty) {
 					if (x1 == x2 - 1 && y1 == y2)
 						return true;
-					
+
 				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard[x2, y2].colour == chessmanColour.white) {
 					if (x1 == x2 - 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
 						return true;
-					
+
 				}
 			}
-			
+
 			return false;
 		}
 
@@ -224,11 +228,11 @@ namespace MP_Chess
 			if (x1 == x2) {
 				if (y1 == y2 + 1 || y1 == y2 - 1)
 					return true;
-				
+
 			} else if (y1 == y2) {
 				if (x1 == x2 + 1 || x1 == x2 - 1)
 					return true;
-				
+
 			} else {
 				if (x1 == x2 + 1 || x1 == x2 - 1) {
 					if (y1 == y2 + 1 || y1 == y2 - 1)
@@ -344,54 +348,55 @@ namespace MP_Chess
 			if (x1 >= 0 && x1 <= 7
 				&& x2 >= 0 && x2 <= 7
 				&& y1 >= 0 && y1 <= 7
-				&& y2 >= 0 && y2 <= 7)
-			{
+				&& y2 >= 0 && y2 <= 7) {
 				// make sure it's your piece to move
 				if ((chessBoard [x1, y1].colour == chessmanColour.white && isWhite) || chessBoard [x1, y1].colour == chessmanColour.black && !isWhite) {
 					// check if the move is legal
-					bool isLegal = false;
-					switch (chessBoard [x1, y1].piece) {
-					case chessman.Bishop:
-						isLegal = bishopLegal (chessBoard, x1, y1, x2, y2);
-						break;
-					case chessman.King:
-						isLegal = kingLegal (chessBoard, x1, y1, x2, y2);
-						break;
-					case chessman.Knight:
-						isLegal = knightLegal (chessBoard, x1, y1, x2, y2);
-						break;
-					case chessman.Pawn:
-						isLegal = pawnLegal (chessBoard, x1, y1, x2, y2);
-						break;
-					case chessman.Queen:
-						isLegal = queenLegal (chessBoard, x1, y1, x2, y2);
-						break;
-					case chessman.Rook:
-						isLegal = rookLegal (chessBoard, x1, y1, x2, y2);
-						break;
-					}
-					Android.Widget.Toast.MakeText(Android.App.Application.Context, isLegal.ToString(),
-						Android.Widget.ToastLength.Long).Show();
-					
-					if (isLegal) {
-						string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
-						chessBoard [x2, y2] = chessBoard [x1, y1];
-						chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
-						socket.getOut ().WriteLine (toSend);
-						socket.getOut ().Flush ();
-						return true;
+					if ((chessBoard [x1, y1].colour == chessmanColour.white && chessBoard [x2, y2].colour != chessmanColour.white)
+						|| (chessBoard [x1, y2].colour == chessmanColour.black && chessBoard [x2, y2].colour != chessmanColour.black)) {
+
+						bool isLegal = false;
+						switch (chessBoard [x1, y1].piece) {
+						case chessman.Bishop:
+							isLegal = bishopLegal (chessBoard, x1, y1, x2, y2);
+							break;
+						case chessman.King:
+							isLegal = kingLegal (chessBoard, x1, y1, x2, y2);
+							break;
+						case chessman.Knight:
+							isLegal = knightLegal (chessBoard, x1, y1, x2, y2);
+							break;
+						case chessman.Pawn:
+							isLegal = pawnLegal (chessBoard, x1, y1, x2, y2);
+							break;
+						case chessman.Queen:
+							isLegal = queenLegal (chessBoard, x1, y1, x2, y2);
+							break;
+						case chessman.Rook:
+							isLegal = rookLegal (chessBoard, x1, y1, x2, y2);
+							break;
+						}
+						Android.Widget.Toast.MakeText (Android.App.Application.Context, isLegal.ToString (),
+							Android.Widget.ToastLength.Long).Show ();
+
+						if (isLegal) {
+							string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
+							chessBoard [x2, y2] = chessBoard [x1, y1];
+							chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+							socket.getOut ().WriteLine (toSend);
+							socket.getOut ().Flush ();
+							return true;
+						} else {
+							return false;
+						}
 					} else {
 						return false;
 					}
 				} else {
 					return false;
 				}
-			} else {
-				return false;
 			}
-
-
-
+			return false;
 		}
 
 		// get last move made by other player, false is returned if no move yet made

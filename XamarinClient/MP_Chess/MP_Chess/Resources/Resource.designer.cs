@@ -345,9 +345,6 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060000
 			public const int HeadText = 2131099648;
 			
-			// aapt resource value: 0x7f060071
-			public const int JoinGame = 2131099761;
-			
 			// aapt resource value: 0x7f06005d
 			public const int MoveBlock = 2131099741;
 			
@@ -432,14 +429,14 @@ namespace MP_Chess
 			// aapt resource value: 0x7f060062
 			public const int gridLayout1 = 2131099746;
 			
-			// aapt resource value: 0x7f060074
-			public const int piece = 2131099764;
+			// aapt resource value: 0x7f060073
+			public const int piece = 2131099763;
+			
+			// aapt resource value: 0x7f060071
+			public const int square = 2131099761;
 			
 			// aapt resource value: 0x7f060072
-			public const int square = 2131099762;
-			
-			// aapt resource value: 0x7f060073
-			public const int square_background = 2131099763;
+			public const int square_background = 2131099762;
 			
 			// aapt resource value: 0x7f060002
 			public const int tableLayout1 = 2131099650;

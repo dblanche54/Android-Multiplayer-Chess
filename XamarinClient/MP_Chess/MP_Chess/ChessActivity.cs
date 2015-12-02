@@ -27,12 +27,12 @@ namespace MP_Chess
 		public static string opponent;
 
 		// is it my turn?
-		public bool myTurn;
+		public static bool myTurn;
 
 		//What type of connection are we making (new or join)
 		public static bool newGame;
 
-		public ChessActions actions;
+		public static ChessActions actions;
 
 		public ChatActions chat;
 
@@ -57,17 +57,9 @@ namespace MP_Chess
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
-			actions = new ChessActions (username, opponent);
 			chat = new ChatActions ();
 
-			actions.login ();
-			if (newGame) {
-				actions.newGame ();
-				myTurn = true;
-			} else {
-				actions.joinGame ();
-				myTurn = false;
-			}
+
 			// if you are creating the game, you are white player
 			ChessActions.isWhite = newGame;
 

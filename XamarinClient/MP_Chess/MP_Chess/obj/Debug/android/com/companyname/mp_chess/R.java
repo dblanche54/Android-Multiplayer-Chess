@@ -109,7 +109,6 @@ public final class R {
         public static final int H6=0x7f060052;
         public static final int H7=0x7f06005c;
         public static final int HeadText=0x7f060000;
-        public static final int JoinGame=0x7f060071;
         public static final int MoveBlock=0x7f06005d;
         public static final int MoveButton=0x7f060061;
         public static final int MoveFrom=0x7f06005e;
@@ -138,9 +137,9 @@ public final class R {
         public static final int UserText=0x7f06006c;
         public static final int chessboard=0x7f060068;
         public static final int gridLayout1=0x7f060062;
-        public static final int piece=0x7f060074;
-        public static final int square=0x7f060072;
-        public static final int square_background=0x7f060073;
+        public static final int piece=0x7f060073;
+        public static final int square=0x7f060071;
+        public static final int square_background=0x7f060072;
         public static final int tableLayout1=0x7f060002;
         public static final int tableRow0=0x7f060003;
         public static final int tableRow1=0x7f06000d;
