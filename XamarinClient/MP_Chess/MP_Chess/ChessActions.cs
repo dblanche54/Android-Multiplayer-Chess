@@ -352,8 +352,10 @@ namespace MP_Chess
 				// make sure it's your piece to move
 				if ((chessBoard [x1, y1].colour == chessmanColour.white && isWhite) || chessBoard [x1, y1].colour == chessmanColour.black && !isWhite) {
 					// check if the move is legal
-					if (!((chessBoard [x1, y1].colour == chessmanColour.white && chessBoard [x2, y2].colour != chessmanColour.white)
-						|| (chessBoard [x1, y2].colour == chessmanColour.black && chessBoard [x2, y2].colour != chessmanColour.black))) {
+					/*
+					if ((chessBoard [x1, y1].colour == chessmanColour.white && chessBoard [x2, y2].colour != chessmanColour.white)
+					    || (chessBoard [x1, y1].colour == chessmanColour.black && chessBoard [x2, y2].colour != chessmanColour.black))
+							return false; */
 
 						bool isLegal = false;
 						switch (chessBoard [x1, y1].piece) {
@@ -395,7 +397,6 @@ namespace MP_Chess
 				} else {
 					return false;
 				}
-			}
 			return false;
 		}
 
