@@ -22,6 +22,9 @@ namespace MP_Chess
 		// Am I the white piece?
 		public static bool isWhite;
 
+		// is it the end of the game?
+		public static bool endGame;
+
 		// What is in a square
 		public struct gameSquare
 		{
@@ -185,6 +188,7 @@ namespace MP_Chess
 				socket.getOut ().WriteLine (toSend);
 				socket.getOut ().Flush ();
 				string recieve = socket.getIn ().ReadLine();
+				endGame = false;
 				if (recieve == "TRUE")
 					return true;
 				return false;
@@ -199,6 +203,7 @@ namespace MP_Chess
 				string toSend = "JOIN " + opponent;
 				socket.getOut ().WriteLine (toSend);
 				socket.getOut ().Flush ();
+				endGame = false;
 				string recieve = socket.getIn().ReadLine();
 				if (recieve == "TRUE")
 					return true;
@@ -409,6 +414,7 @@ namespace MP_Chess
 */
 							if (isLegal) {
 								string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
+								if (chessBoard[x2, y2].piece == chessman.King) endGame = true;
 								chessBoard [x2, y2] = chessBoard [x1, y1];
 								chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
 								socket.getOut ().WriteLine (toSend);
@@ -444,6 +450,7 @@ namespace MP_Chess
 					int x2 = Convert.ToInt32 (recieveSplit [3]);
 					int y2 = Convert.ToInt32 (recieveSplit [4]);
 					// the move made by player 2
+					if (chessBoard[x2, y2].piece == chessman.King) endGame = true;
 					chessBoard [x2, y2] = chessBoard [x1, y1];
 					chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
 					return true;

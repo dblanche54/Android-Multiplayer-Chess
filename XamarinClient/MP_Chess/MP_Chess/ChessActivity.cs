@@ -259,10 +259,10 @@ namespace MP_Chess
 						// Make sure parameter is valid
 						if(actions.move(chessBoard, MoveFrom[1] - '0', MoveFrom[0]-'A', MoveTo[1] - '0', MoveTo[0]-'A'))
 						{
+							myTurn = false;
+							whoTurn.Text = opponent + "'s Turn";
 							printToTable(chessBoard);
 							actions.printOnServer();
-							whoTurn.Text = opponent + "'s Turn";
-							myTurn = false;
 						}
 						else 
 						{
@@ -431,7 +431,15 @@ namespace MP_Chess
 					}
 				}
 			}
-
+			if (ChessActions.endGame == true) {
+				if (!myTurn) { // if you just moved
+					whoTurn.Text = username + " wins";
+					myTurn = false;
+				} else {
+					whoTurn.Text = opponent + " wins";
+					myTurn = false;
+				}
+			}
 		}
 	}
 }
