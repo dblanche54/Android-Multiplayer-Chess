@@ -246,13 +246,13 @@ namespace MP_Chess
 		public bool rookLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
 			if (x1 == x2) {
 				if (y2 > y1) {
-					for (int i = y1; i < y2; i++) {
+					for (int i = y1 + 1; i < y2; i++) {
 						if (chessBoard [x1, i].piece != chessman.empty)
 							return false;
 					}
 					return true;
 				} else {
-					for (int i = y1; i < y2; i--) {
+					for (int i = y1 - 1; i < y2; i--) {
 						if (chessBoard [x1, i].piece != chessman.empty)
 							return false;
 					}
@@ -260,14 +260,14 @@ namespace MP_Chess
 				}
 			} else if (y1 == y2) {
 				if (x2 > x1) {
-					for (int i = x1; i < x2; i++) {
+					for (int i = x1 + 1; i < x2; i++) {
 						if (chessBoard [i, y1].piece != chessman.empty) {
 							return false;
 						}
 					}
 					return true;
 				} else {
-					for (int i = x1; i < x2; i--) {
+					for (int i = x1 - 1; i < x2; i--) {
 						if (chessBoard [i, y1].piece != chessman.empty) {
 							return false;
 						}
@@ -352,7 +352,7 @@ namespace MP_Chess
 				// make sure it's your piece to move
 				if ((chessBoard [x1, y1].colour == chessmanColour.white && isWhite) || chessBoard [x1, y1].colour == chessmanColour.black && !isWhite) {
 					// check if the move is legal
-					/*
+					/*\
 					if ((chessBoard [x1, y1].colour == chessmanColour.white && chessBoard [x2, y2].colour != chessmanColour.white)
 					    || (chessBoard [x1, y1].colour == chessmanColour.black && chessBoard [x2, y2].colour != chessmanColour.black))
 							return false; */
