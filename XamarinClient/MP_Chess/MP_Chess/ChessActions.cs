@@ -167,33 +167,45 @@ namespace MP_Chess
 
 		// login to server
 		public bool login(){
-			string toSend = "LOGIN " + username;
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
+			try {
+				string toSend = "LOGIN " + username;
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
 
-			return false;
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
 		}
 
 		// start a new game (i.e. you are player 1)
 		public bool newGame(){
-			string toSend = "NEW " + opponent;
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
-			string recieve = socket.getIn ().ReadLine();
-			if (recieve == "TRUE")
-				return true;
-			return false;
+			try {
+				string toSend = "NEW " + opponent;
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
+				string recieve = socket.getIn ().ReadLine();
+				if (recieve == "TRUE")
+					return true;
+				return false;
+			} catch (Exception e) {
+				return false;
+			}
 		}
 
 		// join an existing game (i.e. you are player 2)
 		public bool joinGame(){
-			string toSend = "JOIN " + opponent;
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
-			string recieve = socket.getIn().ReadLine();
-			if (recieve == "TRUE")
-				return true;
-			return false;
+			try {
+				string toSend = "JOIN " + opponent;
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
+				string recieve = socket.getIn().ReadLine();
+				if (recieve == "TRUE")
+					return true;
+				return false;
+			} catch (Exception e) {
+				return false;
+			}
 		}
 
 		// Is a Pawn move legal?
@@ -351,114 +363,138 @@ namespace MP_Chess
 
 		// move a piece
 		public bool move(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
-			// check parameters are legal
-			if (x1 >= 0 && x1 <= 7
-				&& x2 >= 0 && x2 <= 7
-				&& y1 >= 0 && y1 <= 7
-				&& y2 >= 0 && y2 <= 7) {
-				// make sure it's your piece to move
-				if ((chessBoard [x1, y1].colour == chessmanColour.white && isWhite) || chessBoard [x1, y1].colour == chessmanColour.black && !isWhite) {
-					// check if the move is legal
+			try {
+				// check parameters are legal
+				if (x1 >= 0 && x1 <= 7
+					&& x2 >= 0 && x2 <= 7
+					&& y1 >= 0 && y1 <= 7
+					&& y2 >= 0 && y2 <= 7) {
+					// make sure it's your piece to move
+					if ((chessBoard [x1, y1].colour == chessmanColour.white && isWhite) || chessBoard [x1, y1].colour == chessmanColour.black && !isWhite) {
+						// check if the move is legal
 
-					if ((chessBoard [x1, y1].colour == chessmanColour.white && chessBoard [x2, y2].colour == chessmanColour.white)
-					    || (chessBoard [x1, y1].colour == chessmanColour.black && chessBoard [x2, y2].colour == chessmanColour.black))
-							return false; 
+						if ((chessBoard [x1, y1].colour == chessmanColour.white && chessBoard [x2, y2].colour == chessmanColour.white)
+						    || (chessBoard [x1, y1].colour == chessmanColour.black && chessBoard [x2, y2].colour == chessmanColour.black))
+								return false; 
 
-						bool isLegal = false;
-						switch (chessBoard [x1, y1].piece) {
-						case chessman.Bishop:
-							isLegal = bishopLegal (chessBoard, x1, y1, x2, y2);
-							break;
-						case chessman.King:
-							isLegal = kingLegal (chessBoard, x1, y1, x2, y2);
-							break;
-						case chessman.Knight:
-							isLegal = knightLegal (chessBoard, x1, y1, x2, y2);
-							break;
-						case chessman.Pawn:
-							isLegal = pawnLegal (chessBoard, x1, y1, x2, y2);
-							break;
-						case chessman.Queen:
-							isLegal = queenLegal (chessBoard, x1, y1, x2, y2);
-							break;
-						case chessman.Rook:
-							isLegal = rookLegal (chessBoard, x1, y1, x2, y2);
-							break;
-						}
-						Android.Widget.Toast.MakeText (Android.App.Application.Context, isLegal.ToString (),
-							Android.Widget.ToastLength.Long).Show ();
+							bool isLegal = false;
+							switch (chessBoard [x1, y1].piece) {
+							case chessman.Bishop:
+								isLegal = bishopLegal (chessBoard, x1, y1, x2, y2);
+								break;
+							case chessman.King:
+								isLegal = kingLegal (chessBoard, x1, y1, x2, y2);
+								break;
+							case chessman.Knight:
+								isLegal = knightLegal (chessBoard, x1, y1, x2, y2);
+								break;
+							case chessman.Pawn:
+								isLegal = pawnLegal (chessBoard, x1, y1, x2, y2);
+								break;
+							case chessman.Queen:
+								isLegal = queenLegal (chessBoard, x1, y1, x2, y2);
+								break;
+							case chessman.Rook:
+								isLegal = rookLegal (chessBoard, x1, y1, x2, y2);
+								break;
+							}
+							Android.Widget.Toast.MakeText (Android.App.Application.Context, isLegal.ToString (),
+								Android.Widget.ToastLength.Long).Show ();
 
-						if (isLegal) {
-							string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
-							chessBoard [x2, y2] = chessBoard [x1, y1];
-							chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
-							socket.getOut ().WriteLine (toSend);
-							socket.getOut ().Flush ();
-							return true;
+							if (isLegal) {
+								string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
+								chessBoard [x2, y2] = chessBoard [x1, y1];
+								chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+								socket.getOut ().WriteLine (toSend);
+								socket.getOut ().Flush ();
+								return true;
+							} else {
+								return false;
+							}
 						} else {
 							return false;
 						}
 					} else {
 						return false;
 					}
-				} else {
-					return false;
-				}
+			} catch (Exception e) {
+				return false;
+			}
 		}
 
 		// get last move made by other player, false is returned if no move yet made
 		public bool getLastMove(gameSquare[,] chessBoard){
-			string toSend = "GETMOVE";
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
-			string recieve;
-			recieve = socket.getIn ().ReadLine ();
-			string[] recieveSplit;
-			recieveSplit = recieve.Split (' ');
-			if (recieveSplit [0] == "MOVE") {
-				int x1 = Convert.ToInt32 (recieveSplit [1]);
-				int y1 = Convert.ToInt32 (recieveSplit [2]);
-				int x2 = Convert.ToInt32 (recieveSplit [3]);
-				int y2 = Convert.ToInt32 (recieveSplit [4]);
-				// the move made by player 2
-				chessBoard [x2, y2] = chessBoard [x1, y1];
-				chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
-				return true;
-			} else {
+			try {
+				string toSend = "GETMOVE";
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
+				string recieve;
+				recieve = socket.getIn ().ReadLine ();
+				string[] recieveSplit;
+				recieveSplit = recieve.Split (' ');
+				if (recieveSplit [0] == "MOVE") {
+					int x1 = Convert.ToInt32 (recieveSplit [1]);
+					int y1 = Convert.ToInt32 (recieveSplit [2]);
+					int x2 = Convert.ToInt32 (recieveSplit [3]);
+					int y2 = Convert.ToInt32 (recieveSplit [4]);
+					// the move made by player 2
+					chessBoard [x2, y2] = chessBoard [x1, y1];
+					chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
+					return true;
+				} else {
+					return false;
+				}
+			} catch (Exception e) {
 				return false;
 			}
 		}
 
 		public bool logout(){
-			string toSend = "LOGOUT";
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
-			return false;
+			try {
+				string toSend = "LOGOUT";
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
 		}
 
 		// used for debugging on server
 		public bool printOnServer(){
-			string toSend = "PRINT";
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
-			return false;
+			try {
+				string toSend = "PRINT";
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
 		}
 
 		// return string of all last chat messages
 		public string getLastChat(){
-			string toSend = "GET";
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
-			// then recieve from socket
-			return "";
+			try {
+				string toSend = "GET";
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
+				// then recieve from socket
+				return "";
+			} catch (Exception e) {
+				return "";
+			}
 		}
 
 		// post to chatroom
 		public bool postToChat(string message){
-			string toSend = message;
-			socket.getOut ().WriteLine (toSend);
-			socket.getOut ().Flush ();
-			return false;
+			try {
+				string toSend = message;
+				socket.getOut ().WriteLine (toSend);
+				socket.getOut ().Flush ();
+				return true;
+			} catch (Exception e) {
+				return false;
+			}
 		}
 
 

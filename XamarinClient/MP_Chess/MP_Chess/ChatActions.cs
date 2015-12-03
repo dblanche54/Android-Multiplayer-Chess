@@ -14,18 +14,25 @@ namespace MP_Chess
 		}
 
 		public void SendMsg(String msg){
-			sock.getOut().WriteLine(msg);
-			sock.getOut ().Flush ();
+			try {
+				sock.getOut().WriteLine(msg);
+				sock.getOut ().Flush ();
+			} catch (Exception e) {
+			}
 		}
 
 		public string GetMsg(){
-			sock.getOut().WriteLine("GET");
-			sock.getOut ().Flush ();
-			string value = sock.getIn ().ReadLine ();
-			if (value == "")
-				return value;
-			else
-				return value + "\n";
+			try {
+				sock.getOut ().WriteLine ("GET");
+				sock.getOut ().Flush ();
+				string value = sock.getIn ().ReadLine ();
+				if (value == "")
+					return value;
+				else
+					return value + "\n";
+			} catch (Exception e) {
+				return "";
+			}
 		}
 
 	}
