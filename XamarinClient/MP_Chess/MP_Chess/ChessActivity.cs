@@ -10,13 +10,13 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-
+using Android.Content.PM;
 using System.Threading;
 using System.Timers;
 
 namespace MP_Chess
 {
-	[Activity (Label = "ChessActivity")]			
+	[Activity (Label = "ChessActivity", ScreenOrientation = ScreenOrientation.Portrait) ]			
 	public class ChessActivity : Activity
 	{
 

@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="MP_Chess\MP_Chess.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.11fe9b02" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MP_Chess\ChessActions.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.c08085c05f97b21" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MP_Chess\SocketSingleton.cs">
     <Files>
-      <File FileName="MP_Chess\ChessActions.cs" Line="355" Column="9" />
-      <File FileName="MP_Chess\ChessActivity.cs" Line="35" Column="16" />
-      <File FileName="MP_Chess\MainActivity.cs" Line="74" Column="37" />
+      <File FileName="MP_Chess\ChessActions.cs" Line="399" Column="8" />
+      <File FileName="MP_Chess\ChessActivity.cs" Line="263" Column="32" />
+      <File FileName="MP_Chess\MainActivity.cs" Line="72" Column="57" />
+      <File FileName="MP_Chess\SocketSingleton.cs" Line="41" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

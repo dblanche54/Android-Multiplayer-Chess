@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 using System.Threading;
 using Java.IO;
 using Java.Net;
-
+using Android.Content.PM;
 
 
 
 namespace MP_Chess
 {
-	[Activity (Label = "MP Chess", MainLauncher = true, Icon = "@drawable/icon")]
+	[Activity (Label = "MP Chess", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Portrait)]
 	public class MainActivity : Activity
 	{
 
