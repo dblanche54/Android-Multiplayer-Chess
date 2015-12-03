@@ -170,6 +170,7 @@ namespace MP_Chess
 				intent.SetFlags(ActivityFlags.NewTask);
 				StartActivity(intent);
 				Finish();
+				System.Environment.Exit(0);
 			};
 
 			// get updates
