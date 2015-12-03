@@ -64,8 +64,8 @@ public final class R {
         public static final int C5=0x7f060043;
         public static final int C6=0x7f06004d;
         public static final int C7=0x7f060057;
-        public static final int ChatDisplay=0x7f060066;
-        public static final int ConnectButton=0x7f06006f;
+        public static final int ChatDisplay=0x7f060061;
+        public static final int ConnectButton=0x7f06006b;
         public static final int D0=0x7f060012;
         public static final int D1=0x7f06001c;
         public static final int D2=0x7f060026;
@@ -82,8 +82,8 @@ public final class R {
         public static final int E5=0x7f060045;
         public static final int E6=0x7f06004f;
         public static final int E7=0x7f060059;
-        public static final int ErrorText=0x7f060070;
-        public static final int ExitButton=0x7f060067;
+        public static final int ErrorText=0x7f06006c;
+        public static final int ExitButton=0x7f060062;
         public static final int F0=0x7f060014;
         public static final int F1=0x7f06001e;
         public static final int F2=0x7f060028;
@@ -109,11 +109,7 @@ public final class R {
         public static final int H6=0x7f060052;
         public static final int H7=0x7f06005c;
         public static final int HeadText=0x7f060000;
-        public static final int MoveBlock=0x7f06005d;
-        public static final int MoveButton=0x7f060061;
-        public static final int MoveFrom=0x7f06005e;
-        public static final int MoveTo=0x7f060060;
-        public static final int MsgText=0x7f060064;
+        public static final int MsgText=0x7f06005f;
         public static final int NumberAcross0=0x7f060005;
         public static final int NumberAcross1=0x7f060006;
         public static final int NumberAcross2=0x7f060007;
@@ -130,16 +126,16 @@ public final class R {
         public static final int NumberDown5=0x7f060040;
         public static final int NumberDown6=0x7f06004a;
         public static final int NumberDown7=0x7f060054;
-        public static final int OpponentText=0x7f06006e;
-        public static final int SendBlock=0x7f060063;
-        public static final int SendButton=0x7f060065;
-        public static final int ServerText=0x7f06006a;
-        public static final int UserText=0x7f06006c;
-        public static final int chessboard=0x7f060068;
-        public static final int gridLayout1=0x7f060062;
-        public static final int piece=0x7f060073;
-        public static final int square=0x7f060071;
-        public static final int square_background=0x7f060072;
+        public static final int OpponentText=0x7f06006a;
+        public static final int SendBlock=0x7f06005e;
+        public static final int SendButton=0x7f060060;
+        public static final int ServerText=0x7f060066;
+        public static final int UserText=0x7f060068;
+        public static final int chessboard=0x7f060063;
+        public static final int gridLayout1=0x7f06005d;
+        public static final int piece=0x7f06006f;
+        public static final int square=0x7f06006d;
+        public static final int square_background=0x7f06006e;
         public static final int tableLayout1=0x7f060002;
         public static final int tableRow0=0x7f060003;
         public static final int tableRow1=0x7f06000d;
@@ -150,10 +146,10 @@ public final class R {
         public static final int tableRow6=0x7f06003f;
         public static final int tableRow7=0x7f060049;
         public static final int tableRow8=0x7f060053;
-        public static final int textView1=0x7f06005f;
-        public static final int textView2=0x7f060069;
-        public static final int textView3=0x7f06006b;
-        public static final int textView4=0x7f06006d;
+        public static final int textView1=0x7f060065;
+        public static final int textView2=0x7f060064;
+        public static final int textView3=0x7f060067;
+        public static final int textView4=0x7f060069;
         public static final int whoTurn=0x7f060001;
     }
     public static final class layout {

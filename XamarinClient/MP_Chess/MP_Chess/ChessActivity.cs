@@ -39,14 +39,11 @@ namespace MP_Chess
 		TextView txt; //Chat Display
 
 		//Touch related vars
-		EditText moveFrom,moveTo;
 		int flipper = 0;				
 
 		string MoveFrom;
 		string MoveTo;
 
-		EditText fromMove ;
-		EditText toMove ;
 
 		ChessActions.gameSquare[,] chessBoard;
 
@@ -97,8 +94,6 @@ namespace MP_Chess
 			 * Might have to  change IDs to something like A0 through H7 to simplify
 			 * filling in the MoveTo and From boxes
 			 */
-			moveFrom = FindViewById<EditText> (Resource.Id.MoveFrom);
-			moveTo = FindViewById<EditText> (Resource.Id.MoveTo);
 
 
 			int i, j;
@@ -111,10 +106,6 @@ namespace MP_Chess
 			txt = FindViewById<TextView> (Resource.Id.ChatDisplay);
 
 
-			Button moveButton = FindViewById<Button> (Resource.Id.MoveButton);
-
-			fromMove = FindViewById<EditText> (Resource.Id.MoveFrom);
-			toMove = FindViewById<EditText> (Resource.Id.MoveTo);
 
 			TextView headText = FindViewById<TextView> (Resource.Id.HeadText);
 			headText.Text = "Playing against " + opponent + ".";
@@ -136,7 +127,7 @@ namespace MP_Chess
 			}
 
 
-
+			/*
 			moveButton.Click += (object sender, EventArgs e) => 
 			{
 				if(myTurn){
@@ -156,7 +147,7 @@ namespace MP_Chess
 						toMove.Text = "A2";
 					}
 				}
-			};
+			};*/
 
 			// Create your application here
 			Button exitButton = FindViewById<Button>(Resource.Id.ExitButton);
@@ -209,10 +200,10 @@ namespace MP_Chess
 				View v = (View)sender;
 				string s = Resources.GetResourceEntryName (v.Id);
 				if (flipper == 0) {
-					moveFrom.Text = s;
+					MoveFrom = s;
 					flipper++;
 				} else {
-					moveTo.Text = s;
+					MoveTo = s;
 					flipper--;
 				}
 				break;
@@ -259,8 +250,8 @@ namespace MP_Chess
 					var data = e.Event.ClipData;
 					
 					if(myTurn){
-						fromMove.Text = data.GetItemAt(0).Text;
-						toMove.Text = Resources.GetResourceEntryName (fromView.Id);
+					MoveFrom = data.GetItemAt(0).Text;
+						MoveTo = Resources.GetResourceEntryName (fromView.Id);
 						//txt.Text = Resources.GetResourceEntryName (fromView.Id) +data.GetItemAt(0).Text;
 
 						MoveFrom = data.GetItemAt(0).Text;
@@ -275,8 +266,8 @@ namespace MP_Chess
 						}
 						else 
 						{
-							fromMove.Text = "A1";
-							toMove.Text = "A2";
+							MoveFrom = "A1";
+							MoveTo = "A2";
 						}
 					}
 					break;

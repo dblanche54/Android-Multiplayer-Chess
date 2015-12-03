@@ -477,36 +477,6 @@
                         android:id="@+id/H7" />
                 </TableRow>
             </TableLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/MoveBlock"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal">
-                <EditText
-                    android:id="@+id/MoveFrom"
-                    android:text="A1"
-                    android:layout_width="106.5dp"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:text="-&gt;"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:layout_width="52.5dp"
-                    android:layout_height="38.0dp"
-                    android:gravity="center"
-                    android:id="@+id/textView1" />
-                <EditText
-                    android:id="@+id/MoveTo"
-                    android:text="B1"
-                    android:layout_width="117.0dp"
-                    android:layout_height="match_parent" />
-                <Button
-                    android:text="Move"
-                    android:id="@+id/MoveButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
             <GridLayout
                 android:minWidth="25px"
                 android:minHeight="25px"
