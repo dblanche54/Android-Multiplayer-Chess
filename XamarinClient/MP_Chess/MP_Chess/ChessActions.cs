@@ -451,6 +451,10 @@ namespace MP_Chess
 					int y2 = Convert.ToInt32 (recieveSplit [4]);
 					// the move made by player 2
 					if (chessBoard[x2, y2].piece == chessman.King) endGame = true;
+
+					if(chessBoard[x1, y1].piece == chessman.Pawn && (x2 == 0 || x2 == 7))
+						chessBoard[x1, y1].piece = chessman.Queen;
+					
 					chessBoard [x2, y2] = chessBoard [x1, y1];
 					chessBoard [x1, y1] = new gameSquare { colour = chessmanColour.empty, piece = chessman.empty };
 					return true;
