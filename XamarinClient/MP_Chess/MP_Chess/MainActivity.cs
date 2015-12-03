@@ -43,12 +43,6 @@ namespace MP_Chess
 			// On "Connect" button click, try to connect to a server.
 			progress = ProgressDialog.Show(this, "Loading", "Please Wait...", true); 
 
-			Task.Factory.StartNew (
-				// tasks allow you to use the lambda syntax to pass work
-				() => {
-					ConProcess();
-				}
-			).ContinueWith(t => {
 				if (progress != null)
 					progress.Hide();
 				if(!sockInstance.isConnected()){
@@ -81,10 +75,6 @@ namespace MP_Chess
 						setError("Could not use username to login");
 					}
 				}
-
-			}, TaskScheduler.FromCurrentSynchronizationContext()
-
-			);
 		}
 
 		protected override void OnCreate (Bundle savedInstanceState)

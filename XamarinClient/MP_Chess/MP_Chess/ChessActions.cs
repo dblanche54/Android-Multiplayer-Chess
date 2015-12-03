@@ -289,16 +289,16 @@ namespace MP_Chess
 			if (Math.Abs (x1 - x2) == Math.Abs (y1 - y2)) {
 				if (x1 < x2) {
 					if (y1 < y2) {
-						for (int i = x1; i < x2; i++) {
-							for (int j = y1; j < y2; j++) {
+						for (int i = x1 + 1; i < x2; i++) {
+							for (int j = y1 + 1; j < y2; j++) {
 								if (chessBoard [i, j].piece != chessman.empty)
 									return false;
 							}
 						}
 						return true;
 					} else if (y2 < y1) {
-						for (int i = x1; i < x2; i++) {
-							for (int j = y1; j < y2; j--) {
+						for (int i = x1 + 1; i < x2; i++) {
+							for (int j = y1 - 1; j < y2; j--) {
 								if (chessBoard [i, j].piece != chessman.empty)
 									return false;
 							}
@@ -307,16 +307,16 @@ namespace MP_Chess
 					}
 				} else if (x2 < x1) {
 					if (y1 < y2) {
-						for (int i = x1; i < x2; i--) {
-							for (int j = y1; j < y2; j++) {
+						for (int i = x1 - 1; i < x2; i--) {
+							for (int j = y1 + 1; j < y2; j++) {
 								if (chessBoard [i, j].piece != chessman.empty)
 									return false;
 							}
 						}
 						return true;
 					} else if (y2 < y1) {
-						for (int i = x1; i < x2; i--) {
-							for (int j = y1; j < y2; j--) {
+						for (int i = x1 - 1; i < x2; i--) {
+							for (int j = y1 - 1; j < y2; j--) {
 								if (chessBoard [i, j].piece != chessman.empty)
 									return false;
 							}
@@ -352,10 +352,10 @@ namespace MP_Chess
 				// make sure it's your piece to move
 				if ((chessBoard [x1, y1].colour == chessmanColour.white && isWhite) || chessBoard [x1, y1].colour == chessmanColour.black && !isWhite) {
 					// check if the move is legal
-					/*\
-					if ((chessBoard [x1, y1].colour == chessmanColour.white && chessBoard [x2, y2].colour != chessmanColour.white)
-					    || (chessBoard [x1, y1].colour == chessmanColour.black && chessBoard [x2, y2].colour != chessmanColour.black))
-							return false; */
+
+					if ((chessBoard [x1, y1].colour == chessmanColour.white && chessBoard [x2, y2].colour == chessmanColour.white)
+					    || (chessBoard [x1, y1].colour == chessmanColour.black && chessBoard [x2, y2].colour == chessmanColour.black))
+							return false; 
 
 						bool isLegal = false;
 						switch (chessBoard [x1, y1].piece) {
@@ -397,7 +397,6 @@ namespace MP_Chess
 				} else {
 					return false;
 				}
-			return false;
 		}
 
 		// get last move made by other player, false is returned if no move yet made
@@ -421,7 +420,6 @@ namespace MP_Chess
 			} else {
 				return false;
 			}
-			return false;
 		}
 
 		public bool logout(){

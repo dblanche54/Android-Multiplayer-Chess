@@ -38,7 +38,7 @@ namespace MP_Chess
 		}
 
 		public static void initSingleton(){
-			if (instance == null) {
+		//	if (instance == null) {
 				instance = new SocketSingleton ();
 				try{
 					if(connection == null)
@@ -52,7 +52,7 @@ namespace MP_Chess
 					//Print log?
 					System.Console.WriteLine(e.ToString());
 				}
-			}
+		//	}
 		}
 
 		public bool isConnected(){
