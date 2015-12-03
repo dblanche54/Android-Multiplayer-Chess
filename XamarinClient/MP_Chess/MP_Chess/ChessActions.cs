@@ -271,7 +271,7 @@ namespace MP_Chess
 					}
 					return true;
 				} else {
-					for (int i = y1 - 1; i < y2; i--) {
+					for (int i = y1 - 1; i > y2; i--) {
 						if (chessBoard [x1, i].piece != chessman.empty)
 							return false;
 					}
@@ -286,7 +286,7 @@ namespace MP_Chess
 					}
 					return true;
 				} else {
-					for (int i = x1 - 1; i < x2; i--) {
+					for (int i = x1 - 1; i > x2; i--) {
 						if (chessBoard [i, y1].piece != chessman.empty) {
 							return false;
 						}
@@ -308,38 +308,42 @@ namespace MP_Chess
 			if (Math.Abs (x1 - x2) == Math.Abs (y1 - y2)) {
 				if (x1 < x2) {
 					if (y1 < y2) {
+						int j = y1 + 1;
 						for (int i = x1 + 1; i < x2; i++) {
-							for (int j = y1 + 1; j < y2; j++) {
-								if (chessBoard [i, j].piece != chessman.empty)
-									return false;
+							if (chessBoard [i, j].piece != chessman.empty) {
+								return false;
 							}
-						}
-						return true;
-					} else if (y2 < y1) {
+							j++;
+							}
+							return true;
+					} else if (y2 < y1) {						
+						int j = y1 - 1;
 						for (int i = x1 + 1; i < x2; i++) {
-							for (int j = y1 - 1; j < y2; j--) {
-								if (chessBoard [i, j].piece != chessman.empty)
-									return false;
+							if (chessBoard [i, j].piece != chessman.empty) {
+								return false;
 							}
-						}
+							j--;
+							}
 						return true;
 					}
 				} else if (x2 < x1) {
 					if (y1 < y2) {
-						for (int i = x1 - 1; i < x2; i--) {
-							for (int j = y1 + 1; j < y2; j++) {
-								if (chessBoard [i, j].piece != chessman.empty)
-									return false;
+						int j = y1 + 1;
+						for (int i = x1 - 1; i > x2; i--) {
+							if (chessBoard [i, j].piece != chessman.empty) {
+								return false;
 							}
-						}
+							j++;			
+							}
 						return true;
 					} else if (y2 < y1) {
-						for (int i = x1 - 1; i < x2; i--) {
-							for (int j = y1 - 1; j < y2; j--) {
-								if (chessBoard [i, j].piece != chessman.empty)
-									return false;
+						int j = y1 - 1;
+						for (int i = x1 - 1; i > x2; i--) {
+							if (chessBoard [i, j].piece != chessman.empty) {
+								return false;
 							}
-						}
+							j--;
+							}
 						return true;
 					}
 				}
@@ -398,9 +402,9 @@ namespace MP_Chess
 								isLegal = rookLegal (chessBoard, x1, y1, x2, y2);
 								break;
 							}
-							Android.Widget.Toast.MakeText (Android.App.Application.Context, isLegal.ToString (),
+						/*	Android.Widget.Toast.MakeText (Android.App.Application.Context, isLegal.ToString (),
 								Android.Widget.ToastLength.Long).Show ();
-
+*/
 							if (isLegal) {
 								string toSend = "MOVE " + x1.ToString () + " " + y1.ToString () + " " + x2.ToString () + " " + y2.ToString ();
 								chessBoard [x2, y2] = chessBoard [x1, y1];
