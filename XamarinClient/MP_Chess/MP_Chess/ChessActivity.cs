@@ -108,7 +108,12 @@ namespace MP_Chess
 
 
 			TextView headText = FindViewById<TextView> (Resource.Id.HeadText);
-			headText.Text = "Playing against " + opponent + ".";
+			if (!newGame) {
+				headText.Text = "Playing " + opponent + ". You're Black.";
+			} else {
+				headText.Text = "Playing " + opponent + ". You're White.";
+
+			}
 			whoTurn = FindViewById<TextView> (Resource.Id.whoTurn);
 
 			EditText msgText = FindViewById<EditText> (Resource.Id.MsgText);
