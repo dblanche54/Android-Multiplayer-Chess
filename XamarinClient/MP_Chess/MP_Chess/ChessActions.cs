@@ -199,16 +199,24 @@ namespace MP_Chess
 		// Is a Pawn move legal?
 		public bool pawnLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
 			if (chessBoard [x1, y1].colour == chessmanColour.white) {
+				if (x1 == 6) {
+					if (x1 == x2 + 2 && y1 == y2)
+						return true;
+				}
 				if (chessBoard [x2, y2].piece == chessman.empty) {
 					if (x1 == x2 + 1 && y1 == y2)
 						return true;
 
-				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard[x2, y2].colour == chessmanColour.black) {
+				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard [x2, y2].colour == chessmanColour.black) {
 					if (x1 == x2 + 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
 						return true;
 
 				}
 			} else if (chessBoard [x1, y1].colour == chessmanColour.black) {
+				if (x1 == 1) {
+					if (x1 == x2 - 2 && y1 == y2)
+						return true;
+				}
 				if (chessBoard [x2, y2].piece == chessman.empty) {
 					if (x1 == x2 - 1 && y1 == y2)
 						return true;
@@ -216,8 +224,7 @@ namespace MP_Chess
 				} else if (chessBoard [x2, y2].piece != chessman.empty && chessBoard[x2, y2].colour == chessmanColour.white) {
 					if (x1 == x2 - 1 && ((y1 == y2 - 1) || (y1 == y2 + 1)))
 						return true;
-
-				}
+				} 
 			}
 
 			return false;
