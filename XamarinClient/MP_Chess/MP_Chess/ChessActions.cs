@@ -394,7 +394,9 @@ namespace MP_Chess
 								break;
 							case chessman.Pawn:
 								isLegal = pawnLegal (chessBoard, x1, y1, x2, y2);
-								break;
+								if(isLegal && (x2 == 7 || x2 == 0))
+									chessBoard [x1, y1].piece = chessman.Queen;
+							break;
 							case chessman.Queen:
 								isLegal = queenLegal (chessBoard, x1, y1, x2, y2);
 								break;
