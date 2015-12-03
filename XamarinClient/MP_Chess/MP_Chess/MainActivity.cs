@@ -69,10 +69,10 @@ namespace MP_Chess
 								StartActivity(intent);
 							}
 							else
-								setError("Username already in use");
+								setError("Username already in use for a game.");
 						}
 					} else {
-						setError("Could not use username to login");
+						setError("Could not use username to login.");
 					}
 				}
 		}
