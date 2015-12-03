@@ -41,7 +41,6 @@ namespace MP_Chess
 		//	if (instance == null) {
 				instance = new SocketSingleton ();
 				try{
-					if(connection == null)
 						instance.startSocket();
 					outWriter = new StreamWriter(connection.GetStream());
 					outReader = new StreamReader(connection.GetStream());
@@ -74,7 +73,6 @@ namespace MP_Chess
 
 		public void startSocket(){
 		try{
-			if (connection == null)
 				if(SERVER_IP != null && SERVER_PORT > 0){
 					connection = new TcpClient ();
 					var result = connection.BeginConnect(SERVER_IP, SERVER_PORT, null, null);
