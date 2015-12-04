@@ -377,6 +377,18 @@ namespace Server
                                 loggedIn = false;
                                 // remove username from list of active users
                                 userNames.Remove(username);
+                                //Clear the game
+                                foreach (gameObject game in gamesInPlay)
+                                {
+                                    // if game I'm looking for 
+                                    if (game.playerOne == username && game.playerTwo == usernameOpponent)
+                                    {
+                                        gamesInPlay.Remove(game);
+                                        break;
+                                    }
+                                }
+ 
+
                             } else
                             {
                                 loggedIn = false;
@@ -463,6 +475,16 @@ namespace Server
 
                 // remove username from list of active users
                 userNames.Remove(username);
+                foreach (gameObject game in gamesInPlay)
+                {
+                    // if game I'm looking for 
+                    if (game.playerOne == username && game.playerTwo == usernameOpponent)
+                    {
+                        gamesInPlay.Remove(game);
+                        break;
+                    }
+                }
+
 
             }
 
