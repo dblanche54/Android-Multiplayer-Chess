@@ -1,9 +1,11 @@
 ﻿using System;
 
+
 namespace MP_Chess
 {
 	public class ChessActions
 	{
+		
 		public static SocketSingleton socket;
 
 		// put what my username is here
@@ -31,6 +33,7 @@ namespace MP_Chess
 			public chessmanColour colour; // colour of the piece on the square 
 			public chessman piece; // content of the game piece
 		}
+
 
 		// Genearte a standard board
 		public gameSquare[,] generateDefaultBoard()
@@ -177,6 +180,7 @@ namespace MP_Chess
 
 				return true;
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return false;
 			}
 		}
@@ -193,6 +197,7 @@ namespace MP_Chess
 					return true;
 				return false;
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return false;
 			}
 		}
@@ -209,6 +214,7 @@ namespace MP_Chess
 					return true;
 				return false;
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return false;
 			}
 		}
@@ -430,6 +436,7 @@ namespace MP_Chess
 						return false;
 					}
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return false;
 			}
 		}
@@ -462,6 +469,7 @@ namespace MP_Chess
 					return false;
 				}
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return false;
 			}
 		}
@@ -473,6 +481,7 @@ namespace MP_Chess
 				socket.getOut ().Flush ();
 				return true;
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return false;
 			}
 		}
@@ -485,6 +494,7 @@ namespace MP_Chess
 				socket.getOut ().Flush ();
 				return true;
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return false;
 			}
 		}
@@ -498,6 +508,7 @@ namespace MP_Chess
 				// then recieve from socket
 				return "";
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return "";
 			}
 		}
@@ -510,6 +521,7 @@ namespace MP_Chess
 				socket.getOut ().Flush ();
 				return true;
 			} catch (Exception e) {
+				ChessActivity.OnServerFail ();
 				return false;
 			}
 		}

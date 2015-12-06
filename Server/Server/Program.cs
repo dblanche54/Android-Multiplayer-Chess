@@ -158,6 +158,12 @@ namespace Server
         
         public static void handleNewConnection(TcpClient client)
         {
+            // username of active connection
+            string username = "";
+
+            // Username of person they are playing against
+            string usernameOpponent = "";
+
             try
             {
                 // get streams
@@ -174,12 +180,6 @@ namespace Server
 
                 // Read in from the socket here
                 string recieve;
-
-                // username of active connection
-                string username = "";
-
-                // Username of person they are playing against
-                string usernameOpponent = "";
 
                 // While logged in, recieve and process data
                 bool loggedIn = true;
@@ -256,7 +256,7 @@ namespace Server
                                 foreach (gameObject game in gamesInPlay)
                                 {
                                     // if game I'm looking for 
-                                    if (game.playerOne == usernameOpponent && game.playerTwo == username)
+                                    if (game.playerOne == username && game.playerTwo == usernameOpponent)
                                     {
                                         writer.WriteLine("EXIST");
                                         writer.Flush();
@@ -377,6 +377,18 @@ namespace Server
                                 loggedIn = false;
                                 // remove username from list of active users
                                 userNames.Remove(username);
+                                //Clear the game
+                                foreach (gameObject game in gamesInPlay)
+                                {
+                                    // if game I'm looking for 
+                                    if (game.playerOne == username && game.playerTwo == usernameOpponent)
+                                    {
+                                        gamesInPlay.Remove(game);
+                                        break;
+                                    }
+                                }
+ 
+
                             } else
                             {
                                 loggedIn = false;
@@ -457,7 +469,24 @@ namespace Server
                 } while (loggedIn);
 
             }
-            catch (Exception E) { Console.WriteLine("Exception " + E); }
+            catch (Exception E) {
+                Console.WriteLine("Exception " + E.GetType());
+                Console.WriteLine("Removing  " + username + " from active users.");
+
+                // remove username from list of active users
+                userNames.Remove(username);
+                foreach (gameObject game in gamesInPlay)
+                {
+                    // if game I'm looking for 
+                    if (game.playerOne == username && game.playerTwo == usernameOpponent)
+                    {
+                        gamesInPlay.Remove(game);
+                        break;
+                    }
+                }
+
+
+            }
 
         }
 

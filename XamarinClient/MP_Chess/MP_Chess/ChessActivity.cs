@@ -47,7 +47,7 @@ namespace MP_Chess
 
 		ChessActions.gameSquare[,] chessBoard;
 
-		TextView whoTurn;
+		public static TextView whoTurn;
 
 		ImageView[,] table;
 
@@ -186,6 +186,14 @@ namespace MP_Chess
 					System.Threading.Thread.Sleep (1000);
 				}
 			}, null);*/
+		}
+
+		public static void OnServerFail(){
+			
+
+			whoTurn.Text = "Connection to server lost.";
+			myTurn = false;
+
 		}
 
 		void PieceLongClick(object sender, View.LongClickEventArgs e){
