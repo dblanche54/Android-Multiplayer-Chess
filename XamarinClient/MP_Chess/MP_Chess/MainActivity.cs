@@ -20,15 +20,21 @@ namespace MP_Chess
 	public class MainActivity : Activity
 	{
 
-		public Socket socket;
+		/// <summary>Port number on the server.</summary>
 		protected int portNum = 8080;
+
+		/// <summary>My user name.</summary>
 		protected String uname;
+
+		/// <summary>Server Address.</summary>
 		protected String serverAddr;
 
+		/// <summary>Instance of the socket used to connect to server.</summary>
 		public static SocketSingleton sockInstance;
 
 		ProgressDialog progress;
 
+		/// <summary>Handles connecting to the server and starting a game.</summary>
 		void onConnecToServer(){
 			EditText serverText = FindViewById<EditText>(Resource.Id.ServerText);
 			EditText userText = FindViewById<EditText>(Resource.Id.UserText);
@@ -84,16 +90,6 @@ namespace MP_Chess
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-
-			// Get our UI controls from the loaded layout:
-
-
-			//Wire up the connnect button
-			/*gridButton.Click += (object sender, EventArgs e) =>
-			{
-				Intent intent = new Intent(this,typeof(Chessboard));
-				StartActivity(intent);
-			};*/
 			Button connectButton = FindViewById<Button>(Resource.Id.ConnectButton);
 
 			//Wire up the connnect button
@@ -105,19 +101,10 @@ namespace MP_Chess
 
 		}
 
+		/// <summary>Fills in the error text box.</summary>
 		private void setError(String str){
 			TextView errorText = FindViewById<TextView>(Resource.Id.ErrorText);
 			errorText.Text = str;
-		}
-
-		protected void ConProcess(){
-			try{
-
-				//socket = new Socket(serverAddr, portNum);
-
-			}catch(IOException ioe){
-				setError( ioe.ToString());
-			}
 		}
 	}
 }

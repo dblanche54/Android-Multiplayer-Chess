@@ -5,29 +5,28 @@ namespace MP_Chess
 {
 	public class ChessActions
 	{
-		
+		/// <summary>Instance of the socket used to connect to server.</summary>
 		public static SocketSingleton socket;
 
-		// put what my username is here
+		/// <summary>My user name.</summary>
 		public static string username;
 
-		// put what opponent username is here
+		/// <summary>Opponents user name.</summary>
 		public static string opponent;
 
-		// Data types to represent what state a board block could be in
-		// chessmanColour repreents the colour of the piece, or in case of no piece; empty
+		/// <summary>Represents color of the piece. In case of no piece - empty.</summary>
 		public enum chessmanColour { empty, white, black }
 
-		// chesman represents the type of pieces, or if none; empty
+		/// <summary>Represents piece type, or empty if none.</summary>
 		public enum chessman { empty, King, Queen, Rook, Bishop, Knight, Pawn }
 
-		// Am I the white piece?
+		/// <summary>Am I the white player?.</summary>
 		public static bool isWhite;
 
-		// is it the end of the game?
+		/// <summary>Is the game over?.</summary>
 		public static bool endGame;
 
-		// What is in a square
+		/// <summary>Game Square struct. Contains piece type & color.</summary>
 		public struct gameSquare
 		{
 			public chessmanColour colour; // colour of the piece on the square 
@@ -35,7 +34,7 @@ namespace MP_Chess
 		}
 
 
-		// Genearte a standard board
+		/// <summary>Genearte a chess board with game pieces.</summary>
 		public gameSquare[,] generateDefaultBoard()
 		{
 			return
@@ -132,6 +131,7 @@ namespace MP_Chess
 			};
 		}
 
+		/// <summary>Prints and ASCI board. (Not used in current version)</summary>
 		public string printBoard(gameSquare[,] square){
 			string board = "";
 			for (int i = 0; i < 8; i++)
@@ -171,7 +171,7 @@ namespace MP_Chess
 
 
 
-		// login to server
+		/// <summary>Log in to the server.</summary>
 		public bool login(){
 			try {
 				string toSend = "LOGIN " + username;
@@ -185,7 +185,7 @@ namespace MP_Chess
 			}
 		}
 
-		// start a new game (i.e. you are player 1)
+		/// <summary>Start a new game. (You will be palyer 1)</summary>
 		public bool newGame(){
 			try {
 				string toSend = "NEW " + opponent;
@@ -202,7 +202,7 @@ namespace MP_Chess
 			}
 		}
 
-		// join an existing game (i.e. you are player 2)
+		/// <summary>Joins an existing game. (you will be player 2)</summary>
 		public bool joinGame(){
 			try {
 				string toSend = "JOIN " + opponent;
@@ -219,7 +219,7 @@ namespace MP_Chess
 			}
 		}
 
-		// Is a Pawn move legal?
+		/// <summary>Checks if Pawn move is legal.</summary>
 		public bool pawnLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
 			if (chessBoard [x1, y1].colour == chessmanColour.white) {
 				if (x1 == 6) {
@@ -253,7 +253,7 @@ namespace MP_Chess
 			return false;
 		}
 
-		// is a king move legal?
+		/// <summary>Checks if King move is legal.</summary>
 		public bool kingLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
 			if (x1 == x2) {
 				if (y1 == y2 + 1 || y1 == y2 - 1)
@@ -272,7 +272,7 @@ namespace MP_Chess
 			return false;
 		}
 
-		// is rook move legal?
+		/// <summary>Checks if Rook move is legal.</summary>
 		public bool rookLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
 			if (x1 == x2) {
 				if (y2 > y1) {
@@ -308,13 +308,13 @@ namespace MP_Chess
 			return false;
 		}
 
-		// is queen move legal?
+		/// <summary>Checks if Queen move is legal.</summary>
 		public bool queenLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
 			// queen is a combination of these moves being legal
 			return bishopLegal(chessBoard, x1, y1, x2, y2) || rookLegal(chessBoard, x1, y1, x2, y2);
 		}
 
-		// is Bishop move legal?
+		/// <summary>Checks if Bishop move is legal.</summary>
 		public bool bishopLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
 			if (Math.Abs (x1 - x2) == Math.Abs (y1 - y2)) {
 				if (x1 < x2) {
@@ -362,7 +362,7 @@ namespace MP_Chess
 			return false;
 		}
 
-		// is Knight move legal?
+		/// <summary>Checks if Knight move is legal.</summary>
 		public bool knightLegal(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2) {
 			if (x1 == x2 - 1 || x1 == x2 + 1) {
 				if (y1 == y2 - 2 || y1 == y2 + 2) {
@@ -376,7 +376,9 @@ namespace MP_Chess
 			return false;
 		}
 
-		// move a piece
+		/// <summary>Moves a game piece.</summary>
+		/// <remarks><para>(x1,y1) - from postion, (x2,y2) - to position</para></remarks>
+
 		public bool move(gameSquare[,] chessBoard, int x1, int y1, int x2, int y2){
 			try {
 				// check parameters are legal
@@ -441,7 +443,8 @@ namespace MP_Chess
 			}
 		}
 
-		// get last move made by other player, false is returned if no move yet made
+		/// <summary>Get last move made by other player, 
+		/// false is returned if no move yet made.</summary>
 		public bool getLastMove(gameSquare[,] chessBoard){
 			try {
 				string toSend = "GETMOVE";
@@ -474,6 +477,7 @@ namespace MP_Chess
 			}
 		}
 
+		/// <summary>Log out of the server.</summary>
 		public bool logout(){
 			try {
 				string toSend = "LOGOUT";
@@ -485,8 +489,8 @@ namespace MP_Chess
 				return false;
 			}
 		}
-
-		// used for debugging on server
+			
+		/// <summary>Used for debugging on server.</summary>
 		public bool printOnServer(){
 			try {
 				string toSend = "PRINT";
@@ -499,7 +503,7 @@ namespace MP_Chess
 			}
 		}
 
-		// return string of all last chat messages
+		/// <summary>Returns string of all last chat messages.</summary>
 		public string getLastChat(){
 			try {
 				string toSend = "GET";
@@ -513,7 +517,7 @@ namespace MP_Chess
 			}
 		}
 
-		// post to chatroom
+		/// <summary>Posts a message to chat room.</summary>
 		public bool postToChat(string message){
 			try {
 				string toSend = message;
@@ -527,7 +531,7 @@ namespace MP_Chess
 		}
 
 
-
+		/// <summary>Costructor which sets user name and opponent name.</summary>
 		public ChessActions (string uname, string uopp)
 		{
 			username = uname;

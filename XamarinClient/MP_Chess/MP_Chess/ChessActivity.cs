@@ -20,35 +20,43 @@ namespace MP_Chess
 	public class ChessActivity : Activity
 	{
 
-		// put what my username is here
+		/// <summary>My user name.</summary>
 		public static string username;
 
-		// put what opponent username is here
+		/// <summary>Opponents user name.</summary>
 		public static string opponent;
 
-		// is it my turn?
+		/// <summary>Is it my turn?</summary>
 		public static bool myTurn;
 
-		//What type of connection are we making (new or join)
+		/// <summary>True - we are making a new game, false - we are joining a game.</summary>
 		public static bool newGame;
 
+		/// <summary>Instance of ChessActions.</summary>
 		public static ChessActions actions;
 
+		/// <summary>Instance of ChatActions.</summary>
 		public ChatActions chat;
 
-		TextView txt; //Chat Display
+		/// <summary>Chat text area.</summary>
+		TextView txt; 
 
-		//Touch related vars
+		/// <summary>Deprecated...?.</summary>
 		int flipper = 0;				
 
+		/// <summary>Name of square a piece moved from.</summary>
 		string MoveFrom;
+
+		/// <summary>Name of square a piece moved to.</summary>
 		string MoveTo;
 
-
+		/// <summary>Array of game squares.</summary>
 		ChessActions.gameSquare[,] chessBoard;
 
+		/// <summary>TextView for displaying who's turn it is.</summary>
 		public static TextView whoTurn;
 
+		/// <summary>Table of imgviews.</summary>
 		ImageView[,] table;
 
 
@@ -56,25 +64,11 @@ namespace MP_Chess
 		{
 			chat = new ChatActions ();
 
-
 			// if you are creating the game, you are white player
 			ChessActions.isWhite = newGame;
 
 			base.OnCreate (savedInstanceState);
 			SetContentView (Resource.Layout.Chess);
-
-
-			/**
-
-			chatDisplay.SetOnTouchListener(new View.IOnTouchListener(){
-				public  Boolean OnTouchEvent(MotionEvent ev){
-					this.Parent.requestedi
-					return (onTouchEvent)ev;
-				}
-			}
-			*/
-
-	//		TextView board = FindViewById<TextView> (Resource.Id.ChessBoard);
 
 			// Make a chess board
 			chessBoard = actions.generateDefaultBoard ();
@@ -131,29 +125,6 @@ namespace MP_Chess
 				whoTurn.Text = opponent + "'s Turn";
 			}
 
-
-			/*
-			moveButton.Click += (object sender, EventArgs e) => 
-			{
-				if(myTurn){
-					MoveFrom = fromMove.Text;
-					MoveTo = toMove.Text;
-					// Make sure parameter is valid
-					if(actions.move(chessBoard, MoveFrom[1] - '0', MoveFrom[0]-'A', MoveTo[1] - '0', MoveTo[0]-'A'))
-					{
-						printToTable(chessBoard);
-						actions.printOnServer();
-						whoTurn.Text = opponent + "'s Turn";
-						myTurn = false;
-					}
-					else 
-					{
-						fromMove.Text = "A1";
-						toMove.Text = "A2";
-					}
-				}
-			};*/
-
 			// Create your application here
 			Button exitButton = FindViewById<Button>(Resource.Id.ExitButton);
 
@@ -169,33 +140,23 @@ namespace MP_Chess
 				System.Environment.Exit(0);
 			};
 
-			// get updates
 				System.Threading.ThreadPool.QueueUserWorkItem(delegate {
-				//getUpdates (actions, chessBoard, whoTurn);
 				while(true){
 					RunOnUiThread(()=>getUpdates(actions, chessBoard, whoTurn));
 					RunOnUiThread(()=>getMsg(chat, txt));
 					System.Threading.Thread.Sleep (1000);
 				}
 				}, null);
-			/**
-			System.Threading.ThreadPool.QueueUserWorkItem(delegate {
-				//getUpdates (actions, chessBoard, whoTurn);
-				while(true){
-					RunOnUiThread(()=>getMsg(chat));
-					System.Threading.Thread.Sleep (1000);
-				}
-			}, null);*/
 		}
 
+		/// <summary>Notifies user of server failure.</summary>
 		public static void OnServerFail(){
-			
-
 			whoTurn.Text = "Connection to server lost.";
 			myTurn = false;
 
 		}
 
+		/// <summary>Allows dragging on long click.</summary>
 		void PieceLongClick(object sender, View.LongClickEventArgs e){
 			// Generate clip data package to attach it to the drag
 			View v = (View)sender;
@@ -205,6 +166,7 @@ namespace MP_Chess
 			((sender) as ImageView).StartDrag(data, new View.DragShadowBuilder(((sender) as ImageView)), null, 0);
 		}
 
+		/// <summary>Not used anymore... ?</summary>
 		public void MyOnTouch(object sender, View.TouchEventArgs touchEventArgs){
 
 			switch (touchEventArgs.Event.Action & MotionEventActions.Mask )
@@ -234,6 +196,7 @@ namespace MP_Chess
 			}
 		}
 
+		/// <summary>Handles the drop event of pieces.</summary>
 		public void DropZone_Drag (object sender, View.DragEventArgs e)
 		{
 			// React on different dragging events
@@ -287,6 +250,7 @@ namespace MP_Chess
 			}
 		}
 
+		/// <summary>Gets updates from the server.</summary>
 		public void getUpdates(ChessActions actions, ChessActions.gameSquare[,] chessBoard, TextView whoTurn){
 			if (actions.getLastMove (chessBoard)) {
 				myTurn = true;
@@ -299,21 +263,14 @@ namespace MP_Chess
 			}
 		}
 
+		/// <summary>Updates the chat area.</summary>
 		public void getMsg(ChatActions chat, TextView txt){
-
-			//txt.Append( chat.GetMsg ());
 			txt.Text = chat.GetMsg() + txt.Text;
 		}
 
+		/// <summary>Draws the table and pieces.</summary>
 		public void printToTable(ChessActions.gameSquare[,] chessboard)
 		{
-			/*for (int i = 0; i < 8; i++)
-			{
-				for (int j = 0; j < 8; j++)
-				{
-					TextView tableSquare = FindViewById<TextView> (Resource.Id.ChessSquare + i + j);
-				}
-			}*/
 
 			table = new ImageView[8, 8];
 
