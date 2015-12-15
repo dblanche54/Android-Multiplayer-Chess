@@ -10,6 +10,8 @@ The chess game was developed in Xamarin Studio and was targeted for the Android 
 
 The server is written in C# and handles all the communication between clients. This includes "moves", game state and chat messages. It is threaded in order to support multiple games between multiple clients. All the communication is done using sockets.
 
-![Main Fragment](https://github.com/dblanche54/Android-Multiplayer-Chess/blob/master/Screenshots/Screenshot_2015-12-03-16-15-15.png?raw=true)
+To connect to (and create) a game, you first specify the location (IP) of the server you are running so the game knows who to connect to. Also you need to specify what you want your username to be, and who your opponent's username is. The server then looks for a game matching your opponent and username, if non is found it creates one.
 
-![Login Fragment](https://github.com/dblanche54/Android-Multiplayer-Chess/blob/master/Screenshots/Screenshot_2015-12-05-19-01-27.png?raw=true)
+If you created the game, you will be set as the white player, if you join a game you will be set as the black player.
+
+![Main Fragment](https://github.com/dblanche54/Android-Multiplayer-Chess/blob/master/Screenshots/Screenshot_2015-12-03-16-15-15.png?raw=true) ![Login Fragment](https://github.com/dblanche54/Android-Multiplayer-Chess/blob/master/Screenshots/Screenshot_2015-12-05-19-01-27.png?raw=true)
